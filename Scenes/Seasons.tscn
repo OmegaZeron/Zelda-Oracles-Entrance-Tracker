@@ -181,7 +181,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("7_6am78")
 holodrumLimit = Vector2i(2560, 2080)
-subrosiaLimit = Vector2i(1760, 1024)
+subrosiaLimit = Vector2i(1760, 1056)
 
 [node name="Outer" type="Node2D" parent="."]
 position = Vector2(0, 32)

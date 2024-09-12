@@ -28,6 +28,26 @@ public partial class Camera : Camera2D
 
 		viewport = GetViewportRect().Size;
 		ClampCameraToBounds();
+		GetTree().Root.SizeChanged += Resize;
+	}
+	
+	public override void _ExitTree()
+	{
+		GetTree().Root.SizeChanged -= Resize;
+	}
+	
+	public void Resize()
+	{
+		viewport = DisplayServer.WindowGetSize();
+		if (viewport.X > LimitRight)
+		{
+			viewport.X = LimitRight;
+		}
+		if (viewport.Y > LimitBottom)
+		{
+			viewport.Y = LimitBottom;
+		}
+		ClampCameraToBounds();
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -96,8 +116,8 @@ public partial class Camera : Camera2D
 		Vector2 bounds = Vector2.One / Zoom * viewport / 2;
 		Position = new Vector2
 		(
-			Mathf.Clamp(Position.X, LimitLeft + bounds.X, LimitRight - bounds.X),
-			Mathf.Clamp(Position.Y, LimitTop + bounds.Y, LimitBottom - bounds.Y)
+			Mathf.Clamp(Position.X, Mathf.Min(LimitLeft + bounds.X, LimitRight - bounds.X), Mathf.Max(LimitLeft + bounds.X, LimitRight - bounds.X)),
+			Mathf.Clamp(Position.Y, Mathf.Min(LimitTop + bounds.Y, LimitBottom - bounds.Y), MathF.Max(LimitTop + bounds.Y, LimitBottom - bounds.Y))
 		);
 	}
 	private void ZoomIn()

@@ -167,21 +167,35 @@ public partial class UIController : CanvasLayer
 		SaveManager.Instance.LoadLayout();
 	}
 
-	public void DisplayEntranceName(string name, Entrance.EntranceType entranceType, string link = null, string decoupledLink = null)
+	private string GetMapLabelFromEntrance(Entrance entrance)
 	{
-		if ((entranceType != Entrance.EntranceType.Outer || !isOutside) && (entranceType != Entrance.EntranceType.Inner || isOutside))
+		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+		{
+			return entrance.altMap ? "Sub" : "Hol";
+		}
+		if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
+		{
+			return entrance.altMap ? "Past" : "Pres";
+		}
+
+		return "";
+	}
+	
+	public void DisplayEntranceName(Entrance entrance)
+	{
+		if ((entrance.entranceType != Entrance.EntranceType.Outer || !isOutside) && (entrance.entranceType != Entrance.EntranceType.Inner || isOutside))
 		{
 			return;
 		}
-		nameLabel.Text = $" [outline_color=#000000][outline_size=6]{name}[/outline_size][/outline_color]";
-		if (!string.IsNullOrEmpty(link))
+		nameLabel.Text = $" [outline_color=#000000][outline_size=6]{entrance.entranceName} ({entrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
+		if (!string.IsNullOrEmpty(entrance.linkedEntrance?.entranceName))
 		{
-			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]Linked to: {link}[/outline_size][/outline_color]";
+			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]Linked to: {entrance.linkedEntrance.entranceName} ({entrance.linkedEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
 		}
 
-		if (!string.IsNullOrEmpty(decoupledLink))
+		if (!string.IsNullOrEmpty(entrance.decoupledEntrance?.entranceName))
 		{
-			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]From: {decoupledLink}[/outline_size][/outline_color]";
+			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]From: {entrance.decoupledEntrance.entranceName} ({entrance.decoupledEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
 		}
 	}
 	public void ClearEntranceName()
@@ -214,11 +228,13 @@ public partial class UIController : CanvasLayer
 	{
 		seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Holodrum : SeasonsMapState.HolodrumInner;
 		UpdateMapState();
+		Camera.Instance.Resize();
 	}
 	private void _OnSubrosiaPressed()
 	{
 		seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
 		UpdateMapState();
+		Camera.Instance.Resize();
 	}
 	private void _OnPresentPressed()
 	{

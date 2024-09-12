@@ -51,8 +51,8 @@ public partial class Entrance : TextureButton
 	[Export] public EntranceType entranceType { get; private set; }
 	[Export] public bool altMap { get; private set; }
 	[Export] private bool oneWay;
-	private Entrance linkedEntrance;
-	private Entrance decoupledEntrance;
+	public Entrance linkedEntrance { get; private set; }
+	public Entrance decoupledEntrance { get; private set; }
 	private bool isTrash;
 
 	private bool isPulsing;
@@ -98,7 +98,7 @@ public partial class Entrance : TextureButton
 	// for displaying entrance name in UI
 	private void OnMouseEntered()
 	{
-		UIController.Instance.DisplayEntranceName(entranceName, entranceType, linkedEntrance?.entranceName, decoupledEntrance?.entranceName);
+		UIController.Instance.DisplayEntranceName(this);
 		isDisplayingEntranceName = true;
 	}
 	private void OnMouseExited()
@@ -136,7 +136,7 @@ public partial class Entrance : TextureButton
 			{
 				if (UIController.Instance.OnEntranceSelected(this))
 				{
-					UIController.Instance.DisplayEntranceName(entranceName, entranceType, linkedEntrance?.entranceName, decoupledEntrance?.entranceName);
+					UIController.Instance.DisplayEntranceName(this);
 				}
 			}
 			else if (linkedEntrance != null)
@@ -165,7 +165,7 @@ public partial class Entrance : TextureButton
 				UnlinkEntrance();
 				if (isDisplayingEntranceName)
 				{
-					UIController.Instance.DisplayEntranceName(entranceName, entranceType, decoupledLink: decoupledEntrance?.entranceName);
+					UIController.Instance.DisplayEntranceName(this);
 				}
 			}
 			else
