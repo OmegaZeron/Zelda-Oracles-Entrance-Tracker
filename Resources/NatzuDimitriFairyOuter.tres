@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://6cvnqyjcxek1"]
+
+[ext_resource type="Script" path="res://Scripts/CompanionAreaData.cs" id="1_dubvb"]
+
+[resource]
+script = ExtResource("1_dubvb")
+name = "Natzu Fairy Fountain"
+companionState = 2
+entranceType = 0
+location = Vector2i(1516, 892)
+entranceLoc = Vector2i(0, 0)

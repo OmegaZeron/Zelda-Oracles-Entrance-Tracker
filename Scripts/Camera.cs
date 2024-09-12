@@ -1,0 +1,136 @@
+using Godot;
+using System;
+
+public partial class Camera : Camera2D
+{
+	public static Camera Instance { get; private set; }
+	private Vector2 viewport;
+	
+	private Vector2 mouseStartPos;
+	private Vector2 screenStartPos;
+	private bool dragging;
+	
+	private float targetZoom = 1;
+	private Vector2 targetMousePos;
+	[Export] private float minZoom = .655f;
+	[Export] private float maxZoom = 3;
+	private float zoomIncrement = .1f;
+	private float zoomRate = 20;
+	[Export] private float cameraPanSpeed = 10;
+
+	[Export] private Vector2I holodrumLimit;
+	[Export] private Vector2I subrosiaLimit;
+	[Export] private Vector2I labrynnaLimit;
+
+	public override void _Ready()
+	{
+		Instance = this;
+
+		viewport = GetViewportRect().Size;
+		ClampCameraToBounds();
+	}
+	
+	public override void _PhysicsProcess(double delta)
+	{
+		Zoom = targetZoom * Vector2.One;
+		if (targetMousePos != Vector2.Zero)
+		{
+			Position += targetMousePos - GetGlobalMousePosition();
+			targetMousePos = Vector2.Zero;
+		}
+		
+		if (Input.IsActionPressed("Up"))
+		{
+			Position += Vector2.Up * cameraPanSpeed / Zoom;
+		}
+		if (Input.IsActionPressed("Left"))
+		{
+			Position += Vector2.Left * cameraPanSpeed / Zoom;
+		}
+		if (Input.IsActionPressed("Down"))
+		{
+			Position += Vector2.Down * cameraPanSpeed / Zoom;
+		}
+		if (Input.IsActionPressed("Right"))
+		{
+			Position += Vector2.Right * cameraPanSpeed / Zoom;
+		}
+		ClampCameraToBounds();
+	}
+	
+	public override void _Input(InputEvent ev)
+	{
+		if (ev is InputEventMouseMotion motion && dragging)
+		{
+			Position = Vector2.One / Zoom * (mouseStartPos - motion.Position) + screenStartPos;
+			ClampCameraToBounds();
+		}
+		else if (ev is InputEventMouseButton button)
+		{
+			if (button.IsPressed())
+			{
+				if (button.ButtonIndex == MouseButton.WheelUp)
+				{
+					ZoomOut();
+				}
+				else if (button.ButtonIndex == MouseButton.WheelDown)
+				{
+					ZoomIn();
+				}
+				else if (button.ButtonIndex == MouseButton.Middle)
+				{
+					mouseStartPos = button.Position;
+					screenStartPos = Position;
+					dragging = true;
+				}
+			}
+			else
+			{
+				dragging = false;
+			}
+		}
+	}
+	
+	private void ClampCameraToBounds()
+	{
+		Vector2 bounds = Vector2.One / Zoom * viewport / 2;
+		Position = new Vector2
+		(
+			Mathf.Clamp(Position.X, LimitLeft + bounds.X, LimitRight - bounds.X),
+			Mathf.Clamp(Position.Y, LimitTop + bounds.Y, LimitBottom - bounds.Y)
+		);
+	}
+	private void ZoomIn()
+	{
+		targetZoom = Mathf.Max(targetZoom - zoomIncrement, minZoom);
+		targetMousePos = GetGlobalMousePosition();
+		SetPhysicsProcess(true);
+	}
+	private void ZoomOut()
+	{
+		targetZoom = Mathf.Min(targetZoom + zoomIncrement, maxZoom);
+		targetMousePos = GetGlobalMousePosition();
+		SetPhysicsProcess(true);
+	}
+	
+	// move camera to the given position
+	// used for viewing an entrance's pair
+	public void MoveToLocation(Vector2 loc)
+	{
+		Position = loc;
+	}
+	
+	public void ChangeBounds(bool altMap)
+	{
+		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+		{
+			LimitRight = altMap ? subrosiaLimit.X : holodrumLimit.X;
+			LimitBottom = altMap ? subrosiaLimit.Y : holodrumLimit.Y;
+		}
+		else
+		{
+			LimitRight = labrynnaLimit.X;
+			LimitBottom = labrynnaLimit.Y;
+		}
+	}
+}

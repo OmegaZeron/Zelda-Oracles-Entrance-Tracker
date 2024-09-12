@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://i7xmwhg1b7is"]
+
+[ext_resource type="Texture2D" uid="uid://6ru2vb4hosyp" path="res://Sprites/Square_Unmatched.png" id="1_qklrw"]
+[ext_resource type="Script" path="res://Scripts/Entrance.cs" id="1_yo1ao"]
+
+[node name="TextureButton" type="TextureButton"]
+offset_right = 18.0
+offset_bottom = 18.0
+texture_normal = ExtResource("1_qklrw")
+script = ExtResource("1_yo1ao")
+
+[connection signal="gui_input" from="." to="." method="_OnClick"]
+[connection signal="mouse_entered" from="." to="." method="OnMouseEntered"]
+[connection signal="mouse_exited" from="." to="." method="OnMouseExited"]

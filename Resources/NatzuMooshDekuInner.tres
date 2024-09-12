@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7qw3lbi7tyqm"]
+
+[ext_resource type="Script" path="res://Scripts/CompanionAreaData.cs" id="1_e1ekl"]
+[ext_resource type="Texture2D" uid="uid://b0d5hiqgtha38" path="res://Sprites/Seasons/Inners/Shared/DekuScrubSideStairs.png" id="2_6ldqf"]
+
+[resource]
+script = ExtResource("1_e1ekl")
+name = "Natzu Deku Scrub"
+companionState = 1
+entranceType = 1
+location = Vector2i(1528, 696)
+entranceLoc = Vector2i(20, 52)
+tex = ExtResource("2_6ldqf")
+node = NodePath("Inner/Holodrum/Natzu/Moosh/DekuScrub")
+parent = NodePath("Inner/Holodrum/Natzu/Moosh")

@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0ik5dedptbcc"]
+
+[ext_resource type="Script" path="res://Scripts/GameSelector.cs" id="1_fr2i5"]
+[ext_resource type="Texture2D" uid="uid://6ru2vb4hosyp" path="res://Sprites/Square_Unmatched.png" id="2_pa1vc"]
+[ext_resource type="Texture2D" uid="uid://beflg204ti0jo" path="res://Sprites/Square_Matched.png" id="3_8113r"]
+[ext_resource type="Texture2D" uid="uid://d08il7kb4pxrp" path="res://Sprites/Square_Decoupled.png" id="4_c8r33"]
+[ext_resource type="Texture2D" uid="uid://blhd6aa8c43jm" path="res://Sprites/Square_Trash.png" id="5_rt3f0"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("UI")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fr2i5")
+unlinkedTexture = ExtResource("2_pa1vc")
+linkedTexture = ExtResource("3_8113r")
+decoupledTexture = ExtResource("4_c8r33")
+trashTexture = ExtResource("5_rt3f0")
+UI = [NodePath("SeasonsButton"), NodePath("AgesButton"), NodePath("QuitButton"), NodePath("CheckButton")]
+
+[node name="SeasonsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -146.0
+offset_right = 134.0
+offset_bottom = -74.0
+text = "Seasons"
+
+[node name="AgesButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = -26.0
+offset_right = 134.0
+offset_bottom = 46.0
+disabled = true
+text = "Ages (WIP)"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 102.0
+offset_right = 134.0
+offset_bottom = 174.0
+text = "Quit"
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 0
+offset_left = -91.0
+offset_top = -190.0
+offset_right = 121.0
+offset_bottom = -159.0
+text = "Decoupled Entrances"
+
+[connection signal="pressed" from="SeasonsButton" to="." method="_SelectGame" binds= ["Seasons"]]
+[connection signal="pressed" from="AgesButton" to="." method="_SelectGame" binds= ["Ages"]]
+[connection signal="pressed" from="QuitButton" to="." method="_QuitPressed"]
+[connection signal="toggled" from="CheckButton" to="." method="DecoupleToggle"]

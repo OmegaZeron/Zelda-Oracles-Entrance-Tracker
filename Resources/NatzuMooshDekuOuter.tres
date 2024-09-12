@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cvrfec8ty3g25"]
+
+[ext_resource type="Script" path="res://Scripts/CompanionAreaData.cs" id="1_cmkhr"]
+
+[resource]
+script = ExtResource("1_cmkhr")
+name = "Natzu Deku Scrub"
+companionState = 1
+entranceType = 0
+location = Vector2i(1516, 748)
+entranceLoc = Vector2i(0, 0)
+node = NodePath("Outer/Holodrum/Natzu/Moosh/MooshDekuScrub")
+parent = NodePath("Outer/Holodrum/Natzu/Moosh")

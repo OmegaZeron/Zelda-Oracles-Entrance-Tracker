@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cnpc7s6acc4wh"]
+
+[ext_resource type="Script" path="res://Scripts/CompanionAreaData.cs" id="1_60nud"]
+[ext_resource type="Texture2D" uid="uid://c3vi0qnxy814" path="res://Sprites/Seasons/Inners/Shared/FairyFountainStairs.png" id="2_g6a78"]
+
+[resource]
+script = ExtResource("1_60nud")
+name = "Natzu Fairy Fountain"
+companionState = 2
+entranceType = 1
+location = Vector2i(1538, 856)
+entranceLoc = Vector2i(-12, 36)
+tex = ExtResource("2_g6a78")

@@ -1,0 +1,3958 @@
+[gd_scene load_steps=167 format=3 uid="uid://dpv03qpimyqn2"]
+
+[ext_resource type="PackedScene" uid="uid://i7xmwhg1b7is" path="res://Prefabs/Entrance.tscn" id="2_38rqo"]
+[ext_resource type="Texture2D" uid="uid://ctd774nlwlwct" path="res://Sprites/Seasons/Overworlds/Subrosia.png" id="3_7jree"]
+[ext_resource type="Script" path="res://Scripts/UIController.cs" id="6_3nxjj"]
+[ext_resource type="Texture2D" uid="uid://pcr5ennoq03c" path="res://Sprites/Seasons/Inners/Horon Village/UnderClockShop.png" id="6_cilde"]
+[ext_resource type="Script" path="res://Scripts/Camera.cs" id="7_6am78"]
+[ext_resource type="Texture2D" uid="uid://n0oqpp030o17" path="res://Sprites/Seasons/Inners/Horon Village/Farore.png" id="10_8muyg"]
+[ext_resource type="Texture2D" uid="uid://boa7dxw5lxbw3" path="res://Sprites/Seasons/Inners/Horon Village/MakuFairy1.png" id="10_vmhxj"]
+[ext_resource type="Texture2D" uid="uid://bfh4h3sxo7swh" path="res://Sprites/Seasons/Inners/Dungeons/D0Main.png" id="11_jkcer"]
+[ext_resource type="Texture2D" uid="uid://cy6h5kbkwojdk" path="res://Sprites/Seasons/Inners/Horon Village/FaroreHallway.png" id="11_tgo6w"]
+[ext_resource type="Texture2D" uid="uid://cudb63lrq7d3n" path="res://Sprites/Seasons/Inners/Horon Village/MakuTreetopsLower.png" id="12_4wckd"]
+[ext_resource type="Texture2D" uid="uid://d3ab5k8643xwe" path="res://Sprites/Seasons/Inners/Dungeons/D0Side.png" id="12_76468"]
+[ext_resource type="Texture2D" uid="uid://vmpfy3y68yak" path="res://Sprites/Seasons/Inners/Dungeons/D1.png" id="12_ps4f2"]
+[ext_resource type="Texture2D" uid="uid://l8oeiq68ue7u" path="res://Sprites/Seasons/Inners/Dungeons/D2.png" id="13_aj2mt"]
+[ext_resource type="Texture2D" uid="uid://bpjmtjkywjp3j" path="res://Sprites/Seasons/Inners/Horon Village/MakuTreetopsUpper.png" id="13_nr4if"]
+[ext_resource type="Texture2D" uid="uid://cirlw0gylxk7w" path="res://Sprites/Seasons/Inners/Dungeons/D3.png" id="14_7rfxk"]
+[ext_resource type="Texture2D" uid="uid://cnvgnehk75870" path="res://Sprites/Seasons/Inners/Horon Village/MakuFairy2.png" id="15_d43k5"]
+[ext_resource type="Texture2D" uid="uid://bg0ceaqg37d3" path="res://Sprites/Seasons/Inners/Dungeons/D4.png" id="15_xv2ee"]
+[ext_resource type="Texture2D" uid="uid://ds404eroqpu7" path="res://Sprites/Seasons/Inners/Dungeons/D5.png" id="16_3jcr2"]
+[ext_resource type="Texture2D" uid="uid://dhgbqnisu3fns" path="res://Sprites/Seasons/Inners/Horon Village/HoronPortal.png" id="17_kaaqh"]
+[ext_resource type="Texture2D" uid="uid://cqdrx11u0taj8" path="res://Sprites/Seasons/Inners/Dungeons/D6.png" id="17_yk7vm"]
+[ext_resource type="Texture2D" uid="uid://byyhwkyk6ndwp" path="res://Sprites/Seasons/Inners/Dungeons/D7.png" id="18_4nqyt"]
+[ext_resource type="Texture2D" uid="uid://dlty8g2mdxmdg" path="res://Sprites/Seasons/Inners/Shared/OldMan.png" id="18_kng33"]
+[ext_resource type="Texture2D" uid="uid://bm87ycrrfj8gi" path="res://Sprites/Seasons/Inners/Horon Village/ClockShop.png" id="18_xtea4"]
+[ext_resource type="Texture2D" uid="uid://befh68ksnmngb" path="res://Sprites/Seasons/Inners/Dungeons/D8.png" id="19_1tlhh"]
+[ext_resource type="Texture2D" uid="uid://c05rqjlr5gqk4" path="res://Sprites/Seasons/Inners/Horon Village/Birds.png" id="19_647tm"]
+[ext_resource type="Texture2D" uid="uid://vectaylibx8c" path="res://Sprites/Seasons/Inners/Horon Village/Advance.png" id="20_e8id8"]
+[ext_resource type="Texture2D" uid="uid://b0wfjpayjly0u" path="res://Sprites/Seasons/Inners/North Horon/DryLakeEastTop.png" id="20_ogwt1"]
+[ext_resource type="Texture2D" uid="uid://d3eus7kcly2xj" path="res://Sprites/Seasons/Inners/Horon Village/Mayor.png" id="21_8iuav"]
+[ext_resource type="Texture2D" uid="uid://claa8j3fx53u2" path="res://Sprites/Seasons/Inners/North Horon/Malon.png" id="21_atxlx"]
+[ext_resource type="Texture2D" uid="uid://dvu2d8vtic4vp" path="res://Sprites/Seasons/Inners/North Horon/DryLakeEastMiddle.png" id="21_hievd"]
+[ext_resource type="Texture2D" uid="uid://dqemd2alutk1s" path="res://Sprites/Seasons/Inners/Woods of Winter/SunkenWoodsDropdown.png" id="21_un1ox"]
+[ext_resource type="Texture2D" uid="uid://bcmdxnqgea676" path="res://Sprites/Seasons/Inners/Woods of Winter/BombCave.png" id="22_4mtif"]
+[ext_resource type="Texture2D" uid="uid://cekuwed0mwmo5" path="res://Sprites/Seasons/Inners/Horon Village/Vasu.png" id="22_r008j"]
+[ext_resource type="Texture2D" uid="uid://cs6uyr8ammk27" path="res://Sprites/Seasons/Inners/North Horon/DryLakeEastBottom.png" id="22_wnqcp"]
+[ext_resource type="Texture2D" uid="uid://ccxh4iunap26c" path="res://Sprites/Seasons/Inners/Horon Village/DrLeftMain.png" id="23_78jep"]
+[ext_resource type="Texture2D" uid="uid://b14pgsljkoo43" path="res://Sprites/Seasons/Inners/Woods of Winter/MushroomCave.png" id="23_mu62i"]
+[ext_resource type="Texture2D" uid="uid://cqsenbyx1rgwd" path="res://Sprites/Seasons/Inners/Horon Village/DrLeftSide.png" id="24_nikde"]
+[ext_resource type="Texture2D" uid="uid://dmuw62lpolgkg" path="res://Sprites/Seasons/Inners/Horon Village/Baby.png" id="25_efcqu"]
+[ext_resource type="Texture2D" uid="uid://bqa2f008656p6" path="res://Sprites/Seasons/Inners/Horon Village/Shop.png" id="26_711op"]
+[ext_resource type="Texture2D" uid="uid://cdy8hyiyhxodf" path="res://Sprites/Seasons/Inners/Horon Village/MemberPassage.png" id="27_pk2wn"]
+[ext_resource type="Texture2D" uid="uid://c8op07jrqy8mv" path="res://Sprites/Seasons/Inners/Horon Village/MemberShop.png" id="28_hnsvh"]
+[ext_resource type="Texture2D" uid="uid://d1givckscfebl" path="res://Sprites/Seasons/Inners/Dungeons/D2Alt.png" id="28_umib0"]
+[ext_resource type="Texture2D" uid="uid://c4g7op1ubapq0" path="res://Sprites/Seasons/Inners/North Horon/Blaino.png" id="29_kkh28"]
+[ext_resource type="Texture2D" uid="uid://bi2r5n3clm78g" path="res://Sprites/Seasons/Inners/North Horon/DryEyeglassBomb.png" id="29_ptgv3"]
+[ext_resource type="Texture2D" uid="uid://bbyembrax4uja" path="res://Sprites/Seasons/Inners/Dungeons/D2BombPuzzle.png" id="29_shncu"]
+[ext_resource type="Texture2D" uid="uid://cgyxo6llph4ek" path="res://Sprites/Seasons/Inners/Spool Swamp/FloodgateKeeper.png" id="30_3s52c"]
+[ext_resource type="Texture2D" uid="uid://5ob5cr85pnq0" path="res://Sprites/Seasons/Inners/Tarm Ruins/TreeStairs.png" id="30_6kswh"]
+[ext_resource type="Texture2D" uid="uid://k716w56s6qtm" path="res://Sprites/Seasons/Inners/North Horon/Impa.png" id="30_70vpx"]
+[ext_resource type="Texture2D" uid="uid://d0y425oxdy050" path="res://Sprites/Seasons/Inners/Woods of Winter/Holly.png" id="31_5mina"]
+[ext_resource type="Texture2D" uid="uid://s14s0c4bw8tj" path="res://Sprites/Seasons/Inners/Spool Swamp/FloodgateCaveLeft.png" id="31_bkg40"]
+[ext_resource type="Texture2D" uid="uid://c1i7snuetdxhf" path="res://Sprites/Seasons/Inners/Spool Swamp/FloodgateCaveRight.png" id="32_22n18"]
+[ext_resource type="Texture2D" uid="uid://xdlkaeesd7kq" path="res://Sprites/Seasons/Inners/Spool Swamp/FloodgateCave2.png" id="33_n3wpk"]
+[ext_resource type="Texture2D" uid="uid://cnp26hkcoau3t" path="res://Sprites/Seasons/Inners/Spool Swamp/FloodgateCave3.png" id="34_y5nkw"]
+[ext_resource type="Texture2D" uid="uid://lbnufb2bbgkx" path="res://Sprites/Seasons/Inners/Natzu/MoblinEntrance.png" id="35_2cxci"]
+[ext_resource type="Texture2D" uid="uid://yxhw7ayu1n0r" path="res://Sprites/Seasons/Overworlds/HolodrumRicky.png" id="35_ngxil"]
+[ext_resource type="Texture2D" uid="uid://cpqtwbf8frsxc" path="res://Sprites/Seasons/Overworlds/HolodrumMoosh.png" id="36_obfw2"]
+[ext_resource type="Texture2D" uid="uid://lvxihabvn8ec" path="res://Sprites/Seasons/Inners/Natzu/MoblinFight.png" id="36_svwic"]
+[ext_resource type="Texture2D" uid="uid://sn424oqanjsn" path="res://Sprites/Seasons/Inners/Sunken City/VaseMan.png" id="37_1fyoi"]
+[ext_resource type="Texture2D" uid="uid://dw23wdhekpotp" path="res://Sprites/Seasons/Overworlds/HolodrumDimitri.png" id="37_mnac2"]
+[ext_resource type="Texture2D" uid="uid://c56qk4p7u41jo" path="res://Sprites/Seasons/Inners/Sunken City/SunkenMoblinHouse.png" id="39_vrkbt"]
+[ext_resource type="Texture2D" uid="uid://cemwwql1utkt7" path="res://Sprites/Seasons/Inners/Holodrum Plain/MushroomCave.png" id="44_6eupe"]
+[ext_resource type="Texture2D" uid="uid://cqny8btajd5dp" path="res://Sprites/Seasons/Inners/Shared/FairyFountain.png" id="44_eivme"]
+[ext_resource type="Texture2D" uid="uid://mvorgupa0s3r" path="res://Sprites/Seasons/Inners/Holodrum Plain/WaterCaveRuul.png" id="44_hct8o"]
+[ext_resource type="Texture2D" uid="uid://dfmcgwsprasam" path="res://Sprites/Seasons/Inners/Holodrum Plain/TreehouseOldMan.png" id="44_wubbr"]
+[ext_resource type="Texture2D" uid="uid://2m11iesmfcab" path="res://Sprites/Seasons/Inners/Shared/DekuScrubNatzu.png" id="45_ioyuf"]
+[ext_resource type="Texture2D" uid="uid://dsbl6vy4u25f1" path="res://Sprites/Seasons/Inners/Holodrum Plain/MrsRuul.png" id="46_a58d2"]
+[ext_resource type="Texture2D" uid="uid://cafst6kenv4bh" path="res://Sprites/Seasons/Inners/Sunken City/DiversWife.png" id="48_q7nnn"]
+[ext_resource type="Texture2D" uid="uid://dhdl15068jvvy" path="res://Sprites/Seasons/Inners/Sunken City/SyrupShop.png" id="49_ht1cl"]
+[ext_resource type="Texture2D" uid="uid://ygk4d8wha6av" path="res://Sprites/Seasons/Inners/Sunken City/MasterDiver.png" id="50_1v3td"]
+[ext_resource type="Texture2D" uid="uid://b0d5hiqgtha38" path="res://Sprites/Seasons/Inners/Shared/DekuScrubSideStairs.png" id="50_85sp6"]
+[ext_resource type="Texture2D" uid="uid://disy4b0nk3m6e" path="res://Sprites/Seasons/Inners/Sunken City/MasterDiversChallenge.png" id="51_ppm26"]
+[ext_resource type="Texture2D" uid="uid://biokjk3lrrjv5" path="res://Sprites/Seasons/Inners/Spool Swamp/WinterBombWall.png" id="55_4d3wr"]
+[ext_resource type="Texture2D" uid="uid://xbjf2ecno6ff" path="res://Sprites/Seasons/Inners/Natzu/MovingPlatform.png" id="57_cdplm"]
+[ext_resource type="Texture2D" uid="uid://471hxt8r70lb" path="res://Sprites/Seasons/Inners/Western Coast/PitHouseMain.png" id="58_0dbgw"]
+[ext_resource type="Texture2D" uid="uid://dhyhk8khdus40" path="res://Sprites/Seasons/Inners/Western Coast/PitHouseSide.png" id="59_iuf5e"]
+[ext_resource type="Texture2D" uid="uid://b0p5ovoysjdss" path="res://Sprites/Seasons/Inners/Sunken City/TrappedLady.png" id="62_fujyl"]
+[ext_resource type="Texture2D" uid="uid://bs2hbblj2dfyy" path="res://Sprites/Seasons/Inners/Sunken City/SummerCave.png" id="63_404ah"]
+[ext_resource type="Texture2D" uid="uid://cxabpmjtrdvnx" path="res://Sprites/Seasons/Inners/Sunken City/TreasureHunter.png" id="66_163td"]
+[ext_resource type="Texture2D" uid="uid://cgsui2flsu137" path="res://Sprites/Seasons/Inners/Temple Remains/PathToD8F1.png" id="69_yvjjd"]
+[ext_resource type="Texture2D" uid="uid://dwlgom5hy2es3" path="res://Sprites/Seasons/Inners/Sunken City/SunkenDiveSpotR.png" id="70_32gqm"]
+[ext_resource type="Texture2D" uid="uid://ckiuakjc41gdh" path="res://Sprites/Seasons/Inners/Temple Remains/HeartPieceCave.png" id="70_dqphw"]
+[ext_resource type="Texture2D" uid="uid://doncfhdmdi6tp" path="res://Sprites/Seasons/Inners/Sunken City/SunkenDiveSpotL.png" id="71_4dq4m"]
+[ext_resource type="Texture2D" uid="uid://bmbw58elbiuqy" path="res://Sprites/Seasons/Inners/Temple Remains/PortalToD8.png" id="71_bjdkv"]
+[ext_resource type="Texture2D" uid="uid://dlolxgkfxm5gk" path="res://Sprites/Seasons/Inners/Temple Remains/PathToD8F2.png" id="72_0aupo"]
+[ext_resource type="Texture2D" uid="uid://dwpb82aavmbch" path="res://Sprites/Seasons/Inners/Western Coast/PitCaveGraveyard.png" id="73_igx33"]
+[ext_resource type="Texture2D" uid="uid://c5tq0g6dr1eim" path="res://Sprites/Seasons/Inners/Temple Remains/PathToD8F3Left.png" id="73_xetlw"]
+[ext_resource type="Texture2D" uid="uid://3ueqbd7aggdc" path="res://Sprites/Seasons/Inners/Temple Remains/PathToD8F3Right.png" id="74_vm38c"]
+[ext_resource type="Texture2D" uid="uid://cjl46unvvbt36" path="res://Sprites/Seasons/Inners/Goron Mountain/GoronWaterBasement.png" id="75_jq5j5"]
+[ext_resource type="Texture2D" uid="uid://bhd1re6d1nne3" path="res://Sprites/Seasons/Inners/Goron Mountain/GMBombWall.png" id="76_8qgh2"]
+[ext_resource type="Texture2D" uid="uid://bt4b7wlf1es8" path="res://Sprites/Seasons/Inners/Eastern Suburbs/SpringMagnetCave.png" id="77_b04kl"]
+[ext_resource type="Texture2D" uid="uid://dl1he3m8lb5mg" path="res://Sprites/Seasons/Inners/Goron Mountain/SplitCaveL.png" id="77_nd85o"]
+[ext_resource type="Texture2D" uid="uid://d138l2pa2oidy" path="res://Sprites/Seasons/Inners/Eastern Suburbs/WindmillMain.png" id="78_ib453"]
+[ext_resource type="Texture2D" uid="uid://dbvo1yfbfv5nf" path="res://Sprites/Seasons/Inners/Goron Mountain/RingGoron.png" id="78_um6bw"]
+[ext_resource type="Texture2D" uid="uid://dsqlxwekl2f4k" path="res://Sprites/Seasons/Inners/Goron Mountain/PathToBiggoron.png" id="79_5rc8y"]
+[ext_resource type="Texture2D" uid="uid://cqef1m2u8lpeu" path="res://Sprites/Seasons/Inners/Eastern Suburbs/WindmillHeart.png" id="79_kcymf"]
+[ext_resource type="Texture2D" uid="uid://byi1wkwlpkeiq" path="res://Sprites/Seasons/Inners/Eastern Suburbs/Windmill2F.png" id="80_bi7l5"]
+[ext_resource type="Texture2D" uid="uid://d3dl1tmwyldny" path="res://Sprites/Seasons/Inners/Goron Mountain/SplitCaveR.png" id="80_dvn5m"]
+[ext_resource type="Texture2D" uid="uid://d4wvbr0ppekh" path="res://Sprites/Seasons/Inners/Western Coast/HiddenGraveStairs.png" id="80_pqhje"]
+[ext_resource type="Texture2D" uid="uid://d2oeh4knrchoy" path="res://Sprites/Seasons/Inners/Goron Mountain/GoronMain.png" id="81_qyoym"]
+[ext_resource type="Texture2D" uid="uid://cj7rfuvayh813" path="res://Sprites/Seasons/Inners/Tarm Ruins/TarmDekuScrub.png" id="82_6teg2"]
+[ext_resource type="Texture2D" uid="uid://bcto8ogpst0to" path="res://Sprites/Seasons/Inners/Western Coast/PirateShip.png" id="83_r5ke7"]
+[ext_resource type="Texture2D" uid="uid://0r1owgpab36j" path="res://Sprites/Seasons/Inners/Mt. Cucco/TalonCave.png" id="88_1vxcy"]
+[ext_resource type="Texture2D" uid="uid://d2r1e3m357tas" path="res://Sprites/Seasons/Inners/Mt. Cucco/JewelDiveSpot.png" id="89_ou1f3"]
+[ext_resource type="Texture2D" uid="uid://r3rfrhj1socr" path="res://Sprites/Seasons/Inners/Mt. Cucco/WinterCaveRight.png" id="90_3vemr"]
+[ext_resource type="Texture2D" uid="uid://cfthaycdpb75v" path="res://Sprites/Seasons/Inners/Mt. Cucco/WinterCaveLeft.png" id="91_1ayq0"]
+[ext_resource type="Texture2D" uid="uid://bby1u0u5vimx7" path="res://Sprites/Seasons/Inners/Mt. Cucco/CaveBeforeD4Keyhole.png" id="92_pdcpr"]
+[ext_resource type="Texture2D" uid="uid://b2gngb1vxsbpo" path="res://Sprites/Seasons/Inners/Mt. Cucco/SpringBananaCave.png" id="93_4sjkn"]
+[ext_resource type="Texture2D" uid="uid://3q342axiddrh" path="res://Sprites/Seasons/Inners/Mt. Cucco/SpringPitCave.png" id="94_aqmur"]
+[ext_resource type="Texture2D" uid="uid://dquoowiyolj4d" path="res://Sprites/Seasons/Inners/Samasa Desert/DesertFairySpring.png" id="102_lmgoj"]
+[ext_resource type="Texture2D" uid="uid://bm6ou0ilkpntd" path="res://Sprites/Seasons/Inners/Samasa Desert/BellPitfall.png" id="103_xff2b"]
+[ext_resource type="Texture2D" uid="uid://d0bwhcwn723e3" path="res://Sprites/Seasons/Inners/Samasa Desert/DekuScrubPitfall.png" id="104_iokly"]
+[ext_resource type="Texture2D" uid="uid://dm8wjpnhn3u4l" path="res://Sprites/Seasons/Inners/Samasa Desert/LikeLikePitfall.png" id="105_eoull"]
+[ext_resource type="Texture2D" uid="uid://bfc2cdis0q885" path="res://Sprites/Seasons/Inners/Samasa Desert/DesertDiveSpot.png" id="106_pbdt3"]
+[ext_resource type="Texture2D" uid="uid://mqj4k8glhf56" path="res://Sprites/Seasons/Inners/Samasa Desert/DesertUnderwaterL.png" id="107_yiv51"]
+[ext_resource type="Texture2D" uid="uid://xbx7tp8vkswd" path="res://Sprites/Seasons/Inners/Samasa Desert/PitfallExit.png" id="108_o0qti"]
+[ext_resource type="Texture2D" uid="uid://cvqai0urisag3" path="res://Sprites/Seasons/Inners/Samasa Desert/DesertUnderwaterR.png" id="109_qbckf"]
+[ext_resource type="Texture2D" uid="uid://bu50s3iri5vep" path="res://Sprites/Seasons/Inners/Samasa Desert/DesertCliff.png" id="110_4te72"]
+[ext_resource type="Texture2D" uid="uid://dnvsr3wstpvj8" path="res://Sprites/Seasons/Inners/Shared/PirateLink.png" id="115_na5rn"]
+[ext_resource type="Texture2D" uid="uid://hkubfdkkv3ia" path="res://Sprites/Seasons/Inners/Subrosia/Mountain/SubrosianDancing.png" id="117_6ku68"]
+[ext_resource type="Texture2D" uid="uid://dm6nlgrb7bbma" path="res://Sprites/Seasons/Inners/Subrosia/Mountain/RosaChest.png" id="118_ijmcy"]
+[ext_resource type="Texture2D" uid="uid://ddo2eash7mfb2" path="res://Sprites/Seasons/Inners/Subrosia/Mountain/Fireworks.png" id="119_eyh77"]
+[ext_resource type="Texture2D" uid="uid://ci0wyk7447ujm" path="res://Sprites/Seasons/Inners/Subrosia/Mountain/GrassRoom.png" id="120_0pfj6"]
+[ext_resource type="Texture2D" uid="uid://csg1yicfma6jr" path="res://Sprites/Seasons/Inners/Subrosia/Mountain/MountainChest.png" id="121_q8oq4"]
+[ext_resource type="Texture2D" uid="uid://biyheqolfvyj7" path="res://Sprites/Seasons/Inners/Subrosia/Village/LavaSoup.png" id="122_00t3r"]
+[ext_resource type="Texture2D" uid="uid://cwxxb6tq4qyx4" path="res://Sprites/Seasons/Inners/Subrosia/Village/OreChunkSubrosian.png" id="123_ffhet"]
+[ext_resource type="Texture2D" uid="uid://brusenb4367sa" path="res://Sprites/Seasons/Inners/Subrosia/Village/Smithy.png" id="124_nfdh1"]
+[ext_resource type="Texture2D" uid="uid://dub03evppavv1" path="res://Sprites/Seasons/Inners/Subrosia/Village/Market.png" id="125_o5u8r"]
+[ext_resource type="Texture2D" uid="uid://bpq45fbe4l24u" path="res://Sprites/Seasons/Inners/Subrosia/Village/RosaPathway.png" id="126_mnfbx"]
+[ext_resource type="Texture2D" uid="uid://bgsp5wcpgefpx" path="res://Sprites/Seasons/Inners/Subrosia/Village/GashaSubrosian.png" id="126_sy5di"]
+[ext_resource type="Texture2D" uid="uid://dx13pei3d5aud" path="res://Sprites/Seasons/Inners/Subrosia/Village/StrangeBrothersL.png" id="127_wa54r"]
+[ext_resource type="Texture2D" uid="uid://b4vega7wpfpju" path="res://Sprites/Seasons/Inners/Subrosia/Village/StrangeBrothersR.png" id="128_n6dvv"]
+[ext_resource type="Texture2D" uid="uid://dnake7gsifjw4" path="res://Sprites/Seasons/Inners/Subrosia/Village/Spring2DL.png" id="129_up5mm"]
+[ext_resource type="Texture2D" uid="uid://6xemuifhwn8p" path="res://Sprites/Seasons/Inners/Subrosia/Village/Spring2DR.png" id="130_ey3im"]
+[ext_resource type="Texture2D" uid="uid://8u8c310gyt0l" path="res://Sprites/Seasons/Inners/Subrosia/Village/PiratesMain.png" id="131_ywgn1"]
+[ext_resource type="Texture2D" uid="uid://bfjlr0mbu3yy0" path="res://Sprites/Seasons/Inners/Subrosia/Village/PiratesCode.png" id="132_sqcst"]
+[ext_resource type="Texture2D" uid="uid://b56vmbdxb85ws" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SpringEntrance.png" id="133_mu24o"]
+[ext_resource type="Texture2D" uid="uid://7gttohyetbf2" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SpringHallway.png" id="134_q0wdl"]
+[ext_resource type="Texture2D" uid="uid://8bawxvydcl8u" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SpringSpirit.png" id="135_thabc"]
+[ext_resource type="Texture2D" uid="uid://b25f2ww5rynbh" path="res://Sprites/Seasons/Inners/Subrosia/Temple/WinterEntrance.png" id="136_o1olx"]
+[ext_resource type="Texture2D" uid="uid://6ccb73pnmalx" path="res://Sprites/Seasons/Inners/Subrosia/Temple/WinterHallway.png" id="137_awiv6"]
+[ext_resource type="Texture2D" uid="uid://cx8ecxl2vlm85" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SummerEntrance.png" id="137_yg0ov"]
+[ext_resource type="Texture2D" uid="uid://d3entqjs2j638" path="res://Sprites/Seasons/Inners/Subrosia/Temple/WinterSpirit.png" id="138_2b7hj"]
+[ext_resource type="Texture2D" uid="uid://c158akj60cr8y" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SummerHallway.png" id="138_l6uu4"]
+[ext_resource type="Texture2D" uid="uid://cc5v51ub5205h" path="res://Sprites/Seasons/Inners/Subrosia/Temple/SummerSpirit.png" id="139_0pri2"]
+[ext_resource type="Texture2D" uid="uid://bglq6b03vxf1o" path="res://Sprites/Seasons/Inners/Subrosia/Temple/FallEntrance.png" id="143_vdmf8"]
+[ext_resource type="Texture2D" uid="uid://8s57u03hknac" path="res://Sprites/Seasons/Inners/Subrosia/Temple/FallHallway.png" id="144_h0j53"]
+[ext_resource type="Texture2D" uid="uid://cwf1ksrwpptp4" path="res://Sprites/Seasons/Inners/Subrosia/Temple/TempleMain.png" id="145_fyoes"]
+[ext_resource type="Texture2D" uid="uid://dq507k4jplll4" path="res://Sprites/Seasons/Inners/Subrosia/Temple/RodPedestal.png" id="146_vbe2y"]
+[ext_resource type="Texture2D" uid="uid://canmfljxt56rc" path="res://Sprites/Seasons/Inners/Subrosia/Temple/TempleWaterfall.png" id="147_ewjp7"]
+[ext_resource type="Texture2D" uid="uid://ckupl405pu6fs" path="res://Sprites/Seasons/Inners/Subrosia/Temple/FallSpirit.png" id="148_lfh5a"]
+[ext_resource type="Texture2D" uid="uid://74osm0uc6gbv" path="res://Sprites/Seasons/Inners/Subrosia/Furnace/Furnace.png" id="149_m4lb6"]
+[ext_resource type="Texture2D" uid="uid://c6jjkeq7rl5i7" path="res://Sprites/Seasons/Inners/Subrosia/Furnace/SignGuy.png" id="150_hdlq8"]
+[ext_resource type="Texture2D" uid="uid://derw5otf2krut" path="res://Sprites/Seasons/Inners/Subrosia/Furnace/RedOreHallway.png" id="151_gcnur"]
+[ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="155_eth3g"]
+[ext_resource type="Resource" uid="uid://ciegux4hy8nlq" path="res://Resources/NatzuDimitriDekuInner.tres" id="155_wuxth"]
+[ext_resource type="Resource" uid="uid://cvytq1uh1qhkj" path="res://Resources/NatzuDimitriDekuOuter.tres" id="156_w5j6l"]
+[ext_resource type="Resource" uid="uid://cnpc7s6acc4wh" path="res://Resources/NatzuDimitriFairyInner.tres" id="157_7xprr"]
+[ext_resource type="Resource" uid="uid://6cvnqyjcxek1" path="res://Resources/NatzuDimitriFairyOuter.tres" id="158_jqt07"]
+[ext_resource type="Resource" uid="uid://b7qw3lbi7tyqm" path="res://Resources/NatzuMooshDekuInner.tres" id="159_58c4h"]
+[ext_resource type="Resource" uid="uid://cvrfec8ty3g25" path="res://Resources/NatzuMooshDekuOuter.tres" id="160_j2d8o"]
+[ext_resource type="Resource" uid="uid://crcl3oxhxawbv" path="res://Resources/NatzuMooshFairyInner.tres" id="161_hbe2y"]
+[ext_resource type="Resource" uid="uid://b5df1f5e6nv7r" path="res://Resources/NatzuMooshFairyOuter.tres" id="162_yspka"]
+[ext_resource type="Resource" uid="uid://den2trrmdxegc" path="res://Resources/NatzuRickyDekuInner.tres" id="163_ussu0"]
+[ext_resource type="Resource" uid="uid://kqu72sm0ctcv" path="res://Resources/NatzuRickyDekuOuter.tres" id="164_l6h1i"]
+[ext_resource type="Resource" uid="uid://csj282mbewvpt" path="res://Resources/NatzuRickyFairyInner.tres" id="165_sor2o"]
+[ext_resource type="Resource" uid="uid://de6lw5t5gtqqc" path="res://Resources/NatzuRickyFairyOuter.tres" id="166_c0mbj"]
+
+[node name="Seasons" type="Node2D"]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1312, 1912)
+limit_left = 0
+limit_top = 0
+limit_right = 2560
+limit_bottom = 2080
+limit_smoothed = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("7_6am78")
+holodrumLimit = Vector2i(2560, 2080)
+subrosiaLimit = Vector2i(1760, 1024)
+
+[node name="Outer" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Holodrum" type="Sprite2D" parent="Outer"]
+position = Vector2(1280, 1024)
+texture = ExtResource("35_ngxil")
+
+[node name="Horon Village" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="ClockShop" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -116.0
+offset_top = 700.0
+offset_right = -92.0
+offset_bottom = 724.0
+entranceName = "Clock Shop"
+
+[node name="ClockShopBasement" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -101.0
+offset_top = 652.0
+offset_right = -77.0
+offset_bottom = 676.0
+entranceName = "Stairs Behind Clock Shop"
+oneWay = true
+
+[node name="Birds" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -468.0
+offset_top = 524.0
+offset_right = -444.0
+offset_bottom = 548.0
+entranceName = "Know-It-All Birds"
+
+[node name="AdvanceShop" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -420.0
+offset_top = 524.0
+offset_right = -396.0
+offset_bottom = 548.0
+entranceName = "Advance Shop"
+
+[node name="Mayor" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 60.0
+offset_top = 572.0
+offset_right = 84.0
+offset_bottom = 596.0
+entranceName = "Mayor's House"
+
+[node name="MakuFace" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 251.0
+offset_top = 545.0
+offset_right = 275.0
+offset_bottom = 569.0
+entranceName = "Maku Tree Entrance"
+
+[node name="Shop" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -244.0
+offset_top = 828.0
+offset_right = -220.0
+offset_bottom = 852.0
+entranceName = "Horon Shop"
+
+[node name="BBLeft" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -260.0
+offset_top = 924.0
+offset_right = -236.0
+offset_bottom = 948.0
+entranceName = "Bipin and Blossom Left"
+
+[node name="BBRight" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -228.0
+offset_top = 924.0
+offset_right = -204.0
+offset_bottom = 948.0
+entranceName = "Bipin and Blossom Right"
+
+[node name="HoronPortal" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -116.0
+offset_top = 940.0
+offset_right = -92.0
+offset_bottom = 964.0
+entranceName = "Horon Portal Stairs"
+
+[node name="DrLeftHouse" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 204.0
+offset_top = 940.0
+offset_right = 228.0
+offset_bottom = 964.0
+entranceName = "Dr. Left's House"
+
+[node name="DrLeftBackyard" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 236.0
+offset_top = 924.0
+offset_right = 260.0
+offset_bottom = 948.0
+entranceName = "Dr. Left's Backyard"
+
+[node name="TownOldMan" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 188.0
+offset_top = 988.0
+offset_right = 212.0
+offset_bottom = 1012.0
+entranceName = "Horon Village Old Man"
+oneWay = true
+
+[node name="Vasu" parent="Outer/Holodrum/Horon Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 76.0
+offset_top = 828.0
+offset_right = 100.0
+offset_bottom = 852.0
+entranceName = "Vasu"
+
+[node name="North Horon" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="D1" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -260.0
+offset_top = 189.0
+offset_right = -236.0
+offset_bottom = 213.0
+entranceName = "D1 - Gnarled Root Dungeon"
+oneWay = true
+
+[node name="Impa" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -308.0
+offset_top = 398.0
+offset_right = -284.0
+offset_bottom = 422.0
+entranceName = "Impa's House"
+
+[node name="OldMan" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -116.0
+offset_top = 156.0
+offset_right = -92.0
+offset_bottom = 180.0
+entranceName = "North Horon Old Man"
+oneWay = true
+
+[node name="RedRingMan" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -212.0
+offset_top = 284.0
+offset_right = -188.0
+offset_bottom = 308.0
+entranceName = "Red Ring Old Man"
+oneWay = true
+
+[node name="DryBombCave" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = 284.0
+offset_right = -12.0
+offset_bottom = 308.0
+entranceName = "Dry Eyeglass Bomb Cave"
+oneWay = true
+
+[node name="DryHiddenStairs" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 428.0
+offset_top = 300.0
+offset_right = 452.0
+offset_bottom = 324.0
+entranceName = "Dry Eyeglass Hidden Stairs"
+oneWay = true
+
+[node name="Malon" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 68.0
+offset_bottom = 36.0
+entranceName = "Malon's House"
+
+[node name="D5" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 396.0
+offset_top = 28.0
+offset_right = 420.0
+offset_bottom = 52.0
+entranceName = "D5 - Unicorn's Cave"
+
+[node name="Portal" parent="Outer/Holodrum/North Horon" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 188.0
+offset_top = 412.0
+offset_right = 212.0
+offset_bottom = 436.0
+entranceName = "Eyeglass Lake Portal"
+
+[node name="Eastern Suburbs" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="WindmillMain" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 396.0
+offset_top = 780.0
+offset_right = 420.0
+offset_bottom = 804.0
+entranceName = "Windmill Main Entrance"
+
+[node name="WindmillSide" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 428.0
+offset_top = 764.0
+offset_right = 452.0
+offset_bottom = 788.0
+entranceName = "Windmill Side Entrance"
+
+[node name="WindmillTop" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 396.0
+offset_top = 732.0
+offset_right = 420.0
+offset_bottom = 756.0
+entranceName = "Windmill Roof"
+
+[node name="SpringMagnet" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 652.0
+offset_top = 524.0
+offset_right = 676.0
+offset_bottom = 548.0
+entranceName = "Stairs Past Spring Flower"
+
+[node name="SuburbsOldMan" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1148.0
+offset_top = 44.0
+offset_right = 1172.0
+offset_bottom = 68.0
+entranceName = "Eastern Suburbs Old Man"
+oneWay = true
+
+[node name="Portal" parent="Outer/Holodrum/Eastern Suburbs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 364.0
+offset_top = 172.0
+offset_right = 388.0
+offset_bottom = 196.0
+entranceName = "Eastern Suburbs Portal"
+
+[node name="Woods of Winter" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="BombCave" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 828.0
+offset_top = -116.0
+offset_right = 852.0
+offset_bottom = -92.0
+entranceName = "Moblin Road Bomb Cave"
+
+[node name="JewelCave" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 972.0
+offset_top = -116.0
+offset_right = 996.0
+offset_bottom = -92.0
+entranceName = "Moblin Road Waterfall Cave"
+
+[node name="HollyMain" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1228.0
+offset_top = -68.0
+offset_right = 1252.0
+offset_bottom = -44.0
+entranceName = "Holly's House"
+
+[node name="HollyChimney" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1228.0
+offset_top = -101.0
+offset_right = 1252.0
+offset_bottom = -77.0
+entranceName = "Holly's Chimney"
+
+[node name="MushroomCave" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1084.0
+offset_top = 60.0
+offset_right = 1108.0
+offset_bottom = 84.0
+entranceName = "Mushroom Cave Near D2"
+
+[node name="EastD2Cave" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1004.0
+offset_top = 60.0
+offset_right = 1028.0
+offset_bottom = 84.0
+entranceName = "Cave East of D2"
+oneWay = true
+
+[node name="UpperD2EastStairs" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 988.0
+offset_top = 12.0
+offset_right = 1012.0
+offset_bottom = 36.0
+entranceName = "D2 - Stairs Entrance"
+
+[node name="UpperD2WestStairs" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 924.0
+offset_top = 12.0
+offset_right = 948.0
+offset_bottom = 36.0
+entranceName = "D2 - Bomb Puzzle"
+
+[node name="D2" parent="Outer/Holodrum/Woods of Winter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 860.0
+offset_top = 28.0
+offset_right = 884.0
+offset_bottom = 52.0
+entranceName = "D2 - Snake's Remains"
+
+[node name="Holodrum Plain" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="Blaino" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 92.0
+offset_top = -84.0
+offset_right = 116.0
+offset_bottom = -60.0
+entranceName = "Blaino's Gym"
+
+[node name="SouthOldMan" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -548.0
+offset_top = 332.0
+offset_right = -524.0
+offset_bottom = 356.0
+entranceName = "Old Man Near Mrs. Ruul"
+oneWay = true
+
+[node name="Treehouse" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -356.0
+offset_top = 396.0
+offset_right = -332.0
+offset_bottom = 420.0
+entranceName = "Treehouse Old Man"
+
+[node name="Ruul" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -772.0
+offset_top = 316.0
+offset_right = -748.0
+offset_bottom = 340.0
+entranceName = "Mrs. Ruul"
+
+[node name="RuulCave" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -772.0
+offset_top = 380.0
+offset_right = -748.0
+offset_bottom = 404.0
+entranceName = "Water Cave Below Mrs. Ruul"
+oneWay = true
+
+[node name="MushroomCave" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -148.0
+offset_top = 44.0
+offset_right = -124.0
+offset_bottom = 68.0
+entranceName = "Holodrum Plain Mushroom Cave"
+oneWay = true
+
+[node name="NorthOldMan" parent="Outer/Holodrum/Holodrum Plain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -244.0
+offset_top = -180.0
+offset_right = -220.0
+offset_bottom = -156.0
+entranceName = "Holodrum Plain Summer Old Man"
+oneWay = true
+
+[node name="Spool Swamp" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="BombCave" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -852.0
+offset_top = 508.0
+offset_right = -828.0
+offset_bottom = 532.0
+entranceName = "Spool Swamp Bomb Cave"
+oneWay = true
+
+[node name="D3Stairs" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1268.0
+offset_top = -228.0
+offset_right = -1244.0
+offset_bottom = -204.0
+entranceName = "Stairs Near D3"
+
+[node name="D3" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1204.0
+offset_top = -228.0
+offset_right = -1180.0
+offset_bottom = -204.0
+entranceName = "D3 - Poison Moth's Lair"
+oneWay = true
+
+[node name="Floodgate" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -900.0
+offset_top = -212.0
+offset_right = -876.0
+offset_bottom = -188.0
+entranceName = "Floodgate Keeper's House"
+
+[node name="FloodgateStairs" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -852.0
+offset_top = -228.0
+offset_right = -828.0
+offset_bottom = -204.0
+entranceName = "Stairs Near Floodgate House"
+
+[node name="Portal" parent="Outer/Holodrum/Spool Swamp" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1204.0
+offset_top = 428.0
+offset_right = -1180.0
+offset_bottom = 452.0
+entranceName = "Spool Swamp Portal"
+
+[node name="Natzu" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="NatzuStairs" parent="Outer/Holodrum/Natzu" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 268.0
+offset_top = -500.0
+offset_right = 292.0
+offset_bottom = -476.0
+entranceName = "Natzu Moving Platform Stairs"
+
+[node name="MoblinL" parent="Outer/Holodrum/Natzu" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 524.0
+offset_top = -340.0
+offset_right = 548.0
+offset_bottom = -316.0
+entranceName = "Moblin Keep Left"
+
+[node name="MoblinR" parent="Outer/Holodrum/Natzu" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 556.0
+offset_top = -340.0
+offset_right = 580.0
+offset_bottom = -316.0
+entranceName = "Moblin Keep Right"
+
+[node name="CompanionEntrances" type="Node2D" parent="Outer/Holodrum/Natzu"]
+
+[node name="FairyCave" parent="Outer/Holodrum/Natzu/CompanionEntrances" groups=["NatzuOuter", "NatzuRicky", "SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -132.0
+offset_top = -340.0
+offset_right = -108.0
+offset_bottom = -316.0
+entranceName = "Natzu Fairy Fountain"
+
+[node name="DekuScrub" parent="Outer/Holodrum/Natzu/CompanionEntrances" groups=["NatzuOuter", "NatzuRicky", "SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 284.0
+offset_top = -68.0
+offset_right = 308.0
+offset_bottom = -44.0
+entranceName = "Natzu Deku Scrub"
+
+[node name="Sunken City" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="Syrup" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1020.0
+offset_top = -324.0
+offset_right = 1044.0
+offset_bottom = -300.0
+entranceName = "Syrup's Hut"
+
+[node name="NEFlooded" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1228.0
+offset_top = -565.0
+offset_right = 1252.0
+offset_bottom = -541.0
+entranceName = "Flooded House"
+oneWay = true
+
+[node name="DiverChallenge" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 980.0
+offset_top = -693.0
+offset_right = 1004.0
+offset_bottom = -669.0
+entranceName = "Master Diver's Challenge"
+oneWay = true
+
+[node name="MasterDiver" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1036.0
+offset_top = -677.0
+offset_right = 1060.0
+offset_bottom = -653.0
+entranceName = "Master Diver"
+oneWay = true
+
+[node name="MoblinHouse" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1228.0
+offset_top = -181.0
+offset_right = 1252.0
+offset_bottom = -157.0
+entranceName = "Moblin Rest House"
+
+[node name="SummerCave" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1148.0
+offset_top = -500.0
+offset_right = 1172.0
+offset_bottom = -476.0
+entranceName = "Sunken Summer Cave"
+oneWay = true
+
+[node name="Vase" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 812.0
+offset_top = -500.0
+offset_right = 836.0
+offset_bottom = -476.0
+entranceName = "Ingo's House"
+
+[node name="FirstSunken" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 892.0
+offset_top = -325.0
+offset_right = 916.0
+offset_bottom = -301.0
+entranceName = "Master Diver's Wife"
+
+[node name="DiveSpotN" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 876.0
+offset_top = -500.0
+offset_right = 900.0
+offset_bottom = -476.0
+entranceName = "Sunken North Dive Spot"
+oneWay = true
+
+[node name="DiveSpotS" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1053.0
+offset_top = -164.0
+offset_right = 1077.0
+offset_bottom = -140.0
+entranceName = "Sunken South Dive Spot"
+oneWay = true
+
+[node name="Bullies" parent="Outer/Holodrum/Sunken City" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 828.0
+offset_top = -212.0
+offset_right = 852.0
+offset_bottom = -188.0
+entranceName = "Treasure Hunter's House"
+
+[node name="Mt Cucco" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="D4" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 844.0
+offset_top = -884.0
+offset_right = 868.0
+offset_bottom = -860.0
+entranceName = "D4 - Dancing Dragon Dungeon"
+oneWay = true
+
+[node name="CuccoDiveD4" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 924.0
+offset_top = -884.0
+offset_right = 948.0
+offset_bottom = -860.0
+entranceName = "Dive Spot Near D4"
+oneWay = true
+
+[node name="CuccoDiveSunken" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 892.0
+offset_top = -548.0
+offset_right = 916.0
+offset_bottom = -524.0
+entranceName = "Dive Spot Near Sunken"
+oneWay = true
+
+[node name="Banana" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1196.0
+offset_top = -1012.0
+offset_right = 1220.0
+offset_bottom = -988.0
+entranceName = "Banana Tree"
+
+[node name="CaveToBanana" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1196.0
+offset_top = -948.0
+offset_right = 1220.0
+offset_bottom = -924.0
+entranceName = "Cave to Banana Tree"
+
+[node name="FairyFountain" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 988.0
+offset_top = -884.0
+offset_right = 1012.0
+offset_bottom = -860.0
+entranceName = "Mt. Cucco Fairy Fountain"
+oneWay = true
+
+[node name="WinterCaveTalon" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 652.0
+offset_top = -884.0
+offset_right = 676.0
+offset_bottom = -860.0
+entranceName = "Winter Cave Near Talon"
+oneWay = true
+
+[node name="Talon" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 588.0
+offset_top = -868.0
+offset_right = 612.0
+offset_bottom = -844.0
+entranceName = "Talon's Cave"
+
+[node name="UpperCuccoStairs" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 604.0
+offset_top = -996.0
+offset_right = 628.0
+offset_bottom = -972.0
+entranceName = "D4 Keyhole Stairs"
+
+[node name="BelowBanana" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1228.0
+offset_top = -853.0
+offset_right = 1252.0
+offset_bottom = -829.0
+entranceName = "Mt. Cucco Moving Platform Cave"
+
+[node name="Portal" parent="Outer/Holodrum/Mt Cucco" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1020.0
+offset_top = -820.0
+offset_right = 1044.0
+offset_bottom = -796.0
+entranceName = "Mt. Cucco Portal"
+
+[node name="Goron Mountain" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="Biggoron" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 108.0
+offset_top = -884.0
+offset_right = 132.0
+offset_bottom = -860.0
+entranceName = "Biggoron"
+
+[node name="SepCaveL" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 252.0
+offset_top = -900.0
+offset_right = 276.0
+offset_bottom = -876.0
+entranceName = "Goron Mountain Separated Cave Left"
+
+[node name="SepCaveR" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 284.0
+offset_top = -900.0
+offset_right = 308.0
+offset_bottom = -876.0
+entranceName = "Goron Mountain Separated Cave Right"
+
+[node name="StairsUnderSepCaves" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 268.0
+offset_top = -820.0
+offset_right = 292.0
+offset_bottom = -796.0
+entranceName = "Goron Mountain Bomb Cave Stairs"
+
+[node name="BombCave" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 268.0
+offset_top = -756.0
+offset_right = 292.0
+offset_bottom = -732.0
+entranceName = "Goron Mountain Bomb Cave"
+oneWay = true
+
+[node name="OldMan" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 28.0
+offset_top = -692.0
+offset_right = 52.0
+offset_bottom = -668.0
+entranceName = "Goron Mountain Old Man"
+oneWay = true
+
+[node name="CaveNearOldMan" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = -756.0
+offset_right = 68.0
+offset_bottom = -732.0
+entranceName = "Goron Mountain Main Entrance"
+
+[node name="CaveBelowGM" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 172.0
+offset_top = -628.0
+offset_right = 196.0
+offset_bottom = -604.0
+entranceName = "Goron Mountain Water Entrance"
+
+[node name="LynelStairs" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 252.0
+offset_top = -996.0
+offset_right = 276.0
+offset_bottom = -972.0
+entranceName = "Goron Mountain Lynel Stairs"
+
+[node name="RingCave" parent="Outer/Holodrum/Goron Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 188.0
+offset_top = -868.0
+offset_right = 212.0
+offset_bottom = -844.0
+entranceName = "Ring Box Goron"
+oneWay = true
+
+[node name="Tarm Ruins" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="UpperTarmShroomStairs" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1268.0
+offset_top = -804.0
+offset_right = -1244.0
+offset_bottom = -780.0
+entranceName = "Upper Tarm Mushroom Stairs"
+oneWay = true
+
+[node name="Phono" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1028.0
+offset_top = -308.0
+offset_right = -1004.0
+offset_bottom = -284.0
+entranceName = "Phonograph Scrub"
+oneWay = true
+
+[node name="LowerTarmMushroom" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -676.0
+offset_top = -500.0
+offset_right = -652.0
+offset_bottom = -476.0
+entranceName = "Tarm Ruins Deku Scrub"
+oneWay = true
+
+[node name="TarmFairy" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1060.0
+offset_top = -628.0
+offset_right = -1036.0
+offset_bottom = -604.0
+entranceName = "Tarm Ruins Fairy Fountain"
+oneWay = true
+
+[node name="D6" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1220.0
+offset_top = -980.0
+offset_right = -1196.0
+offset_bottom = -956.0
+entranceName = "D6 - Ancient Ruins"
+
+[node name="TreeStairs" parent="Outer/Holodrum/Tarm Ruins" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -836.0
+offset_top = -1012.0
+offset_right = -812.0
+offset_bottom = -988.0
+entranceName = "Tarm Ruins Old Man"
+oneWay = true
+
+[node name="Samasa Desert" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="QuicksandDive" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 884.0
+offset_top = 964.0
+offset_right = 908.0
+offset_bottom = 988.0
+entranceName = "Dive Spot Quicksand Drop"
+
+[node name="ChestStairs" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1212.0
+offset_top = 940.0
+offset_right = 1236.0
+offset_bottom = 964.0
+entranceName = "Desert Chest Stairs"
+
+[node name="FairyFountain" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1196.0
+offset_top = 396.0
+offset_right = 1220.0
+offset_bottom = 420.0
+entranceName = "Oasis Fairy Spring"
+
+[node name="BellPitfall" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1156.0
+offset_top = 708.0
+offset_right = 1180.0
+offset_bottom = 732.0
+entranceName = "Bell Quicksand Drop"
+
+[node name="Ship" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 1036.0
+offset_top = 844.0
+offset_right = 1060.0
+offset_bottom = 868.0
+entranceName = "Beached Ship Stairs"
+
+[node name="DekuScrubPitfall" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 836.0
+offset_top = 708.0
+offset_right = 860.0
+offset_bottom = 732.0
+entranceName = "Deku Scrub Quicksand Drop"
+
+[node name="LikeLikePitfall" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 836.0
+offset_top = 468.0
+offset_right = 860.0
+offset_bottom = 492.0
+entranceName = "Like-Like Quicksand Drop"
+
+[node name="Cave" parent="Outer/Holodrum/Samasa Desert" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 732.0
+offset_top = 652.0
+offset_right = 756.0
+offset_bottom = 676.0
+entranceName = "Desert Cave"
+
+[node name="Western Coast" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="PitsHouseMain" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -900.0
+offset_top = 668.0
+offset_right = -876.0
+offset_bottom = 692.0
+entranceName = "Pits House Main Entrance"
+
+[node name="PitsHouseSide" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -868.0
+offset_top = 652.0
+offset_right = -844.0
+offset_bottom = 676.0
+entranceName = "Pits House Side Entrance"
+
+[node name="CoastOldMan" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -932.0
+offset_top = 652.0
+offset_right = -908.0
+offset_bottom = 676.0
+entranceName = "Western Coast Old Man"
+oneWay = true
+
+[node name="PirateShip" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -868.0
+offset_top = 860.0
+offset_right = -844.0
+offset_bottom = 884.0
+entranceName = "Pirate Ship"
+
+[node name="GraveyardCave" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1028.0
+offset_top = 892.0
+offset_right = -1004.0
+offset_bottom = 916.0
+entranceName = "Cave Leading to Graveyard"
+
+[node name="D7" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1220.0
+offset_top = 684.0
+offset_right = -1196.0
+offset_bottom = 708.0
+entranceName = "D7 - Explorer's Crypt"
+
+[node name="HiddenStairs" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1220.0
+offset_top = 780.0
+offset_right = -1196.0
+offset_bottom = 804.0
+entranceName = "Hidden Graveyard Stairs"
+oneWay = true
+
+[node name="GraveyardWell" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -1012.0
+offset_top = 812.0
+offset_right = -988.0
+offset_bottom = 836.0
+entranceName = "Graveyard Well"
+
+[node name="D0" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -580.0
+offset_top = 715.0
+offset_right = -556.0
+offset_bottom = 739.0
+entranceName = "D0 - Hero's Cave"
+
+[node name="D0Side" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -532.0
+offset_top = 715.0
+offset_right = -508.0
+offset_bottom = 739.0
+entranceName = "D0 - Hero's Cave Chest Drop"
+
+[node name="CoastFairy" parent="Outer/Holodrum/Western Coast" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -708.0
+offset_top = 636.0
+offset_right = -684.0
+offset_bottom = 660.0
+entranceName = "Western Coast Fairy Fountain"
+
+[node name="Temple Remains" type="Node2D" parent="Outer/Holodrum"]
+
+[node name="RemainsD8Entrance" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -532.0
+offset_top = -996.0
+offset_right = -508.0
+offset_bottom = -972.0
+entranceName = "Temple Remains Portal Entrance"
+
+[node name="RemainsBombCave" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -420.0
+offset_top = -900.0
+offset_right = -396.0
+offset_bottom = -876.0
+entranceName = "Temple Remains Bomb Cave"
+oneWay = true
+
+[node name="Portal" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -452.0
+offset_top = -740.0
+offset_right = -428.0
+offset_bottom = -716.0
+entranceName = "Temple Remains Portal"
+oneWay = true
+
+[node name="RemainsStairsL" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -276.0
+offset_top = -1012.0
+offset_right = -252.0
+offset_bottom = -988.0
+entranceName = "Temple Remains Stairs Near Portal"
+
+[node name="RemainsStairsR" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -228.0
+offset_top = -1012.0
+offset_right = -204.0
+offset_bottom = -988.0
+entranceName = "Temple Remains Lynel Stairs Left"
+
+[node name="RemainsNEStairs" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -116.0
+offset_top = -1012.0
+offset_right = -92.0
+offset_bottom = -988.0
+entranceName = "Temple Remains Lynel Stairs Right"
+
+[node name="RemainsVineCave" parent="Outer/Holodrum/Temple Remains" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -196.0
+offset_top = -900.0
+offset_right = -172.0
+offset_bottom = -876.0
+entranceName = "Temple Remains Cave Past Vines"
+oneWay = true
+
+[node name="Subrosia" type="Sprite2D" parent="Outer"]
+visible = false
+position = Vector2(880, 512)
+texture = ExtResource("3_7jree")
+
+[node name="Mountain" type="Node2D" parent="Outer/Subrosia"]
+
+[node name="SubrosianDancing" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -180.0
+offset_top = -228.0
+offset_right = -156.0
+offset_bottom = -204.0
+entranceName = "Subrosian Dancing"
+altMap = true
+
+[node name="GrassRoom" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -132.0
+offset_top = -420.0
+offset_right = -108.0
+offset_bottom = -396.0
+entranceName = "Grass Room"
+altMap = true
+
+[node name="MountainPortal" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -484.0
+offset_right = 4.0
+offset_bottom = -460.0
+entranceName = "Subrosian Mountain Portal"
+altMap = true
+
+[node name="VolcanoPortal" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -292.0
+offset_top = -356.0
+offset_right = -268.0
+offset_bottom = -332.0
+entranceName = "Fireworks Portal"
+altMap = true
+
+[node name="Fireworks" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -292.0
+offset_top = -420.0
+offset_right = -268.0
+offset_bottom = -396.0
+entranceName = "Fireworks"
+altMap = true
+
+[node name="RosaChest" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -436.0
+offset_top = -308.0
+offset_right = -412.0
+offset_bottom = -284.0
+entranceName = "Rosa Chest"
+altMap = true
+
+[node name="MountainChest" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -708.0
+offset_top = -340.0
+offset_right = -684.0
+offset_bottom = -316.0
+entranceName = "Subrosian Mountain West Cave"
+altMap = true
+
+[node name="D8" parent="Outer/Subrosia/Mountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -836.0
+offset_top = -485.0
+offset_right = -812.0
+offset_bottom = -461.0
+entranceName = "D8"
+altMap = true
+
+[node name="Village" type="Node2D" parent="Outer/Subrosia"]
+
+[node name="LavaSoup" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -532.0
+offset_top = -212.0
+offset_right = -508.0
+offset_bottom = -188.0
+entranceName = "Lava Soup"
+altMap = true
+
+[node name="D8Portal" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -852.0
+offset_top = -212.0
+offset_right = -828.0
+offset_bottom = -188.0
+entranceName = "D8 Portal"
+altMap = true
+
+[node name="OreChunkSubrosian" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -276.0
+offset_top = -196.0
+offset_right = -252.0
+offset_bottom = -172.0
+entranceName = "Ore Chunk Subrosian"
+altMap = true
+
+[node name="Smithy" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -308.0
+offset_top = -68.0
+offset_right = -284.0
+offset_bottom = -44.0
+entranceName = "Smithy"
+altMap = true
+
+[node name="RosaConnectorL" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = -68.0
+offset_right = -12.0
+offset_bottom = -44.0
+entranceName = "Rosa Connector Left"
+altMap = true
+
+[node name="RosaConnectorR" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 12.0
+offset_top = -68.0
+offset_right = 36.0
+offset_bottom = -44.0
+entranceName = "Rosa Connector Right"
+altMap = true
+
+[node name="MarketPortal" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 268.0
+offset_top = 156.0
+offset_right = 292.0
+offset_bottom = 180.0
+entranceName = "Market Portal"
+altMap = true
+
+[node name="Market" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -44.0
+offset_top = 63.0
+offset_right = -20.0
+offset_bottom = 87.0
+entranceName = "Subrosian Market"
+altMap = true
+
+[node name="GashaSubrosian" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -196.0
+offset_top = 60.0
+offset_right = -172.0
+offset_bottom = 84.0
+entranceName = "Gasha Subrosian"
+altMap = true
+
+[node name="VillagePortal" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -356.0
+offset_top = 220.0
+offset_right = -332.0
+offset_bottom = 244.0
+entranceName = "Strange Brothers Portal"
+altMap = true
+
+[node name="VillageTempleStairs" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -180.0
+offset_top = 220.0
+offset_right = -156.0
+offset_bottom = 244.0
+entranceName = "Village Stairs to Temple"
+altMap = true
+
+[node name="StrangeBrosEntrance" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -548.0
+offset_top = 172.0
+offset_right = -524.0
+offset_bottom = 196.0
+entranceName = "Strange Brothers"
+altMap = true
+
+[node name="HideAndSeek" parent="Outer/Subrosia/Village" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -596.0
+offset_top = 156.0
+offset_right = -572.0
+offset_bottom = 180.0
+entranceName = "Hide and Seek"
+altMap = true
+
+[node name="Pirates" type="Node2D" parent="Outer/Subrosia"]
+
+[node name="PiratesPortal" parent="Outer/Subrosia/Pirates" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -500.0
+offset_top = 412.0
+offset_right = -476.0
+offset_bottom = 436.0
+entranceName = "Pirates Portal"
+altMap = true
+
+[node name="PiratesRoof" parent="Outer/Subrosia/Pirates" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -532.0
+offset_top = 428.0
+offset_right = -508.0
+offset_bottom = 452.0
+entranceName = "Pirates Roof"
+altMap = true
+
+[node name="PiratesEntrance" parent="Outer/Subrosia/Pirates" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -516.0
+offset_top = 460.0
+offset_right = -492.0
+offset_bottom = 484.0
+entranceName = "Pirates Entrance"
+altMap = true
+
+[node name="BeachedShip" parent="Outer/Subrosia/Pirates" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -132.0
+offset_top = 412.0
+offset_right = -108.0
+offset_bottom = 436.0
+entranceName = "Beached Ship (Subrosia)"
+altMap = true
+
+[node name="Furnace" type="Node2D" parent="Outer/Subrosia"]
+
+[node name="Furnace" parent="Outer/Subrosia/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 636.0
+offset_top = 92.0
+offset_right = 660.0
+offset_bottom = 116.0
+entranceName = "Furnace"
+altMap = true
+
+[node name="FurnacePortal" parent="Outer/Subrosia/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 780.0
+offset_top = 44.0
+offset_right = 804.0
+offset_bottom = 68.0
+entranceName = "Furnace Portal"
+altMap = true
+
+[node name="SignGuy" parent="Outer/Subrosia/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 780.0
+offset_top = 156.0
+offset_right = 804.0
+offset_bottom = 180.0
+entranceName = "Sign Guy"
+altMap = true
+
+[node name="RedOreEntrance" parent="Outer/Subrosia/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 428.0
+offset_top = 204.0
+offset_right = 452.0
+offset_bottom = 228.0
+entranceName = "Red Ore Entrance"
+altMap = true
+
+[node name="RedOreRoof" parent="Outer/Subrosia/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 476.0
+offset_top = 156.0
+offset_right = 500.0
+offset_bottom = 180.0
+entranceName = "Red Ore Roof"
+altMap = true
+
+[node name="Temple" type="Node2D" parent="Outer/Subrosia"]
+
+[node name="TempleEntrance" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 628.0
+offset_top = -462.0
+offset_right = 652.0
+offset_bottom = -438.0
+entranceName = "Temple of Seasons"
+altMap = true
+
+[node name="FallTower" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 764.0
+offset_top = -484.0
+offset_right = 788.0
+offset_bottom = -460.0
+entranceName = "Fall Tower"
+altMap = true
+
+[node name="WinterTower" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 828.0
+offset_top = -196.0
+offset_right = 852.0
+offset_bottom = -172.0
+entranceName = "Winter Tower"
+altMap = true
+
+[node name="SpringTower" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 444.0
+offset_top = -196.0
+offset_right = 468.0
+offset_bottom = -172.0
+entranceName = "Spring Tower"
+altMap = true
+
+[node name="SpringTowerStairs" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 476.0
+offset_top = -180.0
+offset_right = 500.0
+offset_bottom = -156.0
+entranceName = "Spring Tower Underground Stairs"
+altMap = true
+
+[node name="SummerTower" parent="Outer/Subrosia/Temple" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 444.0
+offset_top = -436.0
+offset_right = 468.0
+offset_bottom = -412.0
+entranceName = "Summer Tower"
+altMap = true
+
+[node name="Inner" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Holodrum" type="Node2D" parent="Inner"]
+visible = false
+
+[node name="Horon Village" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="ClockShop" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1200, 1712)
+texture = ExtResource("18_xtea4")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/ClockShop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Clock Shop"
+entranceType = 1
+
+[node name="UnderClockShop" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1088, 1584)
+texture = ExtResource("6_cilde")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/UnderClockShop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Stairs Behind Clock Shop"
+entranceType = 1
+
+[node name="Birds" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(768, 1584)
+texture = ExtResource("19_647tm")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Birds" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 41.0
+offset_right = 12.0
+offset_bottom = 65.0
+entranceName = "Know-It-All Birds"
+entranceType = 1
+
+[node name="Advance" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(928, 1584)
+texture = ExtResource("20_e8id8")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Advance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 41.0
+offset_right = 12.0
+offset_bottom = 65.0
+entranceName = "Advance Shop"
+entranceType = 1
+
+[node name="Mayor" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1248, 1552)
+texture = ExtResource("21_8iuav")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Mayor" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Mayor's House"
+entranceType = 1
+
+[node name="MakuFairy1" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1440, 1544)
+texture = ExtResource("10_vmhxj")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MakuFairy1" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Maku Fairy Room 1"
+entranceType = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MakuFairy2" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1696, 1544)
+texture = ExtResource("15_d43k5")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MakuFairy2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Maku Fairy Room 2"
+entranceType = 1
+
+[node name="Farore" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1360, 1704)
+texture = ExtResource("10_8muyg")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Farore" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 28.0
+offset_top = 64.0
+offset_right = 52.0
+offset_bottom = 88.0
+entranceName = "Maku Tree Entrance"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Horon Village/Farore" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 28.0
+offset_top = -92.0
+offset_right = 52.0
+offset_bottom = -68.0
+entranceName = "Farore Stairs"
+entranceType = 1
+
+[node name="MakuHallway" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1480, 1704)
+texture = ExtResource("11_tgo6w")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MakuHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Maku Tree Hallway Exit"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Horon Village/MakuHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -92.0
+offset_right = 12.0
+offset_bottom = -68.0
+entranceName = "Maku Tree Hallway Stairs"
+entranceType = 1
+
+[node name="MakuTreetopsUpper" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1568, 1600)
+texture = ExtResource("13_nr4if")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MakuTreetopsUpper" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 36.0
+entranceName = "Maku Treetops Top"
+entranceType = 1
+
+[node name="MakuTreetopsLower" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1568, 1728)
+texture = ExtResource("12_4wckd")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MakuTreetopsLower" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 36.0
+offset_bottom = 36.0
+entranceName = "Maku Treetops Bottom"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Horon Village/MakuTreetopsLower" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 12.0
+offset_top = -67.0
+offset_right = 36.0
+offset_bottom = -43.0
+entranceName = "Maku Treetops Middle"
+entranceType = 1
+
+[node name="Vasu" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1320, 1856)
+texture = ExtResource("22_r008j")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Vasu" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Vasu"
+entranceType = 1
+
+[node name="Dr Left Main" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1480, 1856)
+texture = ExtResource("23_78jep")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Dr Left Main" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Dr. Left's House"
+entranceType = 1
+
+[node name="Dr Left Side" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1600, 1856)
+texture = ExtResource("24_nikde")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Dr Left Side" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 64.0
+entranceName = "Dr. Left's Backyard"
+entranceType = 1
+
+[node name="Baby" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(960, 1968)
+texture = ExtResource("25_efcqu")
+
+[node name="EntranceL" parent="Inner/Holodrum/Horon Village/Baby" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -92.0
+offset_top = 40.0
+offset_right = -68.0
+offset_bottom = 64.0
+entranceName = "Bipin and Blossom Left"
+entranceType = 1
+
+[node name="EntranceR" parent="Inner/Holodrum/Horon Village/Baby" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = 40.0
+offset_right = 92.0
+offset_bottom = 64.0
+entranceName = "Bipin and Blossom Right"
+entranceType = 1
+
+[node name="Shop" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1040, 1840)
+texture = ExtResource("26_711op")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/Shop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Horon Shop"
+entranceType = 1
+
+[node name="MemberDoor" parent="Inner/Holodrum/Horon Village/Shop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = -20.0
+offset_right = -44.0
+offset_bottom = 4.0
+entranceName = "Horon Shop Behind Counter"
+entranceType = 1
+
+[node name="MemberPassage" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(928, 1840)
+texture = ExtResource("27_pk2wn")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MemberPassage" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = 8.0
+offset_right = 4.0
+offset_bottom = 32.0
+entranceName = "Member's Shop Passage Door"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Horon Village/MemberPassage" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = 4.0
+entranceName = "Member's Shop Passage Stairs"
+entranceType = 1
+
+[node name="MemberShop" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1040, 1712)
+texture = ExtResource("28_hnsvh")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/MemberShop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = -52.0
+offset_right = -44.0
+offset_bottom = -28.0
+entranceName = "Member's Shop"
+entranceType = 1
+
+[node name="HoronPortal" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1180, 1936)
+texture = ExtResource("17_kaaqh")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/HoronPortal" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 12.0
+offset_top = 28.0
+offset_right = 36.0
+offset_bottom = 52.0
+entranceName = "Horon Portal Stairs"
+entranceType = 1
+
+[node name="Portal" parent="Inner/Holodrum/Horon Village/HoronPortal" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 20.0
+entranceName = "Horon Village Portal"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Horon Village"]
+position = Vector2(1480, 1984)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Horon Village/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Horon Village Old Man"
+entranceType = 1
+
+[node name="North Horon" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="MalonHouse" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1336, 1028)
+texture = ExtResource("21_atxlx")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/MalonHouse" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Malon's House"
+entranceType = 1
+
+[node name="DryEyeglassEastTop" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1800, 1248)
+texture = ExtResource("20_ogwt1")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/DryEyeglassEastTop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 4.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = -4.0
+entranceName = "Dry Eyeglass East 1F Right"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/North Horon/DryEyeglassEastTop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = -44.0
+offset_right = -36.0
+offset_bottom = -20.0
+entranceName = "Dry Eyeglass East 1F Left"
+entranceType = 1
+
+[node name="DryEyeglassEastMiddle" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1592, 1232)
+texture = ExtResource("21_hievd")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/DryEyeglassEastMiddle" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 44.0
+entranceName = "Dry Eyeglass East 2F Right"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/North Horon/DryEyeglassEastMiddle" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = -44.0
+offset_right = -36.0
+offset_bottom = -20.0
+entranceName = "Dry Eyeglass East 2F Left"
+entranceType = 1
+
+[node name="DryEyeglassEastBottom" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1608, 1360)
+texture = ExtResource("22_wnqcp")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/DryEyeglassEastBottom" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 36.0
+offset_top = 20.0
+offset_right = 60.0
+offset_bottom = 44.0
+entranceName = "Dry Eyeglass East 3F"
+entranceType = 1
+
+[node name="DryEyeglassBomb" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1256, 1280)
+texture = ExtResource("29_ptgv3")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/DryEyeglassBomb" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Dry Eyeglass Bomb Cave"
+entranceType = 1
+
+[node name="RedRingOldMan" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1072, 1328)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/RedRingOldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Red Ring Old Man"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1232, 1152)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "North Horon Old Man"
+entranceType = 1
+
+[node name="Impa" type="Sprite2D" parent="Inner/Holodrum/North Horon"]
+position = Vector2(1040, 1456)
+texture = ExtResource("30_70vpx")
+
+[node name="Entrance" parent="Inner/Holodrum/North Horon/Impa" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Impa's House"
+entranceType = 1
+
+[node name="Eastern Suburbs" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Eastern Suburbs"]
+position = Vector2(2480, 1095)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Eastern Suburbs/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Eastern Suburbs Old Man"
+entranceType = 1
+
+[node name="SpringMagnetCave" type="Sprite2D" parent="Inner/Holodrum/Eastern Suburbs"]
+position = Vector2(1976, 1496)
+texture = ExtResource("77_b04kl")
+
+[node name="Entrance" parent="Inner/Holodrum/Eastern Suburbs/SpringMagnetCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -108.0
+offset_top = -28.0
+offset_right = -84.0
+offset_bottom = -4.0
+entranceName = "Spring Magnet Cave"
+entranceType = 1
+
+[node name="WindmillMain" type="Sprite2D" parent="Inner/Holodrum/Eastern Suburbs"]
+position = Vector2(1760, 1880)
+texture = ExtResource("78_ib453")
+
+[node name="Entrance" parent="Inner/Holodrum/Eastern Suburbs/WindmillMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -44.0
+offset_top = 64.0
+offset_right = -20.0
+offset_bottom = 88.0
+entranceName = "Windmill Main Entrance"
+entranceType = 1
+
+[node name="StairsL" parent="Inner/Holodrum/Eastern Suburbs/WindmillMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = -60.0
+offset_right = -52.0
+offset_bottom = -36.0
+entranceName = "Windmill 1F Stairs to 2F"
+entranceType = 1
+
+[node name="StairsR" parent="Inner/Holodrum/Eastern Suburbs/WindmillMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 84.0
+offset_top = -44.0
+offset_right = 108.0
+offset_bottom = -20.0
+entranceName = "Windmill 1F Stairs to HP"
+entranceType = 1
+
+[node name="WindmillHP" type="Sprite2D" parent="Inner/Holodrum/Eastern Suburbs"]
+position = Vector2(1976, 1880)
+texture = ExtResource("79_kcymf")
+
+[node name="Entrance" parent="Inner/Holodrum/Eastern Suburbs/WindmillHP" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 48.0
+offset_right = 68.0
+offset_bottom = 72.0
+entranceName = "Windmill Side Entrance"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Eastern Suburbs/WindmillHP" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = -44.0
+offset_right = -44.0
+offset_bottom = -20.0
+entranceName = "Windmill HP Stairs to 1F"
+entranceType = 1
+
+[node name="Windmill2F" type="Sprite2D" parent="Inner/Holodrum/Eastern Suburbs"]
+position = Vector2(1760, 1704)
+texture = ExtResource("80_bi7l5")
+
+[node name="Entrance" parent="Inner/Holodrum/Eastern Suburbs/Windmill2F" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 4.0
+offset_top = 20.0
+offset_right = 28.0
+offset_bottom = 44.0
+entranceName = "Windmill Roof"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Eastern Suburbs/Windmill2F" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = -60.0
+offset_right = -52.0
+offset_bottom = -36.0
+entranceName = "Windmill 2F Stairs to 1F"
+entranceType = 1
+
+[node name="Woods of Winter" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="Holly" type="Sprite2D" parent="Inner/Holodrum/Woods of Winter"]
+position = Vector2(2480, 967)
+texture = ExtResource("31_5mina")
+
+[node name="Entrance" parent="Inner/Holodrum/Woods of Winter/Holly" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Holly's House"
+entranceType = 1
+
+[node name="Chimney" parent="Inner/Holodrum/Woods of Winter/Holly" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -64.0
+offset_right = 4.0
+offset_bottom = -40.0
+entranceName = "Holly's Chimney"
+entranceType = 1
+
+[node name="SunkenDrop" type="Sprite2D" parent="Inner/Holodrum/Woods of Winter"]
+position = Vector2(2280, 896)
+texture = ExtResource("21_un1ox")
+
+[node name="Entrance" parent="Inner/Holodrum/Woods of Winter/SunkenDrop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = 64.0
+offset_right = -52.0
+offset_bottom = 88.0
+entranceName = "Moblin Road Waterfall Cave"
+entranceType = 1
+
+[node name="Drop" parent="Inner/Holodrum/Woods of Winter/SunkenDrop" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 20.0
+offset_top = -60.0
+offset_right = 44.0
+offset_bottom = -36.0
+entranceName = "Dropdown from Sunken City"
+entranceType = 1
+oneWay = true
+
+[node name="BombCave" type="Sprite2D" parent="Inner/Holodrum/Woods of Winter"]
+position = Vector2(2080, 920)
+texture = ExtResource("22_4mtif")
+
+[node name="Entrance" parent="Inner/Holodrum/Woods of Winter/BombCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = 40.0
+offset_right = -12.0
+offset_bottom = 64.0
+entranceName = "Moblin Road Bomb Cave"
+entranceType = 1
+
+[node name="MushroomCave" type="Sprite2D" parent="Inner/Holodrum/Woods of Winter"]
+position = Vector2(2280, 1248)
+texture = ExtResource("23_mu62i")
+
+[node name="Entrance" parent="Inner/Holodrum/Woods of Winter/MushroomCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = 64.0
+offset_right = -52.0
+offset_bottom = 88.0
+entranceName = "Cave East of D2"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Woods of Winter/MushroomCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = 64.0
+offset_right = 92.0
+offset_bottom = 88.0
+entranceName = "Mushroom Cave Near D2"
+entranceType = 1
+
+[node name="Holodrum Plain" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="Blaino" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(1384, 900)
+texture = ExtResource("29_kkh28")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/Blaino" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Blaino's Gym"
+entranceType = 1
+
+[node name="OldManSummer" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(992, 816)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/OldManSummer" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Holodrum Plain Summer Old Man"
+entranceType = 1
+
+[node name="MushroomCave" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(1136, 999)
+texture = ExtResource("44_6eupe")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/MushroomCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 64.0
+offset_right = 20.0
+offset_bottom = 88.0
+entranceName = "Holodrum Plain Mushroom Cave"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(688, 1328)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Old Man Near Mrs. Ruul"
+entranceType = 1
+
+[node name="CaveBelowRuul" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(520, 1424)
+texture = ExtResource("44_hct8o")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/CaveBelowRuul" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Water Cave Below Mrs. Ruul"
+entranceType = 1
+
+[node name="MrsRuul" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(528, 1280)
+texture = ExtResource("46_a58d2")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/MrsRuul" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Mrs. Ruul"
+entranceType = 1
+
+[node name="TreehouseOldMan" type="Sprite2D" parent="Inner/Holodrum/Holodrum Plain"]
+position = Vector2(880, 1456)
+texture = ExtResource("44_wubbr")
+
+[node name="Entrance" parent="Inner/Holodrum/Holodrum Plain/TreehouseOldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Treehouse Old Man"
+entranceType = 1
+
+[node name="Spool Swamp" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="FloodgateKeeper" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(320, 1022)
+texture = ExtResource("30_3s52c")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/FloodgateKeeper" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Floodgate Keeper's House"
+entranceType = 1
+
+[node name="WinterBombWall" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(472, 1568)
+texture = ExtResource("55_4d3wr")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/WinterBombWall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Winter Bomb Cave"
+entranceType = 1
+
+[node name="UnderFloodgate1" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(552, 871)
+texture = ExtResource("32_22n18")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate1" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 36.0
+offset_top = -28.0
+offset_right = 60.0
+offset_bottom = -4.0
+entranceName = "Stairs Near Floodgate House"
+entranceType = 1
+
+[node name="UnderFloodgate2" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(312, 871)
+texture = ExtResource("31_bkg40")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -28.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 28.0
+entranceName = "Under Floodgate Push Puzzle Stairs"
+entranceType = 1
+
+[node name="UnderFloodgate34" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(120, 1047)
+texture = ExtResource("33_n3wpk")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate34" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 52.0
+offset_top = 20.0
+offset_right = 76.0
+offset_bottom = 44.0
+entranceName = "Under Floodgate Water Stairs Right"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate34" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -28.0
+offset_top = 36.0
+offset_right = -4.0
+offset_bottom = 60.0
+entranceName = "Under Floodgate Water Stairs Left"
+entranceType = 1
+
+[node name="UnderFloodgate56" type="Sprite2D" parent="Inner/Holodrum/Spool Swamp"]
+position = Vector2(120, 871)
+texture = ExtResource("34_y5nkw")
+
+[node name="Entrance" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate56" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = 36.0
+offset_right = 92.0
+offset_bottom = 60.0
+entranceName = "Under Floodgate Spiny Beetle Stairs"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Spool Swamp/UnderFloodgate56" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -92.0
+offset_top = -76.0
+offset_right = -68.0
+offset_bottom = -52.0
+entranceName = "Stairs Near D3"
+entranceType = 1
+
+[node name="Natzu" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="MoblinEntrance" type="Sprite2D" parent="Inner/Holodrum/Natzu"]
+position = Vector2(1832, 696)
+texture = ExtResource("35_2cxci")
+
+[node name="EntranceL" parent="Inner/Holodrum/Natzu/MoblinEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -44.0
+offset_top = 40.0
+offset_right = -20.0
+offset_bottom = 64.0
+entranceName = "Moblin Keep Left"
+entranceType = 1
+
+[node name="EntranceR" parent="Inner/Holodrum/Natzu/MoblinEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 44.0
+offset_bottom = 64.0
+entranceName = "Moblin Keep Right"
+entranceType = 1
+
+[node name="EntranceS" parent="Inner/Holodrum/Natzu/MoblinEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 4.0
+entranceName = "Moblin Keep Stairs"
+entranceType = 1
+
+[node name="MoblinFight" type="Sprite2D" parent="Inner/Holodrum/Natzu"]
+position = Vector2(1832, 568)
+texture = ExtResource("36_svwic")
+
+[node name="Entrance" parent="Inner/Holodrum/Natzu/MoblinFight" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Great Moblin Fight"
+entranceType = 1
+
+[node name="MovingPlatform" type="Sprite2D" parent="Inner/Holodrum/Natzu"]
+position = Vector2(1520, 520)
+texture = ExtResource("57_cdplm")
+
+[node name="Entrance" parent="Inner/Holodrum/Natzu/MovingPlatform" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = -12.0
+offset_right = -12.0
+offset_bottom = 12.0
+entranceName = "Natzu Moving Platform Stairs"
+entranceType = 1
+
+[node name="CompanionEntrances" type="Node2D" parent="Inner/Holodrum/Natzu"]
+
+[node name="FairyFountain" type="Sprite2D" parent="Inner/Holodrum/Natzu/CompanionEntrances" groups=["NatzuInner"]]
+position = Vector2(1160, 636)
+texture = ExtResource("44_eivme")
+
+[node name="Entrance" parent="Inner/Holodrum/Natzu/CompanionEntrances/FairyFountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Natzu Fairy Fountain"
+entranceType = 1
+
+[node name="DekuScrub" type="Sprite2D" parent="Inner/Holodrum/Natzu/CompanionEntrances" groups=["NatzuInner"]]
+position = Vector2(1576, 892)
+texture = ExtResource("45_ioyuf")
+
+[node name="Entrance" parent="Inner/Holodrum/Natzu/CompanionEntrances/DekuScrub" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Natzu Deku Scrub"
+entranceType = 1
+
+[node name="Sunken City" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="VaseMan" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2056, 568)
+texture = ExtResource("37_1fyoi")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/VaseMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Ingo's House"
+entranceType = 1
+
+[node name="TrappedLady" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2480, 496)
+texture = ExtResource("62_fujyl")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/TrappedLady" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Flooded House"
+entranceType = 1
+
+[node name="SummerCave" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2320, 576)
+texture = ExtResource("63_404ah")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/SummerCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Sunken Summer Cave"
+entranceType = 1
+
+[node name="MoblinHouse" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2480, 832)
+texture = ExtResource("39_vrkbt")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/MoblinHouse" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Moblin Rest House"
+entranceType = 1
+
+[node name="DiversWife" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2240, 744)
+texture = ExtResource("48_q7nnn")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/DiversWife" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Master Diver's Wife"
+entranceType = 1
+
+[node name="TreasureHunter" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2080, 792)
+texture = ExtResource("66_163td")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/TreasureHunter" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Treasure Hunter's House"
+entranceType = 1
+
+[node name="Syrup" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2400, 704)
+texture = ExtResource("49_ht1cl")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/Syrup" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Syrup's Hut"
+entranceType = 1
+
+[node name="MasterDiver" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2480, 368)
+texture = ExtResource("50_1v3td")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/MasterDiver" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = 40.0
+offset_right = 4.0
+offset_bottom = 64.0
+entranceName = "Master Diver"
+entranceType = 1
+
+[node name="DiversChallenge" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2320, 368)
+texture = ExtResource("51_ppm26")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/DiversChallenge" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Master Diver's Challenge"
+entranceType = 1
+
+[node name="DiveSpotR" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(2120, 436)
+texture = ExtResource("70_32gqm")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/DiveSpotR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = -68.0
+offset_right = 92.0
+offset_bottom = -44.0
+entranceName = "Sunken Dive Spot Right"
+entranceType = 1
+
+[node name="DiveSpotL" type="Sprite2D" parent="Inner/Holodrum/Sunken City"]
+position = Vector2(1928, 436)
+texture = ExtResource("71_4dq4m")
+
+[node name="Entrance" parent="Inner/Holodrum/Sunken City/DiveSpotL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -92.0
+offset_top = -68.0
+offset_right = -68.0
+offset_bottom = -44.0
+entranceName = "Sunken Dive Spot Left"
+entranceType = 1
+
+[node name="Mount Cucco" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="TalonCave" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(2040, 304)
+texture = ExtResource("88_1vxcy")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/TalonCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Talon's Cave"
+entranceType = 1
+
+[node name="FairyFountain" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(2280, 72)
+texture = ExtResource("44_eivme")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/FairyFountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Mt. Cucco Fairy Fountain"
+entranceType = 1
+
+[node name="JewelDiveSpot" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(2288, 208)
+texture = ExtResource("89_ou1f3")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/JewelDiveSpot" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = -64.0
+offset_right = -36.0
+offset_bottom = -40.0
+entranceName = "Dive Spot Near D4"
+entranceType = 1
+
+[node name="WinterCaveR" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(1888, 232)
+texture = ExtResource("90_3vemr")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/WinterCaveR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = 32.0
+offset_right = 4.0
+offset_bottom = 56.0
+entranceName = "Winter Cave Near Talon"
+entranceType = 1
+
+[node name="WinterCaveL" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(1728, 240)
+texture = ExtResource("91_1ayq0")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/WinterCaveL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -36.0
+offset_right = 4.0
+offset_bottom = -12.0
+entranceName = "Mt. Cucco Winter Cave Stairs"
+entranceType = 1
+
+[node name="CaveBeforeD4Keyhole" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(1808, 88)
+texture = ExtResource("92_pdcpr")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/CaveBeforeD4Keyhole" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 4.0
+offset_bottom = -36.0
+entranceName = "Stairs Before D4 Keyhole"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Mount Cucco/CaveBeforeD4Keyhole" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 4.0
+offset_bottom = 44.0
+entranceName = "D4 Keyhole Stairs"
+entranceType = 1
+
+[node name="BananaCave" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(2480, 88)
+texture = ExtResource("93_4sjkn")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/BananaCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = 64.0
+offset_right = 4.0
+offset_bottom = 88.0
+entranceName = "Cave to Banana Tree"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Mount Cucco/BananaCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -60.0
+offset_right = 4.0
+offset_bottom = -36.0
+entranceName = "Banana Tree"
+entranceType = 1
+
+[node name="PitCave" type="Sprite2D" parent="Inner/Holodrum/Mount Cucco"]
+position = Vector2(2480, 240)
+texture = ExtResource("94_aqmur")
+
+[node name="Entrance" parent="Inner/Holodrum/Mount Cucco/PitCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Mt. Cucco Moving Platform Cave"
+entranceType = 1
+
+[node name="Goron Mountain" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="GMWaterBasement" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1512, 376)
+texture = ExtResource("75_jq5j5")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/GMWaterBasement" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Goron Mountain Water Entrance"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Goron Mountain/GMWaterBasement" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -44.0
+offset_top = -60.0
+offset_right = -20.0
+offset_bottom = -36.0
+entranceName = "Goron Mountain Water Stairs"
+entranceType = 1
+
+[node name="GMWaterBasement2" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1696, 392)
+texture = ExtResource("76_8qgh2")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/GMWaterBasement2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -36.0
+offset_top = 64.0
+offset_right = -12.0
+offset_bottom = 88.0
+entranceName = "Goron Mountain Bomb Cave"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Goron Mountain/GMWaterBasement2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 60.0
+offset_top = -28.0
+offset_right = 84.0
+offset_bottom = -4.0
+entranceName = "Goron Mountain Bomb Cave Stairs"
+entranceType = 1
+
+[node name="SplitCaveL" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1568, 112)
+texture = ExtResource("77_nd85o")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/SplitCaveL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 64.0
+entranceName = "Goron Mountain Separated Cave Left"
+entranceType = 1
+
+[node name="RingGoron" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1496, 232)
+texture = ExtResource("78_um6bw")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/RingGoron" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 32.0
+offset_right = 12.0
+offset_bottom = 56.0
+entranceName = "Ring Box Goron"
+entranceType = 1
+
+[node name="PathToBiggoron" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1400, 88)
+texture = ExtResource("79_5rc8y")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/PathToBiggoron" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 52.0
+offset_top = 64.0
+offset_right = 76.0
+offset_bottom = 88.0
+entranceName = "Biggoron"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Goron Mountain/PathToBiggoron" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = -44.0
+offset_right = -52.0
+offset_bottom = -20.0
+entranceName = "Path to Biggoron Stairs"
+entranceType = 1
+
+[node name="SplitCaveL2" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1672, 88)
+texture = ExtResource("80_dvn5m")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/SplitCaveL2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 4.0
+offset_top = 64.0
+offset_right = 28.0
+offset_bottom = 88.0
+entranceName = "Goron Mountain Separated Cave Right"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Goron Mountain/SplitCaveL2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 4.0
+offset_top = -76.0
+offset_right = 28.0
+offset_bottom = -52.0
+entranceName = "Goron Mountain Lynel Stairs"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1360, 416)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Goron Mountain Old Man"
+entranceType = 1
+
+[node name="GoronMain" type="Sprite2D" parent="Inner/Holodrum/Goron Mountain"]
+position = Vector2(1360, 264)
+texture = ExtResource("81_qyoym")
+
+[node name="Entrance" parent="Inner/Holodrum/Goron Mountain/GoronMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -52.0
+offset_top = 64.0
+offset_right = -28.0
+offset_bottom = 88.0
+entranceName = "Goron Mountain Main Entrance"
+entranceType = 1
+
+[node name="StairsBasement" parent="Inner/Holodrum/Goron Mountain/GoronMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 52.0
+offset_right = 68.0
+offset_bottom = 76.0
+entranceName = "Goron Mountain Stairs to Water Entrance"
+entranceType = 1
+
+[node name="StairsUpper" parent="Inner/Holodrum/Goron Mountain/GoronMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 28.0
+offset_top = -76.0
+offset_right = 52.0
+offset_bottom = -52.0
+entranceName = "Goron Mountain Stairs To Biggoron"
+entranceType = 1
+
+[node name="Tarm Ruins" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="TreeStairs" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
+position = Vector2(80, 240)
+texture = ExtResource("30_6kswh")
+
+[node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/TreeStairs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Upper Tarm Mushroom Stairs"
+entranceType = 1
+
+[node name="PhonographScrub" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
+position = Vector2(328, 695)
+texture = ExtResource("50_85sp6")
+
+[node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/PhonographScrub" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 20.0
+offset_top = 52.0
+offset_right = 44.0
+offset_bottom = 76.0
+entranceName = "Phonograph Scrub"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
+position = Vector2(400, 64)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Tarm Ruins Old Man"
+entranceType = 1
+
+[node name="FairyFountain" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
+position = Vector2(232, 348)
+texture = ExtResource("44_eivme")
+
+[node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/FairyFountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Tarm Ruins Fairy Fountain"
+entranceType = 1
+
+[node name="DekuScrub" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
+position = Vector2(560, 576)
+texture = ExtResource("82_6teg2")
+
+[node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/DekuScrub" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = -52.0
+offset_right = 68.0
+offset_bottom = -28.0
+entranceName = "Tarm Ruins Deku Scrub"
+entranceType = 1
+
+[node name="Samasa Desert" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="FairySpring" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2488, 1480)
+texture = ExtResource("102_lmgoj")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/FairySpring" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Oasis Fairy Spring"
+entranceType = 1
+
+[node name="BellPitfall" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2412, 1632)
+texture = ExtResource("103_xff2b")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/BellPitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -48.0
+offset_top = 15.0
+offset_right = -24.0
+offset_bottom = 39.0
+rotation = 0.785398
+entranceName = "Bell Quicksand Stairs"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Samasa Desert/BellPitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+entranceName = "Bell Quicksand Drop"
+entranceType = 1
+
+[node name="DekuScrubPitfall" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2236, 1632)
+texture = ExtResource("104_iokly")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/DekuScrubPitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -48.0
+offset_top = 15.0
+offset_right = -24.0
+offset_bottom = 39.0
+rotation = 0.785398
+entranceName = "Deku Scrub Quicksand Stairs"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Samasa Desert/DekuScrubPitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+entranceName = "Deku Scrub Quicksand Drop"
+entranceType = 1
+
+[node name="LikeLikePitfall" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2236, 1520)
+texture = ExtResource("105_eoull")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/LikeLikePitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -48.0
+offset_top = 15.0
+offset_right = -24.0
+offset_bottom = 39.0
+rotation = 0.784685
+entranceName = "Like-Like Quicksand Stairs"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Samasa Desert/LikeLikePitfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+entranceName = "Like-Like Quicksand Drop"
+entranceType = 1
+
+[node name="LikeLikeStairs" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(1992, 1592)
+texture = ExtResource("105_eoull")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/LikeLikeStairs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = 20.0
+offset_right = -36.0
+offset_bottom = 44.0
+entranceName = "Desert Like-Like Room"
+entranceType = 1
+
+[node name="DiveSpot" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2176, 1931)
+texture = ExtResource("106_pbdt3")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/DiveSpot" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Dive Spot Quicksand Drop"
+entranceType = 1
+
+[node name="Dive" parent="Inner/Holodrum/Samasa Desert/DiveSpot" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 20.0
+offset_right = 12.0
+offset_bottom = 44.0
+entranceName = "Samasa Desert Dive Spot"
+entranceType = 1
+
+[node name="PitfallExit" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2024, 1728)
+texture = ExtResource("108_o0qti")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/PitfallExit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Desert Cave"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Samasa Desert/PitfallExit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -52.0
+offset_right = 12.0
+offset_bottom = -28.0
+entranceName = "Desert Cave Stairs"
+entranceType = 1
+
+[node name="Exit1" parent="Inner/Holodrum/Samasa Desert/PitfallExit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 16.9706
+offset_top = 10.0
+offset_right = 40.9706
+offset_bottom = 34.0
+rotation = 0.785398
+entranceName = "Bell Quicksand Exit"
+entranceType = 1
+
+[node name="Exit2" parent="Inner/Holodrum/Samasa Desert/PitfallExit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -17.0294
+offset_top = -24.0
+offset_right = 6.97058
+offset_bottom = 0.0
+rotation = 0.785398
+entranceName = "Like-Like Quicksand Exit"
+entranceType = 1
+
+[node name="Exit3" parent="Inner/Holodrum/Samasa Desert/PitfallExit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -17.0294
+offset_top = 10.0
+offset_right = 6.97058
+offset_bottom = 34.0
+rotation = 0.785398
+entranceName = "Deku Scrub Quicksand Exit"
+entranceType = 1
+
+[node name="UnderwaterL" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2200, 1783)
+texture = ExtResource("107_yiv51")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/UnderwaterL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -100.0
+offset_top = -60.0
+offset_right = -76.0
+offset_bottom = -36.0
+entranceName = "Desert Underwater Left"
+entranceType = 1
+
+[node name="UnderwaterR" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2440, 1783)
+texture = ExtResource("109_qbckf")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/UnderwaterR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 76.0
+offset_top = -60.0
+offset_right = 100.0
+offset_bottom = -36.0
+entranceName = "Desert Underwater Right"
+entranceType = 1
+
+[node name="DesertCliff" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2512, 1968)
+texture = ExtResource("110_4te72")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/DesertCliff" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -16.0
+offset_right = 8.0
+offset_bottom = 24.0
+scale = Vector2(0.667, 0.667)
+entranceName = "Desert Chest Stairs"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Samasa Desert/DesertCliff" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_top = -16.0
+offset_right = 24.0
+offset_bottom = 8.0
+scale = Vector2(0.667, 0.667)
+entranceName = "Desert Chest Dive Spot"
+entranceType = 1
+
+[node name="BeachedShip" type="Sprite2D" parent="Inner/Holodrum/Samasa Desert"]
+position = Vector2(2323, 1931)
+texture = ExtResource("115_na5rn")
+
+[node name="Entrance" parent="Inner/Holodrum/Samasa Desert/BeachedShip" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 52.0
+offset_right = 20.0
+offset_bottom = 76.0
+entranceName = "Beached Ship"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Samasa Desert/BeachedShip" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -76.0
+offset_right = 4.0
+offset_bottom = -52.0
+entranceName = "Beached Ship (Subrosia)"
+entranceType = 1
+
+[node name="Western Coast" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="FairyFountain" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(616, 1608)
+texture = ExtResource("44_eivme")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/FairyFountain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Western Coast Fairy Fountain"
+entranceType = 1
+
+[node name="OldMan" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(320, 1616)
+texture = ExtResource("18_kng33")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/OldMan" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = 28.0
+offset_right = 68.0
+offset_bottom = 52.0
+entranceName = "Western Coast Old Man"
+entranceType = 1
+
+[node name="PitHouseMain" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(400, 1744)
+texture = ExtResource("58_0dbgw")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/PitHouseMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Pit House Main Entrance"
+entranceType = 1
+
+[node name="PitCave" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(264, 1880)
+texture = ExtResource("73_igx33")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/PitCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Cave Leading to Graveyard"
+entranceType = 1
+
+[node name="Stairs" parent="Inner/Holodrum/Western Coast/PitCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Graveyard Stairs"
+entranceType = 1
+
+[node name="PirateShip" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(416, 1896)
+texture = ExtResource("83_r5ke7")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/PirateShip" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 52.0
+offset_right = 20.0
+offset_bottom = 76.0
+entranceName = "Pirate Ship"
+entranceType = 1
+
+[node name="HiddenGraveStairs" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(112, 1824)
+texture = ExtResource("80_pqhje")
+
+[node name="Stairs" parent="Inner/Holodrum/Western Coast/HiddenGraveStairs" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = 28.0
+offset_right = -44.0
+offset_bottom = 52.0
+entranceName = "Hidden Graveyard Stairs"
+entranceType = 1
+
+[node name="PitHouseSide" type="Sprite2D" parent="Inner/Holodrum/Western Coast"]
+position = Vector2(520, 1744)
+texture = ExtResource("59_iuf5e")
+
+[node name="Entrance" parent="Inner/Holodrum/Western Coast/PitHouseSide" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 64.0
+entranceName = "Pit House Side Entrance"
+entranceType = 1
+
+[node name="Temple Remains" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="PathToD8F1" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(920, 264)
+texture = ExtResource("69_yvjjd")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/PathToD8F1" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = 64.0
+offset_right = -36.0
+offset_bottom = 88.0
+entranceName = "Temple Remains Cave Past Vines"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Temple Remains/PathToD8F1" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = -60.0
+offset_right = 92.0
+offset_bottom = -36.0
+entranceName = "Path to D8 F1 Stairs"
+entranceType = 1
+
+[node name="HPCave" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(720, 192)
+texture = ExtResource("70_dqphw")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/HPCave" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Temple Remains Bomb Cave"
+entranceType = 1
+
+[node name="D8PortalTR" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(720, 64)
+texture = ExtResource("71_bjdkv")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/D8PortalTR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Temple Remains Portal Entrance"
+entranceType = 1
+
+[node name="Portal" parent="Inner/Holodrum/Temple Remains/D8PortalTR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -20.0
+offset_top = -52.0
+offset_right = 4.0
+offset_bottom = -28.0
+entranceName = "Temple Remains D8 Portal"
+entranceType = 1
+
+[node name="PathToD8F2" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(1160, 264)
+texture = ExtResource("72_0aupo")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/PathToD8F2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -92.0
+offset_top = -60.0
+offset_right = -68.0
+offset_bottom = -36.0
+entranceName = "Temple Remains Lynel Stairs Right"
+entranceType = 1
+
+[node name="Entrance2" parent="Inner/Holodrum/Temple Remains/PathToD8F2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 68.0
+offset_top = -60.0
+offset_right = 92.0
+offset_bottom = -36.0
+entranceName = "Path to D8 F2 Stairs"
+entranceType = 1
+
+[node name="PathToD8F3" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(920, 88)
+texture = ExtResource("73_xetlw")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/PathToD8F3" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -76.0
+offset_top = -44.0
+offset_right = -52.0
+offset_bottom = -20.0
+entranceName = "Temple Remains Stairs Near Portal"
+entranceType = 1
+
+[node name="PathToD8F4" type="Sprite2D" parent="Inner/Holodrum/Temple Remains"]
+position = Vector2(1160, 88)
+texture = ExtResource("74_vm38c")
+
+[node name="Entrance" parent="Inner/Holodrum/Temple Remains/PathToD8F4" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 52.0
+offset_top = -44.0
+offset_right = 76.0
+offset_bottom = -20.0
+entranceName = "Temple Remains Lynel Stairs Left"
+entranceType = 1
+
+[node name="Dungeons" type="Node2D" parent="Inner/Holodrum"]
+
+[node name="D0Main" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(700, 1744)
+texture = ExtResource("11_jkcer")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D0Main" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "D0 - Hero's Cave"
+entranceType = 1
+
+[node name="D0Side" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(863, 1744)
+texture = ExtResource("12_76468")
+
+[node name="Drop" parent="Inner/Holodrum/Dungeons/D0Side" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = -28.0
+offset_right = 68.0
+offset_bottom = -4.0
+entranceName = "D0 - Hero's Cave Chest Drop"
+entranceType = 1
+oneWay = true
+
+[node name="D1" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(1032, 1176)
+texture = ExtResource("12_ps4f2")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D1" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D1 - Gnarled Root Dungeon"
+entranceType = 1
+
+[node name="D2" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(2040, 1248)
+texture = ExtResource("13_aj2mt")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D2" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D2 - Snake's Remains"
+entranceType = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="D2Alt" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(2280, 1072)
+texture = ExtResource("28_umib0")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D2Alt" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 84.0
+offset_top = 51.0
+offset_right = 108.0
+offset_bottom = 75.0
+entranceName = "D2 - Stairs Entrance"
+entranceType = 1
+
+[node name="D2Bomb" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(2040, 1072)
+texture = ExtResource("29_shncu")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D2Bomb" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -108.0
+offset_top = 52.0
+offset_right = -84.0
+offset_bottom = 76.0
+entranceName = "D2 - Bomb Puzzle"
+entranceType = 1
+
+[node name="D3" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(120, 695)
+texture = ExtResource("14_7rfxk")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D3" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D3 - Poison Moth's Lair"
+entranceType = 1
+
+[node name="D4" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(2088, 88)
+texture = ExtResource("15_xv2ee")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D4" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D4 - Dancing Dragon Dungeon"
+entranceType = 1
+
+[node name="D5" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(1688, 1072)
+texture = ExtResource("16_3jcr2")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D5" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D5 - Unicorn Cave"
+entranceType = 1
+
+[node name="D6" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(120, 88)
+texture = ExtResource("17_yk7vm")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D6" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D6 - Ancient Tomb"
+entranceType = 1
+
+[node name="D7" type="Sprite2D" parent="Inner/Holodrum/Dungeons"]
+position = Vector2(120, 1672)
+texture = ExtResource("18_4nqyt")
+
+[node name="Entrance" parent="Inner/Holodrum/Dungeons/D7" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D7 - Explorer's Crypt"
+entranceType = 1
+
+[node name="Subrosia" type="Node2D" parent="Inner"]
+visible = false
+
+[node name="Mountain" type="Node2D" parent="Inner/Subrosia"]
+
+[node name="D8" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(120, 88)
+texture = ExtResource("19_1tlhh")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/D8" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "D8 - Sword & Shield Maze"
+entranceType = 1
+altMap = true
+
+[node name="SubrosianDancing" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(752, 272)
+texture = ExtResource("117_6ku68")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/SubrosianDancing" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 44.0
+offset_top = -53.0
+offset_right = 68.0
+offset_bottom = -29.0
+entranceName = "Subrosian Dancing"
+entranceType = 1
+altMap = true
+
+[node name="RosaChest" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(424, 119)
+texture = ExtResource("118_ijmcy")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/RosaChest" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Rosa Chest"
+entranceType = 1
+altMap = true
+
+[node name="Fireworks" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(616, 72)
+texture = ExtResource("119_eyh77")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/Fireworks" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 12.0
+offset_bottom = 72.0
+entranceName = "Fireworks"
+entranceType = 1
+altMap = true
+
+[node name="Grass" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(768, 64)
+texture = ExtResource("120_0pfj6")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/Grass" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Grass Room"
+entranceType = 1
+altMap = true
+
+[node name="MountainChest" type="Sprite2D" parent="Inner/Subrosia/Mountain"]
+position = Vector2(184, 256)
+texture = ExtResource("121_q8oq4")
+
+[node name="Entrance" parent="Inner/Subrosia/Mountain/MountainChest" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Subrosian Mountain West Cave"
+entranceType = 1
+altMap = true
+
+[node name="Village" type="Node2D" parent="Inner/Subrosia"]
+
+[node name="LavaSoup" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(352, 271)
+texture = ExtResource("122_00t3r")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/LavaSoup" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Lava Soup"
+entranceType = 1
+altMap = true
+
+[node name="OreChunkSubrosian" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(592, 272)
+texture = ExtResource("123_ffhet")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/OreChunkSubrosian" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Ore Chunk Subrosian"
+entranceType = 1
+altMap = true
+
+[node name="Smithy" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(616, 404)
+texture = ExtResource("124_nfdh1")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/Smithy" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -44.0
+offset_top = 40.0
+offset_right = -20.0
+offset_bottom = 64.0
+entranceName = "Smithy"
+entranceType = 1
+altMap = true
+
+[node name="Market" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(848, 535)
+texture = ExtResource("125_o5u8r")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/Market" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Subrosian Market"
+entranceType = 1
+altMap = true
+
+[node name="RosaPathway" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(880, 407)
+texture = ExtResource("126_mnfbx")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/RosaPathway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 36.0
+offset_top = 40.0
+offset_right = 60.0
+offset_bottom = 64.0
+entranceName = "Rosa Connector Right"
+entranceType = 1
+altMap = true
+
+[node name="Entrance2" parent="Inner/Subrosia/Village/RosaPathway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -60.0
+offset_top = 40.0
+offset_right = -36.0
+offset_bottom = 64.0
+entranceName = "Rosa Connector Left"
+entranceType = 1
+altMap = true
+
+[node name="GashaSubrosian" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(696, 532)
+texture = ExtResource("126_sy5di")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/GashaSubrosian" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Gasha Subrosian"
+entranceType = 1
+altMap = true
+
+[node name="StrangeBrothersL" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(247, 656)
+texture = ExtResource("127_wa54r")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/StrangeBrothersL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 64.0
+entranceName = "Hide and Seed"
+entranceType = 1
+altMap = true
+
+[node name="StrangeBrothersR" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(367, 656)
+texture = ExtResource("128_n6dvv")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/StrangeBrothersR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Strange Brothers"
+entranceType = 1
+altMap = true
+
+[node name="Spring2DL" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(760, 728)
+texture = ExtResource("129_up5mm")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/Spring2DL" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -108.0
+offset_top = -88.0
+offset_right = -84.0
+offset_bottom = -64.0
+entranceName = "Village Stairs to Temple"
+entranceType = 1
+altMap = true
+
+[node name="Spring2DR" type="Sprite2D" parent="Inner/Subrosia/Village"]
+position = Vector2(1000, 728)
+texture = ExtResource("130_ey3im")
+
+[node name="Entrance" parent="Inner/Subrosia/Village/Spring2DR" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -88.0
+offset_right = 12.0
+offset_bottom = -64.0
+entranceName = "Ladder to Spring Tower"
+entranceType = 1
+altMap = true
+
+[node name="Pirates" type="Node2D" parent="Inner/Subrosia"]
+
+[node name="PiratesMain" type="Sprite2D" parent="Inner/Subrosia/Pirates"]
+position = Vector2(376, 960)
+texture = ExtResource("131_ywgn1")
+
+[node name="Entrance" parent="Inner/Subrosia/Pirates/PiratesMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Pirates Entrance"
+entranceType = 1
+altMap = true
+
+[node name="Entrance2" parent="Inner/Subrosia/Pirates/PiratesMain" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = -52.0
+offset_right = -44.0
+offset_bottom = -28.0
+entranceName = "Pirates 1F Stairs"
+entranceType = 1
+altMap = true
+
+[node name="Pirates2F" type="Sprite2D" parent="Inner/Subrosia/Pirates"]
+position = Vector2(376, 832)
+texture = ExtResource("132_sqcst")
+
+[node name="Entrance" parent="Inner/Subrosia/Pirates/Pirates2F" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = 28.0
+offset_right = -44.0
+offset_bottom = 52.0
+entranceName = "Pirates 2F Stairs"
+entranceType = 1
+altMap = true
+
+[node name="Entrance2" parent="Inner/Subrosia/Pirates/Pirates2F" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -68.0
+offset_top = -52.0
+offset_right = -44.0
+offset_bottom = -28.0
+entranceName = "Pirates Roof"
+entranceType = 1
+altMap = true
+
+[node name="Furnace" type="Node2D" parent="Inner/Subrosia"]
+
+[node name="Furnace" type="Sprite2D" parent="Inner/Subrosia/Furnace"]
+position = Vector2(1472, 592)
+texture = ExtResource("149_m4lb6")
+
+[node name="Entrance" parent="Inner/Subrosia/Furnace/Furnace" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 44.0
+offset_bottom = 64.0
+entranceName = "Furnace"
+entranceType = 1
+altMap = true
+
+[node name="SignGuy" type="Sprite2D" parent="Inner/Subrosia/Furnace"]
+position = Vector2(1680, 736)
+texture = ExtResource("150_hdlq8")
+
+[node name="Entrance" parent="Inner/Subrosia/Furnace/SignGuy" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Sign Guy"
+entranceType = 1
+altMap = true
+
+[node name="RedOreHallway" type="Sprite2D" parent="Inner/Subrosia/Furnace"]
+position = Vector2(1336, 760)
+texture = ExtResource("151_gcnur")
+
+[node name="Entrance" parent="Inner/Subrosia/Furnace/RedOreHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 64.0
+offset_right = 12.0
+offset_bottom = 88.0
+entranceName = "Red Ore Entrance"
+entranceType = 1
+altMap = true
+
+[node name="Entrance2" parent="Inner/Subrosia/Furnace/RedOreHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = 20.0
+offset_top = -76.0
+offset_right = 44.0
+offset_bottom = -52.0
+entranceName = "Red Ore Stairs"
+entranceType = 1
+altMap = true
+
+[node name="Temple" type="Node2D" parent="Inner/Subrosia"]
+
+[node name="SpringEntrance" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1224, 592)
+texture = ExtResource("133_mu24o")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/SpringEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Spring Tower"
+entranceType = 1
+altMap = true
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SpringEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -68.0
+offset_right = 12.0
+offset_bottom = -44.0
+entranceName = "Spring Tower Stairs"
+entranceType = 1
+altMap = true
+
+[node name="SpringHallway" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1368, 456)
+texture = ExtResource("134_q0wdl")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SpringHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Spring Tower Hallway Top"
+entranceType = 1
+altMap = true
+
+[node name="Stairs2" parent="Inner/Subrosia/Temple/SpringHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 36.0
+offset_right = 12.0
+offset_bottom = 60.0
+entranceName = "Spring Tower Hallways Bottom"
+entranceType = 1
+altMap = true
+
+[node name="SpringSpirit" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1232, 424)
+texture = ExtResource("135_thabc")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SpringSpirit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 60.0
+entranceName = "Spring Tower Spirit"
+entranceType = 1
+altMap = true
+
+[node name="SummerEntrance" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1592, 80)
+texture = ExtResource("137_yg0ov")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/SummerEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Summer Tower"
+entranceType = 1
+altMap = true
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SummerEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -68.0
+offset_right = 12.0
+offset_bottom = -44.0
+entranceName = "Summer Tower Stairs"
+entranceType = 1
+altMap = true
+
+[node name="SummerHallway" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1720, 264)
+texture = ExtResource("138_l6uu4")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SummerHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Summer Tower Hallway Top"
+entranceType = 1
+altMap = true
+
+[node name="Stairs2" parent="Inner/Subrosia/Temple/SummerHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 36.0
+offset_right = 12.0
+offset_bottom = 60.0
+entranceName = "Summer Tower Hallways Bottom"
+entranceType = 1
+altMap = true
+
+[node name="SummerSpirit" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1584, 248)
+texture = ExtResource("139_0pri2")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/SummerSpirit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 60.0
+entranceName = "Summer Tower Spirit"
+entranceType = 1
+altMap = true
+
+[node name="WinterEntrance" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1656, 592)
+texture = ExtResource("136_o1olx")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/WinterEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Winter Tower"
+entranceType = 1
+altMap = true
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/WinterEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -68.0
+offset_right = 12.0
+offset_bottom = -44.0
+entranceName = "Winter Tower Stairs"
+entranceType = 1
+altMap = true
+
+[node name="WinterHallway" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1527, 408)
+texture = ExtResource("137_awiv6")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/WinterHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Winter Tower Hallway Top"
+entranceType = 1
+altMap = true
+
+[node name="Stairs2" parent="Inner/Subrosia/Temple/WinterHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 36.0
+offset_right = 12.0
+offset_bottom = 60.0
+entranceName = "Winter Tower Hallways Bottom"
+entranceType = 1
+altMap = true
+
+[node name="WinterSpirit" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1664, 424)
+texture = ExtResource("138_2b7hj")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/WinterSpirit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 60.0
+entranceName = "Winter Tower Spirit"
+entranceType = 1
+altMap = true
+
+[node name="FallEntrance" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1224, 80)
+texture = ExtResource("143_vdmf8")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/FallEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 56.0
+offset_right = 12.0
+offset_bottom = 80.0
+entranceName = "Fall Tower"
+entranceType = 1
+altMap = true
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/FallEntrance" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -68.0
+offset_right = 12.0
+offset_bottom = -44.0
+entranceName = "Fall Tower Stairs"
+entranceType = 1
+altMap = true
+
+[node name="FallHallway" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1096, 264)
+texture = ExtResource("144_h0j53")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/FallHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 12.0
+offset_bottom = -36.0
+entranceName = "Fall Tower Hallway Top"
+entranceType = 1
+altMap = true
+
+[node name="Stairs2" parent="Inner/Subrosia/Temple/FallHallway" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 36.0
+offset_right = 12.0
+offset_bottom = 60.0
+entranceName = "Fall Tower Hallways Bottom"
+entranceType = 1
+altMap = true
+
+[node name="TempleOfSeasons" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1408, 320)
+texture = ExtResource("145_fyoes")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/TempleOfSeasons" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Temple of Seasons"
+entranceType = 1
+altMap = true
+
+[node name="RodPedestal" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1408, 192)
+texture = ExtResource("146_vbe2y")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/RodPedestal" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = -64.0
+offset_right = 12.0
+offset_bottom = -40.0
+entranceName = "Temple of Seasons Waterfall"
+entranceType = 1
+altMap = true
+
+[node name="TempleWaterfall" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1408, 64)
+texture = ExtResource("147_ewjp7")
+
+[node name="Entrance" parent="Inner/Subrosia/Temple/TempleWaterfall" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -12.0
+offset_top = 40.0
+offset_right = 12.0
+offset_bottom = 64.0
+entranceName = "Temple of Seasons Behind Waterfall"
+entranceType = 1
+altMap = true
+
+[node name="FallSpirit" type="Sprite2D" parent="Inner/Subrosia/Temple"]
+position = Vector2(1232, 248)
+texture = ExtResource("148_lfh5a")
+
+[node name="Stairs" parent="Inner/Subrosia/Temple/FallSpirit" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 60.0
+entranceName = "Fall Tower Spirit"
+entranceType = 1
+altMap = true
+
+[node name="UIController" type="CanvasLayer" parent="." node_paths=PackedStringArray("HolodrumParent", "HolodrumInnerParent", "SubrosiaParent", "SubrosiaInnerParent", "natzuRickyParent", "natzuRickyInnerParent", "rickyButton", "mooshButton", "dimitriButton", "nameLabel", "selectionLabel")]
+script = ExtResource("6_3nxjj")
+HolodrumParent = NodePath("../Outer/Holodrum")
+HolodrumInnerParent = NodePath("../Inner/Holodrum")
+SubrosiaParent = NodePath("../Outer/Subrosia")
+SubrosiaInnerParent = NodePath("../Inner/Subrosia")
+natzuRicky = ExtResource("35_ngxil")
+natzuMoosh = ExtResource("36_obfw2")
+natzuDimitri = ExtResource("37_mnac2")
+natzuRickyParent = NodePath("../Outer/Holodrum/Natzu/CompanionEntrances")
+natzuRickyInnerParent = NodePath("../Inner/Holodrum/Natzu/CompanionEntrances")
+rickyButton = NodePath("Ricky")
+mooshButton = NodePath("Moosh")
+dimitriButton = NodePath("Dimitri")
+nameLabel = NodePath("EntranceName")
+selectionLabel = NodePath("SelectedName")
+natzuDataList = Array[Resource]([ExtResource("155_wuxth"), ExtResource("156_w5j6l"), ExtResource("157_7xprr"), ExtResource("158_jqt07"), ExtResource("159_58c4h"), ExtResource("160_j2d8o"), ExtResource("161_hbe2y"), ExtResource("162_yspka"), ExtResource("163_ussu0"), ExtResource("164_l6h1i"), ExtResource("165_sor2o"), ExtResource("166_c0mbj")])
+
+[node name="Blank" type="Sprite2D" parent="UIController"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1279.86, 16)
+scale = Vector2(2560.28, 32)
+texture = ExtResource("155_eth3g")
+
+[node name="Holodrum" type="Button" parent="UIController"]
+offset_right = 87.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Holodrum"
+
+[node name="Subrosia" type="Button" parent="UIController"]
+offset_left = 92.0
+offset_right = 179.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Subrosia"
+
+[node name="Outer" type="Button" parent="UIController"]
+offset_left = 183.0
+offset_right = 270.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Outer"
+
+[node name="Inner" type="Button" parent="UIController"]
+offset_left = 277.0
+offset_right = 364.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Inner"
+
+[node name="Ricky" type="Button" parent="UIController"]
+offset_left = 372.0
+offset_right = 459.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Ricky"
+
+[node name="Moosh" type="Button" parent="UIController"]
+offset_left = 463.0
+offset_right = 550.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Moosh"
+
+[node name="Dimitri" type="Button" parent="UIController"]
+offset_left = 554.0
+offset_right = 641.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Dimitri"
+
+[node name="Reset" type="Button" parent="UIController"]
+offset_left = 671.0
+offset_right = 758.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Reset"
+
+[node name="Go Back" type="Button" parent="UIController"]
+offset_left = 763.0
+offset_right = 850.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Go Back"
+
+[node name="EntranceName" type="RichTextLabel" parent="UIController"]
+offset_left = 93.0
+offset_top = 34.0
+offset_right = 233.0
+offset_bottom = 57.0
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="SelectedName" type="RichTextLabel" parent="UIController"]
+offset_left = 853.0
+offset_top = 4.0
+offset_right = 993.0
+offset_bottom = 28.0
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="UIController/Holodrum" to="UIController" method="_OnHolodrumPressed"]
+[connection signal="pressed" from="UIController/Subrosia" to="UIController" method="_OnSubrosiaPressed"]
+[connection signal="pressed" from="UIController/Outer" to="UIController" method="_OnOuterPressed"]
+[connection signal="pressed" from="UIController/Inner" to="UIController" method="_OnInnerPressed"]
+[connection signal="pressed" from="UIController/Ricky" to="UIController" method="_OnCompanionPressed" binds= [&"Ricky"]]
+[connection signal="pressed" from="UIController/Moosh" to="UIController" method="_OnCompanionPressed" binds= [&"Moosh"]]
+[connection signal="pressed" from="UIController/Dimitri" to="UIController" method="_OnCompanionPressed" binds= [&"Dimitri"]]
+[connection signal="pressed" from="UIController/Reset" to="UIController" method="_OnResetPressed"]
+[connection signal="pressed" from="UIController/Go Back" to="UIController" method="_OnGoBackPressed"]
