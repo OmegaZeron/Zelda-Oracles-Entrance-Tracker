@@ -125,21 +125,21 @@ public partial class Entrance : TextureButton
 			MoveToAndPulse(decoupledEntrance);
 		}
 		// left click - start/continue linking process, or display current link
-		else if (button.ButtonIndex == MouseButton.Left && !isTrash)
+		else if (button.ButtonIndex == MouseButton.Left && (!isTrash || GameSelector.Instance.DecoupledMode))
 		{
 			if (linkedEntrance == null && Input.IsKeyPressed(Key.Shift))
 			{
 				UIController.Instance.TrashEntrance(this);
 				return;
 			}
-			if (linkedEntrance == null || GameSelector.Instance.DecoupledMode && decoupledEntrance == null && UIController.Instance.IsAttemptingLink())
+			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && decoupledEntrance == null && (UIController.Instance.IsAttemptingLink() || !isTrash))
 			{
 				if (UIController.Instance.OnEntranceSelected(this))
 				{
 					UIController.Instance.DisplayEntranceName(entranceName, entranceType, linkedEntrance?.entranceName, decoupledEntrance?.entranceName);
 				}
 			}
-			else
+			else if (linkedEntrance != null)
 			{
 				MoveToAndPulse(linkedEntrance);
 			}
