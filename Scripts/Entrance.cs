@@ -132,7 +132,7 @@ public partial class Entrance : TextureButton
 				UIController.Instance.TrashEntrance(this);
 				return;
 			}
-			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && decoupledEntrance == null && (UIController.Instance.IsAttemptingLink() || !isTrash))
+			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && (decoupledEntrance == null || !UIController.Instance.IsAttemptingLink()) && (UIController.Instance.IsAttemptingLink() || !isTrash && linkedEntrance == null))
 			{
 				if (UIController.Instance.OnEntranceSelected(this))
 				{
