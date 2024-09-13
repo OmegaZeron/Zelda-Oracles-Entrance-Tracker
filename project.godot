@@ -10,14 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Oracles Entrance Rando Tracker"
+config/name="Oracles Entrance Tracker"
 run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/show_image=false
+config/icon="res://icon.png"
 
 [autoload]
 
 SaveManager="*res://Scripts/SaveManager.cs"
+
+[display]
+
+window/version=""
+window/icon="res://icon.png"
 
 [dotnet]
 

@@ -49,7 +49,17 @@ public partial class SaveManager : Node
 		using FileAccess file = FileAccess.Open(GetSelectedPath(), FileAccess.ModeFlags.Write);
 		Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, string>> outers = new();
 		Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, string>> inners = new();
-		Array<Node> nodes = GameSelector.Instance.currentGame == GameSelector.Game.Seasons ? UIController.Instance.seasonsEntranceNodes : UIController.Instance.agesEntranceNodes;
+		Array<Node> nodes = GameSelector.Instance.currentGame switch
+		{
+			GameSelector.Game.Seasons => UIController.Instance.seasonsEntranceNodes,
+			GameSelector.Game.Ages => UIController.Instance.agesEntranceNodes,
+			_ => null
+		};
+		if (nodes == null)
+		{
+			// TODO error probably
+			return;
+		}
 		foreach (Node node in nodes)
 		{
 			if (node is not Entrance entrance) { continue; }
@@ -93,7 +103,16 @@ public partial class SaveManager : Node
 			GD.PushWarning($"Save file is for {game}, but selected game is {GameSelector.Instance.currentGame}");
 			return;
 		}
-		string mapVersion = GameSelector.Instance.currentGame == GameSelector.Game.Seasons ? SEASONS_VERSION : AGES_VERSION;
+		string mapVersion = GameSelector.Instance.currentGame switch {
+			GameSelector.Game.Seasons => SEASONS_VERSION,
+			GameSelector.Game.Ages => AGES_VERSION,
+			_ => ""
+		};
+		if (mapVersion == "")
+		{
+			// TODO error probably
+			return;
+		}
 		string saveVersion = file.GetLine();
 		if (saveVersion != mapVersion)
 		{

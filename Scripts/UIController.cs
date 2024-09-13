@@ -1,6 +1,5 @@
 using Godot;
 using System;
-using System.Linq;
 using Godot.Collections;
 
 public partial class UIController : CanvasLayer
@@ -113,7 +112,7 @@ public partial class UIController : CanvasLayer
 				}
 			}
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			
 		}
@@ -121,7 +120,7 @@ public partial class UIController : CanvasLayer
 
 	private void Start()
 	{
-		Array<Node> nodes;
+		Array<Node> nodes = null;
 		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
 		{
 			seasonsEntranceNodes = GetTree().GetNodesInGroup("SeasonsEntrance");
@@ -140,10 +139,16 @@ public partial class UIController : CanvasLayer
 				natzuNodes[Entrance.EntranceType.Inner].Add(((Sprite2D)node).GetChild<Entrance>(0).entranceName, node);
 			}
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			agesEntranceNodes = GetTree().GetNodesInGroup("AgesEntrance");
 			nodes = agesEntranceNodes;
+		}
+
+		if (nodes == null)
+		{
+			// TODO error probably
+			return;
 		}
 		entranceDict = new Dictionary<GameSelector.Game, Dictionary<Entrance.EntranceType, Dictionary<string, Entrance>>>
 		{
@@ -219,7 +224,7 @@ public partial class UIController : CanvasLayer
 			dimitriButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
 			Camera.Instance.ChangeBounds(seasonsMapState is SeasonsMapState.Subrosia or SeasonsMapState.SubrosiaInner);
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			
 		}
@@ -250,7 +255,7 @@ public partial class UIController : CanvasLayer
 		{
 			seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner ? SeasonsMapState.Holodrum : SeasonsMapState.Subrosia;
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			agesMapState = agesMapState is AgesMapState.Present or AgesMapState.PresentInner ? AgesMapState.Present : AgesMapState.Past;
 		}
@@ -263,7 +268,7 @@ public partial class UIController : CanvasLayer
 		{
 			seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner ? SeasonsMapState.HolodrumInner : SeasonsMapState.SubrosiaInner;
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			agesMapState = agesMapState is AgesMapState.Present or AgesMapState.PresentInner ? AgesMapState.PresentInner : AgesMapState.PastInner;
 		}
@@ -283,7 +288,7 @@ public partial class UIController : CanvasLayer
 				seasonsMapState = outer ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
 			}
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			if (defaultMap)
 			{
@@ -325,7 +330,7 @@ public partial class UIController : CanvasLayer
 			// TODO retarget linked entrances?
 			MoveCompanionNodes();
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			LabrynnaPresentParent.Texture = companionState switch
 			{

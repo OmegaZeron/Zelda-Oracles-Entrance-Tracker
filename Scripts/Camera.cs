@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Camera : Camera2D
 {
@@ -15,7 +14,6 @@ public partial class Camera : Camera2D
 	[Export] private float minZoom = .655f;
 	[Export] private float maxZoom = 3;
 	private float zoomIncrement = .1f;
-	private float zoomRate = 20;
 	[Export] private float cameraPanSpeed = 10;
 
 	[Export] private Vector2I holodrumLimit;
@@ -39,14 +37,6 @@ public partial class Camera : Camera2D
 	public void Resize()
 	{
 		viewport = DisplayServer.WindowGetSize();
-		if (viewport.X > LimitRight)
-		{
-			viewport.X = LimitRight;
-		}
-		if (viewport.Y > LimitBottom)
-		{
-			viewport.Y = LimitBottom;
-		}
 		ClampCameraToBounds();
 	}
 	
@@ -91,11 +81,11 @@ public partial class Camera : Camera2D
 			{
 				if (button.ButtonIndex == MouseButton.WheelUp)
 				{
-					ZoomOut();
+					ZoomIn();
 				}
 				else if (button.ButtonIndex == MouseButton.WheelDown)
 				{
-					ZoomIn();
+					ZoomOut();
 				}
 				else if (button.ButtonIndex == MouseButton.Middle)
 				{
@@ -117,20 +107,18 @@ public partial class Camera : Camera2D
 		Position = new Vector2
 		(
 			Mathf.Clamp(Position.X, Mathf.Min(LimitLeft + bounds.X, LimitRight - bounds.X), Mathf.Max(LimitLeft + bounds.X, LimitRight - bounds.X)),
-			Mathf.Clamp(Position.Y, Mathf.Min(LimitTop + bounds.Y, LimitBottom - bounds.Y), MathF.Max(LimitTop + bounds.Y, LimitBottom - bounds.Y))
+			Mathf.Clamp(Position.Y, Mathf.Min(LimitTop + bounds.Y, LimitBottom - bounds.Y), Mathf.Max(LimitTop + bounds.Y, LimitBottom - bounds.Y))
 		);
 	}
 	private void ZoomIn()
 	{
-		targetZoom = Mathf.Max(targetZoom - zoomIncrement, minZoom);
+		targetZoom = Mathf.Min(targetZoom + zoomIncrement, maxZoom);
 		targetMousePos = GetGlobalMousePosition();
-		SetPhysicsProcess(true);
 	}
 	private void ZoomOut()
 	{
-		targetZoom = Mathf.Min(targetZoom + zoomIncrement, maxZoom);
+		targetZoom = Mathf.Max(targetZoom - zoomIncrement, minZoom);
 		targetMousePos = GetGlobalMousePosition();
-		SetPhysicsProcess(true);
 	}
 	
 	// move camera to the given position
@@ -147,7 +135,7 @@ public partial class Camera : Camera2D
 			LimitRight = altMap ? subrosiaLimit.X : holodrumLimit.X;
 			LimitBottom = altMap ? subrosiaLimit.Y : holodrumLimit.Y;
 		}
-		else
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
 			LimitRight = labrynnaLimit.X;
 			LimitBottom = labrynnaLimit.Y;

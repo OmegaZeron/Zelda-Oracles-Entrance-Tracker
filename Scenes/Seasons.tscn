@@ -180,6 +180,7 @@ limit_smoothed = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("7_6am78")
+minZoom = 0.8
 holodrumLimit = Vector2i(2560, 2080)
 subrosiaLimit = Vector2i(1760, 1056)
 

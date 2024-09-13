@@ -6,6 +6,8 @@ public partial class GameSelector : Control
 {
 	public static GameSelector Instance { get; private set; }
 
+	private const string APP_VERSION = "v0.1.0";
+
 	public enum Game
 	{
 		None,
@@ -29,6 +31,8 @@ public partial class GameSelector : Control
 	public override void _Ready()
 	{
 		Instance = this;
+
+		GetWindow().Title = $"Oracles Entrance Tracker {APP_VERSION}";
 		
 		GetTree().QuitOnGoBack = false;
 		// preload scenes
@@ -44,7 +48,17 @@ public partial class GameSelector : Control
 	private void _SelectGame(string gameName)
 	{
 		currentGame = Enum.Parse<Game>(gameName);
-		PackedScene scene = currentGame == Game.Seasons ? seasonsScene : agesScene;
+		PackedScene scene = currentGame switch
+		{
+			Game.Seasons => seasonsScene,
+			Game.Ages => agesScene,
+			_ => null
+		};
+		if (scene == null)
+		{
+			// TODO error probably
+			return;
+		}
 		loadedScene = scene.Instantiate();
 		AddChild(loadedScene);
 		
@@ -63,6 +77,7 @@ public partial class GameSelector : Control
 		RemoveChild(loadedScene);
 		loadedScene.QueueFree();
 		loadedScene = null;
+		currentGame = Game.None;
 	}
 
 	private void _QuitPressed()
