@@ -195,12 +195,12 @@ public partial class UIController : CanvasLayer
 		nameLabel.Text = $" [outline_color=#000000][outline_size=6]{entrance.entranceName} ({entrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
 		if (!string.IsNullOrEmpty(entrance.linkedEntrance?.entranceName))
 		{
-			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]Linked to: {entrance.linkedEntrance.entranceName} ({entrance.linkedEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
+			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]Linked to: {entrance.linkedEntrance.entranceName} ({entrance.linkedEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance.linkedEntrance)})[/outline_size][/outline_color]";
 		}
 
 		if (!string.IsNullOrEmpty(entrance.decoupledEntrance?.entranceName))
 		{
-			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]From: {entrance.decoupledEntrance.entranceName} ({entrance.decoupledEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance)})[/outline_size][/outline_color]";
+			nameLabel.Text += $"\n [outline_color=#000000][outline_size=6]From: {entrance.decoupledEntrance.entranceName} ({entrance.decoupledEntrance.entranceType.ToString()} {GetMapLabelFromEntrance(entrance.decoupledEntrance)})[/outline_size][/outline_color]";
 		}
 	}
 	public void ClearEntranceName()
