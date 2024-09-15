@@ -35,30 +35,17 @@ public partial class UIController : CanvasLayer
 	public Action ResetEntrances;
 	
 	// sprite here so we can swap between companion map textures
-	[Export] private Sprite2D HolodrumParent;
-	[Export] private Node2D HolodrumInnerParent;
-	[Export] private Node2D SubrosiaParent;
-	[Export] private Node2D SubrosiaInnerParent;
-	// sprite again
-	[Export] private Sprite2D LabrynnaPresentParent;
-	[Export] private Node2D LabrynnaPresentInnerParent;
-	[Export] private Node2D LabrynnaPastParent;
-	[Export] private Node2D LabrynnaPastInnerParent;
+	[Export] private Sprite2D overworldParent;
+	[Export] private Node2D overworldInnerParent;
+	[Export] private Node2D altMapParent;
+	[Export] private Node2D altMapInnerParent;
 
 	// seasons
-	[Export] private Texture2D natzuRicky;
-	[Export] private Texture2D natzuMoosh;
-	[Export] private Texture2D natzuDimitri;
-	[Export] private Node2D natzuRickyParent;
-	[Export] private Node2D natzuMooshParent;
-	[Export] private Node2D natzuDimitriParent;
-	[Export] private Node2D natzuRickyInnerParent;
-	[Export] private Node2D natzuMooshInnerParent;
-	[Export] private Node2D natzuDimitriInnerParent;
-	// ages
-	[Export] private Texture2D nuunRicky;
-	[Export] private Texture2D nuunMoosh;
-	[Export] private Texture2D nuunDimitri;
+	[Export] private Texture2D companionAreaRickyTex;
+	[Export] private Texture2D companionAreaMooshTex;
+	[Export] private Texture2D companionAreaDimitriTex;
+	[Export] private Node2D companionAreaParent;
+	[Export] private Node2D companionAreaInnerParent;
 
 	[Export] private Button rickyButton;
 	[Export] private Button mooshButton;
@@ -74,8 +61,8 @@ public partial class UIController : CanvasLayer
 	public Array<Node> seasonsEntranceNodes { get; private set; }
 	public Array<Node> agesEntranceNodes { get; private set; }
 
-	[Export] public Array<CompanionAreaData> natzuDataList;
-	private Dictionary<Entrance.EntranceType, Dictionary<string, Node>> natzuNodes;
+	[Export] public Array<CompanionAreaData> companionAreaDataList;
+	private Dictionary<Entrance.EntranceType, Dictionary<string, Node>> companionAreaNodes;
 	
 	public Dictionary<GameSelector.Game, Dictionary<Entrance.EntranceType, Dictionary<string, Entrance>>> entranceDict { get; private set; }
 
@@ -88,33 +75,26 @@ public partial class UIController : CanvasLayer
 
 	private void MoveCompanionNodes()
 	{
-		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+		foreach (CompanionAreaData data in companionAreaDataList)
 		{
-			foreach (CompanionAreaData data in natzuDataList)
+			if (data.companionState != companionState)
 			{
-				if (data.companionState != companionState)
-				{
-					continue;
-				}
-
-				if (data.entranceType == Entrance.EntranceType.Outer)
-				{
-					Entrance outerEntrance = (Entrance)natzuNodes[Entrance.EntranceType.Outer][data.name];
-					outerEntrance.GlobalPosition = data.location;
-				}
-				else
-				{
-					Sprite2D innerParent = (Sprite2D)natzuNodes[Entrance.EntranceType.Inner][data.name];
-					Entrance innerEntrance = innerParent.GetChild<Entrance>(0);
-					innerParent.GlobalPosition = data.location;
-					innerParent.Texture = data.tex;
-					innerEntrance.Position = data.entranceLoc;
-				}
+				continue;
 			}
-		}
-		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
-		{
-			
+
+			if (data.entranceType == Entrance.EntranceType.Outer)
+			{
+				Entrance outerEntrance = (Entrance)companionAreaNodes[Entrance.EntranceType.Outer][data.name];
+				outerEntrance.GlobalPosition = data.location;
+			}
+			else
+			{
+				Sprite2D innerParent = (Sprite2D)companionAreaNodes[Entrance.EntranceType.Inner][data.name];
+				Entrance innerEntrance = innerParent.GetChild<Entrance>(0);
+				innerParent.GlobalPosition = data.location;
+				innerParent.Texture = data.tex;
+				innerEntrance.Position = data.entranceLoc;
+			}
 		}
 	}
 
@@ -125,18 +105,18 @@ public partial class UIController : CanvasLayer
 		{
 			seasonsEntranceNodes = GetTree().GetNodesInGroup("SeasonsEntrance");
 			nodes = seasonsEntranceNodes;
-			natzuNodes = new Dictionary<Entrance.EntranceType, Dictionary<string, Node>>
+			companionAreaNodes = new Dictionary<Entrance.EntranceType, Dictionary<string, Node>>
 			{
 				{Entrance.EntranceType.Outer, new Dictionary<string, Node>()},
 				{Entrance.EntranceType.Inner, new Dictionary<string, Node>()}
 			};
 			foreach (Node node in GetTree().GetNodesInGroup("NatzuOuter"))
 			{
-				natzuNodes[Entrance.EntranceType.Outer].Add(((Entrance)node).entranceName, node);
+				companionAreaNodes[Entrance.EntranceType.Outer].Add(((Entrance)node).entranceName, node);
 			}
 			foreach (Node node in GetTree().GetNodesInGroup("NatzuInner"))
 			{
-				natzuNodes[Entrance.EntranceType.Inner].Add(((Sprite2D)node).GetChild<Entrance>(0).entranceName, node);
+				companionAreaNodes[Entrance.EntranceType.Inner].Add(((Sprite2D)node).GetChild<Entrance>(0).entranceName, node);
 			}
 		}
 		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
@@ -213,12 +193,12 @@ public partial class UIController : CanvasLayer
 	{
 		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
 		{
-			HolodrumParent.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
-			HolodrumParent.Modulate = new Color(HolodrumParent.Modulate, seasonsMapState == SeasonsMapState.Holodrum ? 1 : .5f);
-			HolodrumInnerParent.Visible = seasonsMapState == SeasonsMapState.HolodrumInner;
-			SubrosiaParent.Visible = seasonsMapState is SeasonsMapState.Subrosia or SeasonsMapState.SubrosiaInner;
-			SubrosiaParent.Modulate = new Color(SubrosiaParent.Modulate, seasonsMapState == SeasonsMapState.Subrosia ? 1 : .5f);
-			SubrosiaInnerParent.Visible = seasonsMapState == SeasonsMapState.SubrosiaInner;
+			overworldParent.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
+			overworldParent.Modulate = new Color(overworldParent.Modulate, seasonsMapState == SeasonsMapState.Holodrum ? 1 : .5f);
+			overworldInnerParent.Visible = seasonsMapState == SeasonsMapState.HolodrumInner;
+			altMapParent.Visible = seasonsMapState is SeasonsMapState.Subrosia or SeasonsMapState.SubrosiaInner;
+			altMapParent.Modulate = new Color(altMapParent.Modulate, seasonsMapState == SeasonsMapState.Subrosia ? 1 : .5f);
+			altMapInnerParent.Visible = seasonsMapState == SeasonsMapState.SubrosiaInner;
 			rickyButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
 			mooshButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
 			dimitriButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
@@ -311,39 +291,20 @@ public partial class UIController : CanvasLayer
 		{
 			return;
 		}
-		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+
+		overworldParent.Texture = companionState switch
 		{
-			HolodrumParent.Texture = companionState switch
-			{
-				CompanionState.Ricky => natzuRicky,
-				CompanionState.Moosh => natzuMoosh,
-				CompanionState.Dimitri => natzuDimitri,
-				_ => HolodrumParent.Texture
-			};
-			
-			// natzuRickyParent.Visible = companionState == CompanionState.Ricky;
-			// natzuRickyInnerParent.Visible = companionState == CompanionState.Ricky;
-			// natzuMooshParent.Visible = companionState == CompanionState.Moosh;
-			// natzuMooshInnerParent.Visible = companionState == CompanionState.Moosh;
-			// natzuDimitriParent.Visible = companionState == CompanionState.Dimitri;
-			// natzuDimitriInnerParent.Visible = companionState == CompanionState.Dimitri;
-			// TODO retarget linked entrances?
-			MoveCompanionNodes();
-		}
-		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
-		{
-			LabrynnaPresentParent.Texture = companionState switch
-			{
-				CompanionState.Ricky => nuunRicky,
-				CompanionState.Moosh => nuunMoosh,
-				CompanionState.Dimitri => nuunDimitri,
-				_ => LabrynnaPresentParent.Texture
-			};
-		}
+			CompanionState.Ricky => companionAreaRickyTex,
+			CompanionState.Moosh => companionAreaMooshTex,
+			CompanionState.Dimitri => companionAreaDimitriTex,
+			_ => overworldParent.Texture
+		};
+		MoveCompanionNodes();
 	}
 	private void _OnCompanionPressed(string companionName)
 	{
 		ChangeCompanionState(Enum.Parse<CompanionState>(companionName));
+		SaveManager.Instance.SaveLayout();
 	}
 
 	public bool IsAttemptingLink()
@@ -365,12 +326,6 @@ public partial class UIController : CanvasLayer
 				return false;
 			}
 		}
-	}
-
-	public void TrashEntrance(Entrance entrance)
-	{
-		entrance.TrashSelf();
-		SaveManager.Instance.SaveLayout();
 	}
 
 	public void ClearSelectedEntranceIfEqual(Entrance entrance)

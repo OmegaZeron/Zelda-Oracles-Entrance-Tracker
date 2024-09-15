@@ -4,6 +4,17 @@ using Godot.Collections;
 
 public partial class GameSelector : Control
 {
+	public class AppSettings
+	{
+		[Export] public int pulseCount = 4;
+		[Export] public float pulseDuration = 1;
+		[Export] public Vector2I windowPos;
+		[Export] public Vector2I windowSize;
+	}
+	public AppSettings appSettings { get; private set; }
+
+	private const string SETTINGS_PATH = "res://settings.json";
+	
 	public static GameSelector Instance { get; private set; }
 
 	private const string APP_VERSION = "v0.1.0";
@@ -21,10 +32,18 @@ public partial class GameSelector : Control
 	private PackedScene seasonsScene;
 	private PackedScene agesScene;
 	
-	[Export] public Texture2D unlinkedTexture { get; private set; }
-	[Export] public Texture2D linkedTexture { get; private set; }
-	[Export] public Texture2D decoupledTexture { get; private set; }
-	[Export] public Texture2D trashTexture { get; private set; }
+	// regular textures
+	[Export] public Texture2D unlinkedTexture { get; private set; } // red
+	[Export] public Texture2D linkedTexture { get; private set; } // green
+	[Export] public Texture2D trashTexture { get; private set; } // gray
+	// decoupled mode textures
+	[Export] public Texture2D linkedNoDecoupledTexture { get; private set; } // green/red
+	[Export] public Texture2D decoupledTexture { get; private set; } // red/yellow
+	[Export] public Texture2D linkedDecoupledTexture { get; private set; } // green/yellow
+	[Export] public Texture2D unlinkedTrashTexture { get; private set; } // red/gray
+	[Export] public Texture2D linkedTrashTexture { get; private set; } // green/gray
+	[Export] public Texture2D trashNoDecoupledTexture { get; private set; } // gray/red
+	[Export] public Texture2D trashDecoupledTexture { get; private set; } // gray/yellow
 
 	[Export] private Array<CanvasItem> UI;
 	
@@ -34,10 +53,75 @@ public partial class GameSelector : Control
 
 		GetWindow().Title = $"Oracles Entrance Tracker {APP_VERSION}";
 		
+		LoadSettings();
+		
 		GetTree().QuitOnGoBack = false;
 		// preload scenes
 		seasonsScene = GD.Load<PackedScene>("res://Scenes/Seasons.tscn");
 		// agesScene = GD.Load<PackedScene>("res://Scenes/Ages.tscn");
+	}
+	
+	private void LoadSettings()
+	{
+		using FileAccess file = FileAccess.Open(SETTINGS_PATH, FileAccess.ModeFlags.Read);
+		if (!FileAccess.FileExists(SETTINGS_PATH))
+		{
+			appSettings = new AppSettings
+			{
+				windowSize = GetWindow().Size,
+				windowPos = GetWindow().Position
+			};
+			using FileAccess newFile = FileAccess.Open(SETTINGS_PATH, FileAccess.ModeFlags.Write);
+			Dictionary<string, Variant> settingsDict = new()
+			{
+				{"pulseCount", appSettings.pulseCount},
+				{"pulseDuration", appSettings.pulseDuration},
+				{"windowSizeX", appSettings.windowSize.X},
+				{"windowSizeY", appSettings.windowSize.Y},
+				{"windowPosX", appSettings.windowPos.X},
+				{"windowPosY", appSettings.windowPos.Y}
+			};
+			string newSettings = Json.Stringify(settingsDict);
+			newFile.StoreString(newSettings);
+			return;
+		}
+
+		if (file.EofReached())
+		{
+			return;
+		}
+
+		string data = file.GetAsText();
+		if (string.IsNullOrEmpty(data))
+		{
+			return;
+		}
+		Dictionary<string, Variant> thing = Json.ParseString(data).AsGodotDictionary<string, Variant>();
+		appSettings = new AppSettings
+		{
+			pulseCount = thing["pulseCount"].AsInt32(),
+			pulseDuration = (float)thing["pulseDuration"].AsDouble(),
+			windowPos = new Vector2I(thing["windowPosX"].AsInt32(), thing["windowPosY"].AsInt32()),
+			windowSize = new Vector2I(thing["windowSizeX"].AsInt32(), thing["windowSizeY"].AsInt32())
+		};
+		GetWindow().Size = appSettings.windowSize;
+		GetWindow().Position = appSettings.windowPos;
+	}
+	
+	public void SaveSettings()
+	{
+		using FileAccess file = FileAccess.Open(SETTINGS_PATH, FileAccess.ModeFlags.Write);
+		Dictionary<string, Variant> settingsDict = new()
+		{
+			{"pulseCount", appSettings.pulseCount},
+			{"pulseDuration", appSettings.pulseDuration},
+			{"windowSizeX", GetWindow().Size.X},
+			{"windowSizeY", GetWindow().Size.Y},
+			{"windowPosX", GetWindow().Position.X},
+			{"windowPosY", GetWindow().Position.Y}
+		};
+		string data = Json.Stringify(settingsDict);
+		file.StoreString(data);
 	}
 	
 	private void DecoupleToggle(bool on)
@@ -82,6 +166,7 @@ public partial class GameSelector : Control
 
 	private void _QuitPressed()
 	{
+		SaveSettings();
 		GetTree().Quit();
 	}
 
@@ -106,6 +191,11 @@ public partial class GameSelector : Control
 			{
 				SelectorScene();
 			}
+		}
+		else if (what == NotificationWMCloseRequest)
+		{
+			SaveSettings();
+			GetTree().Quit();
 		}
 	}
 }

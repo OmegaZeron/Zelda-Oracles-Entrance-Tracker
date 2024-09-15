@@ -8,20 +8,13 @@ public partial class SaveManager : Node
 	public static SaveManager Instance { get; private set; }
 	
 	// TODO update these to use multiple slots/import
-	//#if DEBUG
 	private const string SEASONS_PATH = "res://seasons.bin";
 	private const string AGES_PATH = "res://ages.bin";
 	private const string SEASONS_DECOUPLED_PATH = "res://seasons_d.bin";
 	private const string AGES_DECOUPLED_PATH = "res://ages_d.bin";
-	// #else
-	// private const string SEASONS_PATH = "user://seasons.bin";
-	// private const string AGES_PATH = "user://ages.bin";
-	// private const string SEASONS_DECOUPLED_PATH = "user://seasons_d.bin";
-	// private const string AGES_DECOUPLED_PATH = "user://ages_d.bin";
-	// #endif
 
-	private const string SEASONS_VERSION = "v0.1.2";
-	private const string AGES_VERSION = "v0.1.0";
+	private const string SEASONS_VERSION = "v0.1.3";
+	private const string AGES_VERSION = "v0.0.0";
 	
 	public override void _Ready()
 	{
@@ -119,7 +112,12 @@ public partial class SaveManager : Node
 			GD.PushError($"Version mismatch, aborting load. Map version: {mapVersion}, save version: {saveVersion}");
 			return;
 		}
-		UIController.Instance.ChangeCompanionState(Enum.Parse<UIController.CompanionState>(file.GetLine()));
+
+		string companionString = file.GetLine();
+		if (Enum.TryParse(companionString, out UIController.CompanionState companionState))
+		{
+			UIController.Instance.ChangeCompanionState(companionState);
+		}
 		try
 		{
 			Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, string>>> save = Json.ParseString(file.GetLine()).AsGodotDictionary<string, Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, string>>>();
@@ -132,6 +130,10 @@ public partial class SaveManager : Node
 					if (info.isTrash)
 					{
 						entrance.TrashSelf();
+					}
+					if (info.isDecoupledTrash)
+					{
+						entrance.DecoupledTrashSelf();
 					}
 
 					if (!string.IsNullOrEmpty(info.linkedName))

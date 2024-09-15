@@ -3840,23 +3840,23 @@ entranceName = "Fall Tower Spirit"
 entranceType = 1
 altMap = true
 
-[node name="UIController" type="CanvasLayer" parent="." node_paths=PackedStringArray("HolodrumParent", "HolodrumInnerParent", "SubrosiaParent", "SubrosiaInnerParent", "natzuRickyParent", "natzuRickyInnerParent", "rickyButton", "mooshButton", "dimitriButton", "nameLabel", "selectionLabel")]
+[node name="UIController" type="CanvasLayer" parent="." node_paths=PackedStringArray("overworldParent", "overworldInnerParent", "altMapParent", "altMapInnerParent", "companionAreaParent", "companionAreaInnerParent", "rickyButton", "mooshButton", "dimitriButton", "nameLabel", "selectionLabel")]
 script = ExtResource("6_3nxjj")
-HolodrumParent = NodePath("../Outer/Holodrum")
-HolodrumInnerParent = NodePath("../Inner/Holodrum")
-SubrosiaParent = NodePath("../Outer/Subrosia")
-SubrosiaInnerParent = NodePath("../Inner/Subrosia")
-natzuRicky = ExtResource("35_ngxil")
-natzuMoosh = ExtResource("36_obfw2")
-natzuDimitri = ExtResource("37_mnac2")
-natzuRickyParent = NodePath("../Outer/Holodrum/Natzu/CompanionEntrances")
-natzuRickyInnerParent = NodePath("../Inner/Holodrum/Natzu/CompanionEntrances")
+overworldParent = NodePath("../Outer/Holodrum")
+overworldInnerParent = NodePath("../Inner/Holodrum")
+altMapParent = NodePath("../Outer/Subrosia")
+altMapInnerParent = NodePath("../Inner/Subrosia")
+companionAreaRickyTex = ExtResource("35_ngxil")
+companionAreaMooshTex = ExtResource("36_obfw2")
+companionAreaDimitriTex = ExtResource("37_mnac2")
+companionAreaParent = NodePath("../Outer/Holodrum/Natzu/CompanionEntrances")
+companionAreaInnerParent = NodePath("../Inner/Holodrum/Natzu/CompanionEntrances")
 rickyButton = NodePath("Ricky")
 mooshButton = NodePath("Moosh")
 dimitriButton = NodePath("Dimitri")
 nameLabel = NodePath("EntranceName")
 selectionLabel = NodePath("SelectedName")
-natzuDataList = Array[Resource]([ExtResource("155_wuxth"), ExtResource("156_w5j6l"), ExtResource("157_7xprr"), ExtResource("158_jqt07"), ExtResource("159_58c4h"), ExtResource("160_j2d8o"), ExtResource("161_hbe2y"), ExtResource("162_yspka"), ExtResource("163_ussu0"), ExtResource("164_l6h1i"), ExtResource("165_sor2o"), ExtResource("166_c0mbj")])
+companionAreaDataList = Array[Resource]([ExtResource("155_wuxth"), ExtResource("156_w5j6l"), ExtResource("157_7xprr"), ExtResource("158_jqt07"), ExtResource("159_58c4h"), ExtResource("160_j2d8o"), ExtResource("161_hbe2y"), ExtResource("162_yspka"), ExtResource("163_ussu0"), ExtResource("164_l6h1i"), ExtResource("165_sor2o"), ExtResource("166_c0mbj")])
 
 [node name="Blank" type="Sprite2D" parent="UIController"]
 modulate = Color(0, 0, 0, 1)

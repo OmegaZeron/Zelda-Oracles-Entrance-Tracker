@@ -13,6 +13,7 @@ public partial class Entrance : TextureButton
 		public string decoupledName;
 		public EntranceType decoupledType;
 		public bool isTrash;
+		public bool isDecoupledTrash;
 
 		public Dictionary<string, string> ToDict()
 		{
@@ -24,7 +25,8 @@ public partial class Entrance : TextureButton
 				{"linkedEntranceType", linkedEntranceType.ToString()},
 				{"decoupledName", decoupledName},
 				{"decoupledType", decoupledType.ToString()},
-				{"isTrash", isTrash.ToString()}
+				{"isTrash", isTrash.ToString()},
+				{"isDecoupledTrash", isDecoupledTrash.ToString()}
 			};
 		}
 
@@ -38,7 +40,8 @@ public partial class Entrance : TextureButton
 				linkedEntranceType = Enum.Parse<EntranceType>(dict["linkedEntranceType"]),
 				decoupledName = dict["decoupledName"],
 				decoupledType = Enum.Parse<EntranceType>(dict["decoupledType"]),
-				isTrash = bool.Parse(dict["isTrash"])
+				isTrash = bool.Parse(dict["isTrash"]),
+				isDecoupledTrash = bool.Parse(dict["isDecoupledTrash"])
 			};
 		}
 	}
@@ -54,6 +57,7 @@ public partial class Entrance : TextureButton
 	public Entrance linkedEntrance { get; private set; }
 	public Entrance decoupledEntrance { get; private set; }
 	private bool isTrash;
+	private bool isDecoupledTrash;
 
 	private bool isPulsing;
 	private float remainingPulseDuration;
@@ -82,7 +86,8 @@ public partial class Entrance : TextureButton
 			entranceType = entranceType,
 			linkedName = linkedEntrance?.entranceName,
 			decoupledName = decoupledEntrance?.entranceName,
-			isTrash = isTrash
+			isTrash = isTrash,
+			isDecoupledTrash = isDecoupledTrash
 		};
 		if (linkedEntrance != null)
 		{
@@ -129,7 +134,8 @@ public partial class Entrance : TextureButton
 		{
 			if (linkedEntrance == null && Input.IsKeyPressed(Key.Shift))
 			{
-				UIController.Instance.TrashEntrance(this);
+				TrashSelf();
+				SaveManager.Instance.SaveLayout();
 				return;
 			}
 			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && (decoupledEntrance == null || !UIController.Instance.IsAttemptingLink()) && (UIController.Instance.IsAttemptingLink() || !isTrash && linkedEntrance == null))
@@ -149,32 +155,31 @@ public partial class Entrance : TextureButton
 		// {
 		// 	MoveToAndPulse(decoupledEntrance);
 		// }
-		// right click - unlink
+		// right click
 		else if (button.ButtonIndex == MouseButton.Right)
 		{
-			if (!isTrash)
+			// add decoupled trash
+			if (Input.IsKeyPressed(Key.Shift) && decoupledEntrance == null)
 			{
-				if (!GameSelector.Instance.DecoupledMode)
-				{
-					linkedEntrance?.UnlinkEntrance();
-				}
-				else
-				{
-					linkedEntrance?.RemoveDecoupledEntrance();
-				}
-				UnlinkEntrance();
-				if (isDisplayingEntranceName)
-				{
-					UIController.Instance.DisplayEntranceName(this);
-				}
+				DecoupledTrashSelf();
+				SaveManager.Instance.SaveLayout();
+				return;
+			}
+			// unlink
+			isTrash = false;
+			isDecoupledTrash = false;
+			if (!GameSelector.Instance.DecoupledMode)
+			{
+				linkedEntrance?.UnlinkEntrance();
 			}
 			else
 			{
-				isTrash = false;
-				if (!isPulsing)
-				{
-					TextureNormal = decoupledEntrance == null ? GameSelector.Instance.unlinkedTexture : GameSelector.Instance.decoupledTexture;
-				}
+				linkedEntrance?.RemoveDecoupledEntrance();
+			}
+			UnlinkEntrance();
+			if (isDisplayingEntranceName)
+			{
+				UIController.Instance.DisplayEntranceName(this);
 			}
 			SaveManager.Instance.SaveLayout();
 		}
@@ -220,14 +225,76 @@ public partial class Entrance : TextureButton
 		}
 
 		isPulsing = false;
-		TextureNormal = isTrash ? GameSelector.Instance.trashTexture : linkedEntrance != null ? linkedTexture : decoupledEntrance != null ? GameSelector.Instance.decoupledTexture : unlinkedTexture;
+		UpdateTexture();
+	}
+
+	private Texture2D GetTexture()
+	{
+		if (isTrash)
+		{
+			if (decoupledEntrance != null)
+			{
+				return GameSelector.Instance.trashDecoupledTexture; // gray/yellow
+			}
+
+			if (GameSelector.Instance.DecoupledMode && !isDecoupledTrash)
+			{
+				return GameSelector.Instance.trashNoDecoupledTexture; // gray/red
+			}
+
+			return GameSelector.Instance.trashTexture; // gray
+		}
+
+		if (linkedEntrance != null)
+		{
+			if (decoupledEntrance != null)
+			{
+				return GameSelector.Instance.linkedDecoupledTexture; // green/yellow
+			}
+
+			if (GameSelector.Instance.DecoupledMode)
+			{
+				if (isDecoupledTrash)
+				{
+					return GameSelector.Instance.linkedTrashTexture; // green/gray
+				}
+				return GameSelector.Instance.linkedNoDecoupledTexture; // green/red
+			}
+			return GameSelector.Instance.linkedTexture; // green
+		}
+
+		if (isDecoupledTrash)
+		{
+			return GameSelector.Instance.unlinkedTrashTexture; // red/gray
+		}
+		
+		if (decoupledEntrance != null)
+		{
+			return GameSelector.Instance.decoupledTexture; // red/yellow
+		}
+
+		return GameSelector.Instance.unlinkedTexture; // red
+	}
+
+	public void UpdateTexture()
+	{
+		if (!isPulsing)
+		{
+			TextureNormal = GetTexture();
+		}
 	}
 	
 	public void TrashSelf()
 	{
-		TextureNormal = GameSelector.Instance.trashTexture;
 		isTrash = true;
+		UpdateTexture();
 		UIController.Instance.ClearSelectedEntranceIfEqual(this);
+	}
+	public void DecoupledTrashSelf()
+	{
+		isDecoupledTrash = true;
+		UpdateTexture();
+		// UIController.Instance.ClearSelectedEntranceIfEqual(this);
 	}
 	
 	public bool LinkEntrance(Entrance entrance)
@@ -237,19 +304,13 @@ public partial class Entrance : TextureButton
 			return false;
 		}
 		linkedEntrance = entrance;
-		if (!isPulsing)
-		{
-			TextureNormal = GameSelector.Instance.linkedTexture;
-		}
+		UpdateTexture();
 		return true;
 	}
 	private void UnlinkEntrance()
 	{
 		linkedEntrance = null;
-		if (!isPulsing)
-		{
-			TextureNormal = decoupledEntrance == null ? GameSelector.Instance.unlinkedTexture : GameSelector.Instance.decoupledTexture;
-		}
+		UpdateTexture();
 	}
 	public bool AddDecoupledEntrance(Entrance entrance)
 	{
@@ -258,20 +319,14 @@ public partial class Entrance : TextureButton
 			return false;
 		}
 		decoupledEntrance = entrance;
-		if (linkedEntrance == null && !isTrash && !isPulsing)
-		{
-			TextureNormal = GameSelector.Instance.decoupledTexture;
-		}
+		UpdateTexture();
+		entrance.UpdateTexture();
 		return true;
 	}
 	public void RemoveDecoupledEntrance()
 	{
 		decoupledEntrance = null;
-		if (isPulsing)
-		{
-			return;
-		}
-		TextureNormal = linkedEntrance == null ? GameSelector.Instance.unlinkedTexture : GameSelector.Instance.linkedTexture;
+		UpdateTexture();
 	}
 
 	private void ClearAll()
@@ -279,7 +334,8 @@ public partial class Entrance : TextureButton
 		linkedEntrance = null;
 		decoupledEntrance = null;
 		isTrash = false;
-		TextureNormal = GameSelector.Instance.unlinkedTexture;
+		isDecoupledTrash = false;
+		UpdateTexture();
 	}
 }
 
