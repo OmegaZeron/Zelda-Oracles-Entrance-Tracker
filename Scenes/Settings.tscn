@@ -1,0 +1,141 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1mqenyiu5xg0"]
+
+[ext_resource type="Script" path="res://Scripts/SettingsManager.cs" id="1_r1keh"]
+[ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="2_b7uw5"]
+
+[node name="SettingsMenu" type="CanvasLayer" node_paths=PackedStringArray("autoSaveButton", "pulseDurationPicker", "pulseCountPicker", "goBackButton", "resetButton")]
+script = ExtResource("1_r1keh")
+autoSaveButton = NodePath("Control/AutoSave/AutoSaveButton")
+pulseDurationPicker = NodePath("Control/PulseDuration/PulseDurationPicker")
+pulseCountPicker = NodePath("Control/PulseCount/PulseCountPicker")
+goBackButton = NodePath("Control/BackButton")
+resetButton = NodePath("Control/ResetButton")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blank" type="Sprite2D" parent="Control"]
+modulate = Color(0.301961, 0.301961, 0.301961, 1)
+position = Vector2(560, 217)
+scale = Vector2(18654, 10536)
+texture = ExtResource("2_b7uw5")
+
+[node name="SettingsText" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 64.0
+offset_right = 736.0
+offset_bottom = 128.0
+bbcode_enabled = true
+text = "[font_size=30][center]SETTINGS[/center][/font_size]"
+
+[node name="AutoSave" type="Node2D" parent="Control"]
+position = Vector2(557, 181)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/AutoSave"]
+offset_left = -317.0
+offset_top = -22.0
+offset_right = 15.0
+offset_bottom = 8.0
+bbcode_enabled = true
+text = "[right]Auto-save Entrances[/right]"
+
+[node name="AutoSaveButton" type="CheckButton" parent="Control/AutoSave"]
+offset_left = 27.0
+offset_top = -21.0
+offset_right = 71.0
+offset_bottom = 3.0
+button_pressed = true
+
+[node name="PulseDuration" type="Node2D" parent="Control"]
+position = Vector2(557, 218)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PulseDuration"]
+offset_left = -317.0
+offset_top = -22.0
+offset_right = 15.0
+offset_bottom = 8.0
+bbcode_enabled = true
+text = "[right]Pulse Duration (in seconds)[/right]"
+
+[node name="PulseDurationPicker" type="SpinBox" parent="Control/PulseDuration"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -26.0
+offset_right = 110.063
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+max_value = 5.0
+step = 0.5
+value = 1.0
+alignment = 1
+
+[node name="PulseCount" type="Node2D" parent="Control"]
+position = Vector2(557, 258)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PulseCount"]
+offset_left = -317.0
+offset_top = -22.0
+offset_right = 15.0
+offset_bottom = 8.0
+bbcode_enabled = true
+text = "[right]Pulse Count (per second)[/right]"
+
+[node name="PulseCountPicker" type="SpinBox" parent="Control/PulseCount"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -26.0
+offset_right = 110.063
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = 1.0
+max_value = 10.0
+value = 4.0
+rounded = true
+alignment = 1
+
+[node name="BackButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 320.0
+offset_right = 620.0
+offset_bottom = 351.0
+theme_override_font_sizes/font_size = 16
+text = "Close"
+
+[node name="ResetButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 510.0
+offset_top = 384.0
+offset_right = 642.0
+offset_bottom = 415.0
+theme_override_font_sizes/font_size = 16
+text = "Reset Entrances"
+
+[connection signal="toggled" from="Control/AutoSave/AutoSaveButton" to="." method="OnAutoSaveToggled"]
+[connection signal="value_changed" from="Control/PulseDuration/PulseDurationPicker" to="." method="OnPulseDurationChanged"]
+[connection signal="value_changed" from="Control/PulseCount/PulseCountPicker" to="." method="OnPulseCountChanged"]
+[connection signal="pressed" from="Control/BackButton" to="." method="HideSettingsMenu"]
+[connection signal="pressed" from="Control/ResetButton" to="." method="OnResetPressed"]

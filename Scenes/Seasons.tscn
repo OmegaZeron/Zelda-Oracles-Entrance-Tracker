@@ -3916,12 +3916,12 @@ offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
 text = "Dimitri"
 
-[node name="Reset" type="Button" parent="UIController"]
+[node name="Settings" type="Button" parent="UIController"]
 offset_left = 671.0
 offset_right = 758.0
 offset_bottom = 31.0
 theme_override_font_sizes/font_size = 16
-text = "Reset"
+text = "Settings"
 
 [node name="Go Back" type="Button" parent="UIController"]
 offset_left = 763.0
@@ -3955,5 +3955,5 @@ autowrap_mode = 0
 [connection signal="pressed" from="UIController/Ricky" to="UIController" method="_OnCompanionPressed" binds= [&"Ricky"]]
 [connection signal="pressed" from="UIController/Moosh" to="UIController" method="_OnCompanionPressed" binds= [&"Moosh"]]
 [connection signal="pressed" from="UIController/Dimitri" to="UIController" method="_OnCompanionPressed" binds= [&"Dimitri"]]
-[connection signal="pressed" from="UIController/Reset" to="UIController" method="_OnResetPressed"]
+[connection signal="pressed" from="UIController/Settings" to="UIController" method="_OnSettingsPressed"]
 [connection signal="pressed" from="UIController/Go Back" to="UIController" method="_OnGoBackPressed"]

@@ -57,7 +57,7 @@ public partial class Entrance : TextureButton
 	public Entrance linkedEntrance { get; private set; }
 	public Entrance decoupledEntrance { get; private set; }
 	private bool isTrash;
-	private bool isDecoupledTrash;
+	public bool isDecoupledTrash { get; private set; }
 
 	private bool isPulsing;
 	private float remainingPulseDuration;
@@ -70,12 +70,12 @@ public partial class Entrance : TextureButton
 
 	private void Start()
 	{
-		UIController.Instance.ResetEntrances += ClearAll;
+		SettingsManager.Instance.ResetEntrances += ClearAll;
 	}
 
 	public override void _ExitTree()
 	{
-		UIController.Instance.ResetEntrances -= ClearAll;
+		SettingsManager.Instance.ResetEntrances -= ClearAll;
 	}
 
 	public EntranceInfo GetEntranceInfo()
@@ -135,7 +135,10 @@ public partial class Entrance : TextureButton
 			if (linkedEntrance == null && Input.IsKeyPressed(Key.Shift))
 			{
 				TrashSelf();
-				SaveManager.Instance.SaveLayout();
+				if (SettingsManager.Instance.autoSave)
+				{
+					SaveManager.Instance.SaveLayout();
+				}
 				return;
 			}
 			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && (decoupledEntrance == null || !UIController.Instance.IsAttemptingLink()) && (UIController.Instance.IsAttemptingLink() || !isTrash && linkedEntrance == null))
@@ -150,11 +153,6 @@ public partial class Entrance : TextureButton
 				MoveToAndPulse(linkedEntrance);
 			}
 		}
-		// middle click - display current decoupled link
-		// else if (button.ButtonIndex == MouseButton.Middle && decoupledEntrance != null)
-		// {
-		// 	MoveToAndPulse(decoupledEntrance);
-		// }
 		// right click
 		else if (button.ButtonIndex == MouseButton.Right)
 		{
@@ -162,7 +160,10 @@ public partial class Entrance : TextureButton
 			if (Input.IsKeyPressed(Key.Shift) && decoupledEntrance == null)
 			{
 				DecoupledTrashSelf();
-				SaveManager.Instance.SaveLayout();
+                if (SettingsManager.Instance.autoSave)
+				{
+					SaveManager.Instance.SaveLayout();
+				}
 				return;
 			}
 			// unlink
@@ -181,7 +182,10 @@ public partial class Entrance : TextureButton
 			{
 				UIController.Instance.DisplayEntranceName(this);
 			}
-			SaveManager.Instance.SaveLayout();
+            if (SettingsManager.Instance.autoSave)
+			{
+				SaveManager.Instance.SaveLayout();
+			}
 		}
 	}
 
@@ -196,9 +200,9 @@ public partial class Entrance : TextureButton
 
 		// setup vars
 		isPulsing = true;
-		float pulseDuration = UIController.Instance.pulseDuration;
+		float pulseDuration = SettingsManager.Instance.pulseDuration;
 		float currentPulseDuration = 0;
-		float pulseInterval = 1f / UIController.Instance.pulseCount / 2;
+		float pulseInterval = 1f / SettingsManager.Instance.pulseCount / 2;
 		Texture2D linkedTexture = GameSelector.Instance.linkedTexture;
 		Texture2D unlinkedTexture = GameSelector.Instance.unlinkedTexture;
 		StringName signalName = SceneTreeTimer.SignalName.Timeout;
@@ -276,7 +280,7 @@ public partial class Entrance : TextureButton
 		return GameSelector.Instance.unlinkedTexture; // red
 	}
 
-	public void UpdateTexture()
+	private void UpdateTexture()
 	{
 		if (!isPulsing)
 		{
@@ -294,7 +298,6 @@ public partial class Entrance : TextureButton
 	{
 		isDecoupledTrash = true;
 		UpdateTexture();
-		// UIController.Instance.ClearSelectedEntranceIfEqual(this);
 	}
 	
 	public bool LinkEntrance(Entrance entrance)

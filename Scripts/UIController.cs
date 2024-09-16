@@ -32,8 +32,6 @@ public partial class UIController : CanvasLayer
 	private bool isOutside => GameSelector.Instance.currentGame == GameSelector.Game.Seasons && seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ||
 	                          GameSelector.Instance.currentGame == GameSelector.Game.Ages && agesMapState is AgesMapState.Present or AgesMapState.Past;
 	
-	public Action ResetEntrances;
-	
 	// sprite here so we can swap between companion map textures
 	[Export] private Sprite2D overworldParent;
 	[Export] private Node2D overworldInnerParent;
@@ -304,7 +302,10 @@ public partial class UIController : CanvasLayer
 	private void _OnCompanionPressed(string companionName)
 	{
 		ChangeCompanionState(Enum.Parse<CompanionState>(companionName));
-		SaveManager.Instance.SaveLayout();
+		if (SettingsManager.Instance.autoSave)
+		{
+			SaveManager.Instance.SaveLayout();
+		}
 	}
 
 	public bool IsAttemptingLink()
@@ -312,6 +313,8 @@ public partial class UIController : CanvasLayer
 		return selectedEntrance != null;
 	}
 
+	/// prevents being able to select a visible entrance while not in the right mode.
+	/// basically, can't select an outer entrance while inner entrances are visible
 	private bool EntranceMatchesState(Entrance entrance)
 	{
 		switch (GameSelector.Instance.currentGame)
@@ -328,9 +331,9 @@ public partial class UIController : CanvasLayer
 		}
 	}
 
-	public void ClearSelectedEntranceIfEqual(Entrance entrance)
+	public void ClearSelectedEntranceIfEqual(Entrance entrance, bool force = false)
 	{
-		if (entrance == selectedEntrance)
+		if (force || entrance == selectedEntrance)
 		{
 			selectedEntrance = null;
 			selectionLabel.Text = "";
@@ -340,6 +343,10 @@ public partial class UIController : CanvasLayer
 	/// returns true if a full link was performed
 	public bool OnEntranceSelected(Entrance entrance)
 	{
+		if (GameSelector.Instance.activeScene != GameSelector.ActiveScene.GameMap)
+		{
+			return false;
+		}
 		if (!EntranceMatchesState(entrance))
 		{
 			return false;
@@ -349,6 +356,11 @@ public partial class UIController : CanvasLayer
 		{
 			return false;
 		}
+		if (entrance.isDecoupledTrash && selectedEntrance != null)
+		{
+			return false;
+		}
+		
 		// 2 entrances selected, complete link
 		if (selectedEntrance != null)
 		{
@@ -363,19 +375,23 @@ public partial class UIController : CanvasLayer
 			}
 			selectedEntrance = null;
 			selectionLabel.Text = "";
-			SaveManager.Instance.SaveLayout();
+			if (SettingsManager.Instance.autoSave)
+			{
+				SaveManager.Instance.SaveLayout();
+			}
 			return true;
 		}
+		
 		// start link process
 		selectedEntrance = entrance;
 		selectionLabel.Text = selectedEntrance.entranceName;
 		return false;
 	}
 
-	private void _OnResetPressed()
+	private void _OnSettingsPressed()
 	{
-		ResetEntrances?.Invoke();
-		SaveManager.Instance.Clear();
+		ClearSelectedEntranceIfEqual(null, true);
+		GameSelector.Instance.OpenSettings();
 	}
 
 	private void _OnGoBackPressed()
@@ -385,16 +401,30 @@ public partial class UIController : CanvasLayer
 	
 	public override void _Input(InputEvent ev)
 	{
-		if (ev is not InputEventMouseButton button || !button.IsPressed())
+		if (GameSelector.Instance.activeScene != GameSelector.ActiveScene.GameMap)
 		{
 			return;
 		}
-		
-		// right click - deselect
-		if (button.ButtonIndex == MouseButton.Right)
+		if (ev is InputEventMouseButton button && button.IsPressed())
 		{
-			selectedEntrance = null;
-			selectionLabel.Text = "";
+			// right click - deselect
+			if (button.ButtonIndex == MouseButton.Right)
+			{
+				selectedEntrance = null;
+				selectionLabel.Text = "";
+			}
+		}
+		else if (ev is InputEventKey key && key.IsPressed())
+		{
+			if (key.Keycode == Key.Escape)
+			{
+				GameSelector.Instance.SelectorScene();
+			}
+
+			if (key.Keycode == Key.S && Input.IsKeyPressed(Key.Ctrl))
+			{
+				SaveManager.Instance.SaveLayout();
+			}
 		}
 	}
 }

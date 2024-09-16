@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b0ik5dedptbcc"]
+[gd_scene load_steps=14 format=3 uid="uid://b0ik5dedptbcc"]
 
 [ext_resource type="Script" path="res://Scripts/GameSelector.cs" id="1_fr2i5"]
 [ext_resource type="Texture2D" uid="uid://6ru2vb4hosyp" path="res://Sprites/Square_Unmatched.png" id="2_pa1vc"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c6kcnn8m7fvcj" path="res://Sprites/Square_Trash_Decoupled.png" id="7_fwlx0"]
 [ext_resource type="Texture2D" uid="uid://crybex65jje88" path="res://Sprites/Square_Unlinked_Trash.png" id="8_bum4v"]
 [ext_resource type="Texture2D" uid="uid://dpyefojw6jvea" path="res://Sprites/Square_Linked_Trash.png" id="9_cheln"]
+[ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="12_ef2fj"]
+[ext_resource type="PackedScene" uid="uid://d1mqenyiu5xg0" path="res://Scenes/Settings.tscn" id="13_ermq3"]
 
 [node name="Main" type="Control" node_paths=PackedStringArray("UI")]
 layout_mode = 3
@@ -32,42 +34,67 @@ unlinkedTrashTexture = ExtResource("8_bum4v")
 linkedTrashTexture = ExtResource("9_cheln")
 trashNoDecoupledTexture = ExtResource("7_7mtmm")
 trashDecoupledTexture = ExtResource("7_fwlx0")
-UI = [NodePath("SeasonsButton"), NodePath("AgesButton"), NodePath("QuitButton"), NodePath("CheckButton")]
+UI = NodePath("CanvasLayer")
 
-[node name="SeasonsButton" type="Button" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Blank" type="Sprite2D" parent="CanvasLayer/Control"]
+modulate = Color(0.301961, 0.301961, 0.301961, 1)
+position = Vector2(20, 20)
+scale = Vector2(1152, 648)
+texture = ExtResource("12_ef2fj")
+
+[node name="SeasonsButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = -104.0
-offset_top = -146.0
-offset_right = 134.0
-offset_bottom = -74.0
+offset_left = -84.0
+offset_top = -126.0
+offset_right = 154.0
+offset_bottom = -54.0
 text = "Seasons"
 
-[node name="AgesButton" type="Button" parent="."]
+[node name="AgesButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = -104.0
-offset_top = -26.0
-offset_right = 134.0
-offset_bottom = 46.0
+offset_left = -84.0
+offset_top = -6.0
+offset_right = 154.0
+offset_bottom = 66.0
 disabled = true
 text = "Ages (WIP)"
 
-[node name="QuitButton" type="Button" parent="."]
+[node name="QuitButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = -104.0
-offset_top = 102.0
-offset_right = 134.0
-offset_bottom = 174.0
+offset_left = -84.0
+offset_top = 122.0
+offset_right = 154.0
+offset_bottom = 194.0
 text = "Quit"
 
-[node name="CheckButton" type="CheckButton" parent="."]
+[node name="CheckButton" type="CheckButton" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = -91.0
-offset_top = -190.0
-offset_right = 121.0
-offset_bottom = -159.0
+offset_left = -71.0
+offset_top = -170.0
+offset_right = 141.0
+offset_bottom = -139.0
 text = "Decoupled Entrances"
 
-[connection signal="pressed" from="SeasonsButton" to="." method="_SelectGame" binds= ["Seasons"]]
-[connection signal="pressed" from="AgesButton" to="." method="_SelectGame" binds= ["Ages"]]
-[connection signal="pressed" from="QuitButton" to="." method="_QuitPressed"]
-[connection signal="toggled" from="CheckButton" to="." method="DecoupleToggle"]
+[node name="SettingsMenu" parent="CanvasLayer/Control" instance=ExtResource("13_ermq3")]
+visible = false
+
+[connection signal="pressed" from="CanvasLayer/Control/SeasonsButton" to="." method="_SelectGame" binds= ["Seasons"]]
+[connection signal="pressed" from="CanvasLayer/Control/AgesButton" to="." method="_SelectGame" binds= ["Ages"]]
+[connection signal="pressed" from="CanvasLayer/Control/QuitButton" to="." method="_QuitPressed"]
+[connection signal="toggled" from="CanvasLayer/Control/CheckButton" to="." method="DecoupleToggle"]

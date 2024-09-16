@@ -157,7 +157,7 @@ public partial class SaveManager : Node
 		}
 	}
 
-	public void Clear()
+	private void Clear()
 	{
 		using FileAccess file = FileAccess.Open(GetSelectedPath(), FileAccess.ModeFlags.Write);
 		file.StoreString("");

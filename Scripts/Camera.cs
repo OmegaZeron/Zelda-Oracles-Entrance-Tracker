@@ -5,17 +5,21 @@ public partial class Camera : Camera2D
 	public static Camera Instance { get; private set; }
 	private Vector2 viewport;
 	
+	// MMB pan data
 	private Vector2 mouseStartPos;
 	private Vector2 screenStartPos;
 	private bool dragging;
+	// WASD pan data
+	[Export] private float cameraPanSpeed = 10;
 	
-	private float targetZoom = 1;
-	private Vector2 targetMousePos;
+	// zoom data
 	[Export] private float minZoom = .655f;
 	[Export] private float maxZoom = 3;
+	private float targetZoom = 1;
+	private Vector2 targetMousePos;
 	private float zoomIncrement = .1f;
-	[Export] private float cameraPanSpeed = 10;
 
+	// camera bounds
 	[Export] private Vector2I holodrumLimit;
 	[Export] private Vector2I subrosiaLimit;
 	[Export] private Vector2I labrynnaLimit;
@@ -42,6 +46,7 @@ public partial class Camera : Camera2D
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		// zoom
 		Zoom = targetZoom * Vector2.One;
 		if (targetMousePos != Vector2.Zero)
 		{
@@ -49,6 +54,7 @@ public partial class Camera : Camera2D
 			targetMousePos = Vector2.Zero;
 		}
 		
+		// WASD camera pan
 		if (Input.IsActionPressed("Up"))
 		{
 			Position += Vector2.Up * cameraPanSpeed / Zoom;
@@ -70,6 +76,10 @@ public partial class Camera : Camera2D
 	
 	public override void _Input(InputEvent ev)
 	{
+		if (GameSelector.Instance.activeScene != GameSelector.ActiveScene.GameMap)
+		{
+			return;
+		}
 		if (ev is InputEventMouseMotion motion && dragging)
 		{
 			Position = Vector2.One / Zoom * (mouseStartPos - motion.Position) + screenStartPos;

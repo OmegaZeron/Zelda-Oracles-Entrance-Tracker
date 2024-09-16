@@ -22,6 +22,7 @@ SaveManager="*res://Scripts/SaveManager.cs"
 
 [display]
 
+window/energy_saving/keep_screen_on=false
 window/version=""
 window/icon="res://icon.png"
 
