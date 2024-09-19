@@ -29,6 +29,7 @@ public partial class UIController : CanvasLayer
 	private SeasonsMapState seasonsMapState = SeasonsMapState.Holodrum;
 	private AgesMapState agesMapState = AgesMapState.Present;
 	public CompanionState companionState { get; private set; } = CompanionState.Ricky;
+	
 	private bool isOutside => GameSelector.Instance.currentGame == GameSelector.Game.Seasons && seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ||
 	                          GameSelector.Instance.currentGame == GameSelector.Game.Ages && agesMapState is AgesMapState.Present or AgesMapState.Past;
 	
@@ -147,7 +148,6 @@ public partial class UIController : CanvasLayer
 				GD.PushError($"Duplicate Entrance: {entrance.entranceName}, Type: {entrance.entranceType}, Alt: {entrance.altMap}, pos: {entrance.GlobalPosition}");
 			}
 		}
-		SaveManager.Instance.LoadLayout();
 	}
 
 	private string GetMapLabelFromEntrance(Entrance entrance)
@@ -302,10 +302,7 @@ public partial class UIController : CanvasLayer
 	private void _OnCompanionPressed(string companionName)
 	{
 		ChangeCompanionState(Enum.Parse<CompanionState>(companionName));
-		if (SettingsManager.Instance.autoSave)
-		{
-			SaveManager.Instance.SaveLayout();
-		}
+		SaveManager.Instance.AttemptAutoSave();
 	}
 
 	public bool IsAttemptingLink()
@@ -375,10 +372,9 @@ public partial class UIController : CanvasLayer
 			}
 			selectedEntrance = null;
 			selectionLabel.Text = "";
-			if (SettingsManager.Instance.autoSave)
-			{
-				SaveManager.Instance.SaveLayout();
-			}
+			
+			SaveManager.Instance.AttemptAutoSave();
+			
 			return true;
 		}
 		
@@ -396,6 +392,12 @@ public partial class UIController : CanvasLayer
 
 	private void _OnGoBackPressed()
 	{
+		if (SaveManager.Instance.IsDirty)
+		{
+			GameSelector.Instance.AskToSaveBeforeCloseGame();
+			return;
+		}
+		
 		GameSelector.Instance.SelectorScene();
 	}
 	
@@ -418,12 +420,19 @@ public partial class UIController : CanvasLayer
 		{
 			if (key.Keycode == Key.Escape)
 			{
-				GameSelector.Instance.SelectorScene();
+				_OnGoBackPressed();
 			}
 
-			if (key.Keycode == Key.S && Input.IsKeyPressed(Key.Ctrl))
+			else if (key.Keycode == Key.S)
 			{
-				SaveManager.Instance.SaveLayout();
+				if (Input.IsKeyPressed(Key.Ctrl) && Input.IsKeyPressed(Key.Shift))
+				{
+					SaveManager.Instance.OpenSaveFileDialog();
+				}
+				else if (Input.IsKeyPressed(Key.Ctrl))
+				{
+					SaveManager.Instance.SaveLayout();
+				}
 			}
 		}
 	}

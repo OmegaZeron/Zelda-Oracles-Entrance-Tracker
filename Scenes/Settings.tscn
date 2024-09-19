@@ -3,12 +3,14 @@
 [ext_resource type="Script" path="res://Scripts/SettingsManager.cs" id="1_r1keh"]
 [ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="2_b7uw5"]
 
-[node name="SettingsMenu" type="CanvasLayer" node_paths=PackedStringArray("autoSaveButton", "pulseDurationPicker", "pulseCountPicker", "goBackButton", "resetButton")]
+[node name="SettingsMenu" type="CanvasLayer" node_paths=PackedStringArray("autoSaveButton", "pulseDurationPicker", "pulseCountPicker", "goBackButton", "saveButton", "saveAsButton", "resetButton")]
 script = ExtResource("1_r1keh")
 autoSaveButton = NodePath("Control/AutoSave/AutoSaveButton")
 pulseDurationPicker = NodePath("Control/PulseDuration/PulseDurationPicker")
 pulseCountPicker = NodePath("Control/PulseCount/PulseCountPicker")
 goBackButton = NodePath("Control/BackButton")
+saveButton = NodePath("Control/Save")
+saveAsButton = NodePath("Control/SaveAs")
 resetButton = NodePath("Control/ResetButton")
 
 [node name="Control" type="Control" parent="."]
@@ -116,26 +118,56 @@ value = 4.0
 rounded = true
 alignment = 1
 
+[node name="Save" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 294.0
+offset_right = 565.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 16
+text = "Save"
+
+[node name="SaveAs" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 588.0
+offset_top = 294.0
+offset_right = 675.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 16
+text = "Save As"
+
+[node name="Load" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 335.0
+offset_right = 620.0
+offset_bottom = 366.0
+theme_override_font_sizes/font_size = 16
+text = "Load"
+
 [node name="BackButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 533.0
-offset_top = 320.0
+offset_top = 451.0
 offset_right = 620.0
-offset_bottom = 351.0
+offset_bottom = 482.0
 theme_override_font_sizes/font_size = 16
 text = "Close"
 
 [node name="ResetButton" type="Button" parent="Control"]
 layout_mode = 0
 offset_left = 510.0
-offset_top = 384.0
+offset_top = 515.0
 offset_right = 642.0
-offset_bottom = 415.0
+offset_bottom = 546.0
 theme_override_font_sizes/font_size = 16
 text = "Reset Entrances"
 
 [connection signal="toggled" from="Control/AutoSave/AutoSaveButton" to="." method="OnAutoSaveToggled"]
 [connection signal="value_changed" from="Control/PulseDuration/PulseDurationPicker" to="." method="OnPulseDurationChanged"]
 [connection signal="value_changed" from="Control/PulseCount/PulseCountPicker" to="." method="OnPulseCountChanged"]
+[connection signal="pressed" from="Control/Save" to="." method="OnSavePressed"]
+[connection signal="pressed" from="Control/SaveAs" to="." method="OnSaveAsPressed"]
+[connection signal="pressed" from="Control/Load" to="." method="OnLoadPressed"]
 [connection signal="pressed" from="Control/BackButton" to="." method="HideSettingsMenu"]
 [connection signal="pressed" from="Control/ResetButton" to="." method="OnResetPressed"]

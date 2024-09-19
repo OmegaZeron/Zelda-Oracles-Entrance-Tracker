@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="12_ef2fj"]
 [ext_resource type="PackedScene" uid="uid://d1mqenyiu5xg0" path="res://Scenes/Settings.tscn" id="13_ermq3"]
 
-[node name="Main" type="Control" node_paths=PackedStringArray("UI")]
+[node name="Main" type="Control" node_paths=PackedStringArray("decoupledButton", "dialog", "UI")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -34,6 +34,8 @@ unlinkedTrashTexture = ExtResource("8_bum4v")
 linkedTrashTexture = ExtResource("9_cheln")
 trashNoDecoupledTexture = ExtResource("7_7mtmm")
 trashDecoupledTexture = ExtResource("7_fwlx0")
+decoupledButton = NodePath("CanvasLayer/Control/CheckButton")
+dialog = NodePath("CanvasLayer/Control/ConfirmationDialog")
 UI = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -61,40 +63,59 @@ texture = ExtResource("12_ef2fj")
 [node name="SeasonsButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -84.0
-offset_top = -126.0
+offset_top = -171.0
 offset_right = 154.0
-offset_bottom = -54.0
+offset_bottom = -99.0
 text = "Seasons"
 
 [node name="AgesButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -84.0
-offset_top = -6.0
+offset_top = -81.0
 offset_right = 154.0
-offset_bottom = 66.0
+offset_bottom = -9.0
 disabled = true
 text = "Ages (WIP)"
+
+[node name="Load" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -84.0
+offset_top = 8.0
+offset_right = 154.0
+offset_bottom = 80.0
+text = "Load Save File"
 
 [node name="QuitButton" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -84.0
-offset_top = 122.0
+offset_top = 164.0
 offset_right = 154.0
-offset_bottom = 194.0
+offset_bottom = 236.0
 text = "Quit"
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer/Control"]
 layout_mode = 0
 offset_left = -71.0
-offset_top = -170.0
+offset_top = -215.0
 offset_right = 141.0
-offset_bottom = -139.0
+offset_bottom = -184.0
 text = "Decoupled Entrances"
 
 [node name="SettingsMenu" parent="CanvasLayer/Control" instance=ExtResource("13_ermq3")]
 visible = false
 
+[node name="ConfirmationDialog" type="AcceptDialog" parent="CanvasLayer/Control"]
+disable_3d = true
+title = "Would you like to save?"
+initial_position = 2
+size = Vector2i(245, 80)
+unresizable = true
+borderless = true
+ok_button_text = ""
+dialog_text = "Would you like to save?"
+
 [connection signal="pressed" from="CanvasLayer/Control/SeasonsButton" to="." method="_SelectGame" binds= ["Seasons"]]
 [connection signal="pressed" from="CanvasLayer/Control/AgesButton" to="." method="_SelectGame" binds= ["Ages"]]
+[connection signal="pressed" from="CanvasLayer/Control/Load" to="." method="OpenLoadFileDialog"]
 [connection signal="pressed" from="CanvasLayer/Control/QuitButton" to="." method="_QuitPressed"]
 [connection signal="toggled" from="CanvasLayer/Control/CheckButton" to="." method="DecoupleToggle"]

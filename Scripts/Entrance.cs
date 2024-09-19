@@ -135,10 +135,7 @@ public partial class Entrance : TextureButton
 			if (linkedEntrance == null && Input.IsKeyPressed(Key.Shift))
 			{
 				TrashSelf();
-				if (SettingsManager.Instance.autoSave)
-				{
-					SaveManager.Instance.SaveLayout();
-				}
+				SaveManager.Instance.AttemptAutoSave();
 				return;
 			}
 			if (linkedEntrance == null && !isTrash && !GameSelector.Instance.DecoupledMode || GameSelector.Instance.DecoupledMode && (decoupledEntrance == null || !UIController.Instance.IsAttemptingLink()) && (UIController.Instance.IsAttemptingLink() || !isTrash && linkedEntrance == null))
@@ -157,13 +154,10 @@ public partial class Entrance : TextureButton
 		else if (button.ButtonIndex == MouseButton.Right)
 		{
 			// add decoupled trash
-			if (Input.IsKeyPressed(Key.Shift) && decoupledEntrance == null)
+			if (GameSelector.Instance.DecoupledMode && Input.IsKeyPressed(Key.Shift) && decoupledEntrance == null)
 			{
 				DecoupledTrashSelf();
-                if (SettingsManager.Instance.autoSave)
-				{
-					SaveManager.Instance.SaveLayout();
-				}
+				SaveManager.Instance.AttemptAutoSave();
 				return;
 			}
 			// unlink
@@ -182,10 +176,7 @@ public partial class Entrance : TextureButton
 			{
 				UIController.Instance.DisplayEntranceName(this);
 			}
-            if (SettingsManager.Instance.autoSave)
-			{
-				SaveManager.Instance.SaveLayout();
-			}
+			SaveManager.Instance.AttemptAutoSave();
 		}
 	}
 

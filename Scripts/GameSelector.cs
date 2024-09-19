@@ -40,7 +40,16 @@ public partial class GameSelector : Control
 	[Export] public Texture2D trashNoDecoupledTexture { get; private set; } // gray/red
 	[Export] public Texture2D trashDecoupledTexture { get; private set; } // gray/yellow
 
+	[Export] private CheckButton decoupledButton;
+	[Export] private AcceptDialog dialog;
 	[Export] private CanvasLayer UI;
+	
+	private StringName saveActionName = new("SaveAction");
+	private StringName saveAsActionName = new("SaveAsAction");
+	private StringName doNotSaveActionName = new("DoNotSaveAction");
+	private StringName cancelActionName = new("CancelAction");
+	private Action PostSaveCallback;
+	private Action DoNotSaveCallback;
 	
 	public override void _Ready()
 	{
@@ -50,9 +59,75 @@ public partial class GameSelector : Control
 		// preload scenes
 		seasonsScene = GD.Load<PackedScene>("res://Scenes/Seasons.tscn");
 		// agesScene = GD.Load<PackedScene>("res://Scenes/Ages.tscn");
+
+		dialog.AddButton("Save", true, "SaveAction");
+		dialog.AddButton("Save As", true, "SaveAsAction");
+		dialog.AddButton("No", true, "DoNotSaveAction");
+		dialog.AddButton("Cancel", true, "CancelAction");
+		dialog.CustomAction += OnCustomAction;
+		dialog.GetOkButton().Visible = false;
 	}
 	
-	private void DecoupleToggle(bool on)
+	private void OnCustomAction(StringName actionName)
+	{
+		if (actionName.Equals(saveActionName))
+		{
+			SaveManager.Instance.SaveLayout();
+			PostSaveCallback?.Invoke();
+		}
+		else if (actionName.Equals(saveAsActionName))
+		{
+			SaveManager.Instance.OpenSaveFileDialog(PostSaveCallback, CloseDialog);
+		}
+		else if (actionName.Equals(doNotSaveActionName))
+		{
+			DoNotSaveCallback?.Invoke();
+		}
+		else if (actionName.Equals(cancelActionName))
+		{
+			CloseDialog();
+		}
+	}
+
+	private void SaveAndCloseGame()
+	{
+		SaveManager.Instance.SaveLayout();
+		SelectorScene();
+	}
+	private void CloseGameNoSave()
+	{
+		dialog.Hide();
+		SaveManager.Instance.IsDirty = false;
+		SelectorScene();
+		PostSaveCallback = null;
+	}
+
+	public void AskToSaveBeforeCloseGame()
+	{
+		PostSaveCallback = CloseGameNoSave;
+		DoNotSaveCallback = CloseGameNoSave;
+		dialog.Show();
+	}
+	
+	private void CloseAppNoSave()
+	{
+		SettingsManager.Instance.SaveSettings();
+		GetTree().Quit();
+	}
+
+	private void AskToSaveBeforeQuitApp()
+	{
+		PostSaveCallback = CloseAppNoSave;
+		DoNotSaveCallback = CloseAppNoSave;
+		dialog.Show();
+	}
+
+	private void CloseDialog()
+	{
+		dialog.Hide();
+	}
+	
+	public void DecoupleToggle(bool on)
 	{
 		DecoupledMode = on;
 	}
@@ -70,8 +145,37 @@ public partial class GameSelector : Control
 	
 	private void _SelectGame(string gameName)
 	{
-		currentGame = Enum.Parse<Game>(gameName);
-		PackedScene scene = currentGame switch
+		Game selectedGame = Enum.Parse<Game>(gameName);
+		LoadScene(selectedGame);
+		// button was pressed, so load default
+		// TODO maybe try to load the last save file instead?
+		SaveManager.Instance.LoadDefaultSave();
+	}
+
+	public void SelectorScene()
+	{
+		UI.Visible = true;
+		RemoveChild(loadedScene);
+		loadedScene.QueueFree();
+		loadedScene = null;
+		currentGame = Game.None;
+		activeScene = ActiveScene.Main;
+		DecoupledMode = decoupledButton.ButtonPressed;
+	}
+
+	public void OpenLoadFileDialog()
+	{
+		SaveManager.Instance.OpenLoadFileDialog();
+	}
+
+	public void LoadScene(Game game)
+	{
+		if (currentGame != Game.None)
+		{
+			SelectorScene();
+		}
+		currentGame = game;
+		PackedScene scene = game switch
 		{
 			Game.Seasons => seasonsScene,
 			Game.Ages => agesScene,
@@ -89,17 +193,7 @@ public partial class GameSelector : Control
 
 		activeScene = ActiveScene.GameMap;
 	}
-
-	public void SelectorScene()
-	{
-		UI.Visible = true;
-		RemoveChild(loadedScene);
-		loadedScene.QueueFree();
-		loadedScene = null;
-		currentGame = Game.None;
-		activeScene = ActiveScene.Main;
-	}
-
+	
 	private void _QuitPressed()
 	{
 		SettingsManager.Instance.SaveSettings();
@@ -108,13 +202,14 @@ public partial class GameSelector : Control
 
 	public override void _Input(InputEvent ev)
 	{
-		if (ev is not InputEventKey key || !key.IsPressed() || key.Keycode != Key.Escape)
+		if (ev is not InputEventKey key || !key.IsPressed())
 		{
 			return;
 		}
-		if (GetTree().CurrentScene.Name != "Main")
+		
+		if (key.Keycode == Key.O && Input.IsKeyPressed(Key.Ctrl))
 		{
-			SelectorScene();
+			OpenLoadFileDialog();
 		}
 	}
 	
@@ -122,6 +217,12 @@ public partial class GameSelector : Control
 	{
 		if (what == NotificationWMCloseRequest)
 		{
+			if (SaveManager.Instance.IsDirty)
+			{
+				AskToSaveBeforeQuitApp();
+				return;
+			}
+			
 			SettingsManager.Instance.SaveSettings();
 			GetTree().Quit();
 		}

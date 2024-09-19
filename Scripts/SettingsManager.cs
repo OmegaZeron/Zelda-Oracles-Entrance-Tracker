@@ -12,12 +12,14 @@ public partial class SettingsManager : CanvasLayer
 	[Export] private SpinBox pulseCountPicker;
 	
 	[Export] private Button goBackButton;
+	[Export] private Button saveButton;
+	[Export] private Button saveAsButton;
 	[Export] private Button resetButton;
 	
 	// constants
 	private const string SETTINGS_PATH = "res://settings.json";
-	private const string APP_VERSION = "v0.1.1";
-	
+	public const string APP_VERSION = "v0.1.1";
+
 	// settings
 	[Export] public int pulseCount { get; private set; } = 4;
 	[Export] public float pulseDuration { get; private set; } = 1;
@@ -45,6 +47,8 @@ public partial class SettingsManager : CanvasLayer
 		autoSaveButton.ButtonPressed = autoSave;
 		pulseDurationPicker.Value = pulseDuration;
 		pulseCountPicker.Value = pulseCount;
+		saveButton.Visible = GameSelector.Instance.currentGame != GameSelector.Game.None;
+		saveAsButton.Visible = GameSelector.Instance.currentGame != GameSelector.Game.None;
 		resetButton.Visible = GameSelector.Instance.currentGame != GameSelector.Game.None;
 		Visible = true;
 	}
@@ -106,6 +110,10 @@ public partial class SettingsManager : CanvasLayer
 	private void OnAutoSaveToggled(bool on)
 	{
 		autoSave = on;
+		if (on && GameSelector.Instance.activeScene == GameSelector.ActiveScene.GameMap)
+		{
+			SaveManager.Instance.SaveLayout();
+		}
 	}
 
 	private void OnPulseDurationChanged(float amount)
@@ -117,10 +125,26 @@ public partial class SettingsManager : CanvasLayer
 		pulseCount = (int)amount;
 	}
 
+	private void OnSavePressed()
+	{
+		SaveManager.Instance.SaveLayout();
+	}
+
+	private void OnSaveAsPressed()
+	{
+		SaveManager.Instance.OpenSaveFileDialog();
+	}
+
+	private void OnLoadPressed()
+	{
+		SaveManager.Instance.OpenLoadFileDialog();
+	}
+
 	private void OnResetPressed()
 	{
 		ResetEntrances?.Invoke();
 		UIController.Instance.ClearSelectedEntranceIfEqual(null, true);
+		SaveManager.Instance.AttemptAutoSave();
 		HideSettingsMenu();
 	}
 	
