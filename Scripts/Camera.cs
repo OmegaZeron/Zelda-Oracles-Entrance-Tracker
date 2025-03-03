@@ -20,9 +20,8 @@ public partial class Camera : Camera2D
 	private float zoomIncrement = .1f;
 
 	// camera bounds
-	[Export] private Vector2I holodrumLimit;
-	[Export] private Vector2I subrosiaLimit;
-	[Export] private Vector2I labrynnaLimit;
+	[Export] private Vector2I overworldLimit;
+	[Export] private Vector2I altMapLimit;
 
 	public override void _Ready()
 	{
@@ -140,15 +139,7 @@ public partial class Camera : Camera2D
 	
 	public void ChangeBounds(bool altMap)
 	{
-		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
-		{
-			LimitRight = altMap ? subrosiaLimit.X : holodrumLimit.X;
-			LimitBottom = altMap ? subrosiaLimit.Y : holodrumLimit.Y;
-		}
-		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
-		{
-			LimitRight = labrynnaLimit.X;
-			LimitBottom = labrynnaLimit.Y;
-		}
+		LimitRight = altMap ? altMapLimit.X : overworldLimit.X;
+		LimitBottom = altMap ? altMapLimit.Y : overworldLimit.Y;
 	}
 }

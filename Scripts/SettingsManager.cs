@@ -18,7 +18,7 @@ public partial class SettingsManager : CanvasLayer
 	
 	// constants
 	private const string SETTINGS_PATH = "res://settings.json";
-	public const string APP_VERSION = "v0.1.1";
+	public const string APP_VERSION = "v0.1.2";
 
 	// settings
 	[Export] public int pulseCount { get; private set; } = 4;
@@ -110,9 +110,9 @@ public partial class SettingsManager : CanvasLayer
 	private void OnAutoSaveToggled(bool on)
 	{
 		autoSave = on;
-		if (on && GameSelector.Instance.activeScene == GameSelector.ActiveScene.GameMap)
+		if (on)
 		{
-			SaveManager.Instance.SaveLayout();
+			SaveManager.Instance.AttemptAutoSave();
 		}
 	}
 

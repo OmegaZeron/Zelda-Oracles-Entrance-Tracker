@@ -12,7 +12,7 @@ public partial class SaveManager : Node
 	private const string SEASONS_DECOUPLED_PATH = "res://seasons_d.bin";
 	private const string AGES_DECOUPLED_PATH = "res://ages_d.bin";
 	
-	private const string SEASONS_VERSION = "v0.1.4";
+	private const string SEASONS_VERSION = "v0.1.5";
 	private const string AGES_VERSION = "v0.0.0";
 
 	private string saveFilePath;

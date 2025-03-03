@@ -1,0 +1,251 @@
+[gd_scene load_steps=13 format=3 uid="uid://crk4nvgaogr2v"]
+
+[ext_resource type="Script" path="res://Scripts/Camera.cs" id="1_qnddn"]
+[ext_resource type="Texture2D" uid="uid://crd3yo4f31j4g" path="res://Sprites/Ages/Overworlds/LabrynnaRicky.png" id="2_eqlh7"]
+[ext_resource type="Texture2D" uid="uid://dr4enih12bx61" path="res://Sprites/Ages/Overworlds/UnderwaterPresentMask.png" id="2_lxkv4"]
+[ext_resource type="Texture2D" uid="uid://c7kkv6vue5ppn" path="res://Sprites/Ages/Overworlds/UnderwaterPresent.png" id="3_u8he3"]
+[ext_resource type="PackedScene" uid="uid://i7xmwhg1b7is" path="res://Prefabs/Entrance.tscn" id="3_vwdma"]
+[ext_resource type="Texture2D" uid="uid://w3sfm7uuv4vw" path="res://Sprites/Ages/Overworlds/LabrynnaPast.png" id="5_i4420"]
+[ext_resource type="Texture2D" uid="uid://doffnic31svxj" path="res://Sprites/Ages/Overworlds/UnderwaterPastMask.png" id="6_3w8xf"]
+[ext_resource type="Texture2D" uid="uid://bl0hmh8ojafa0" path="res://Sprites/Ages/Overworlds/UnderwaterPast.png" id="6_j4ga0"]
+[ext_resource type="Texture2D" uid="uid://dwdjx5nae5e3c" path="res://Sprites/Ages/Overworlds/LabrynnaMoosh.png" id="8_s615w"]
+[ext_resource type="Texture2D" uid="uid://bwrmu7dmr1gvi" path="res://Sprites/Ages/Overworlds/LabrynnaDimitri.png" id="9_8sk8t"]
+[ext_resource type="Script" path="res://Scripts/UIController.cs" id="151_f3vvr"]
+[ext_resource type="Texture2D" uid="uid://cnxp5yv6fefgo" path="res://Sprites/Blank.png" id="166_uopki"]
+
+[node name="Ages" type="Node2D"]
+top_level = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1523, 620)
+limit_left = 0
+limit_top = 0
+limit_right = 2240
+limit_bottom = 1824
+limit_smoothed = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("1_qnddn")
+minZoom = 0.8
+overworldLimit = Vector2i(2240, 1824)
+altMapLimit = Vector2i(2240, 1824)
+
+[node name="Outer" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Present" type="Node2D" parent="Outer"]
+
+[node name="Mask" type="Sprite2D" parent="Outer/Present"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(1120, 896)
+texture = ExtResource("2_lxkv4")
+
+[node name="Map" type="Sprite2D" parent="Outer/Present/Mask"]
+show_behind_parent = true
+texture = ExtResource("2_eqlh7")
+
+[node name="Lynna City" type="Node2D" parent="Outer/Present/Mask/Map"]
+
+[node name="LynnaShop" parent="Outer/Present/Mask/Map/Lynna City" groups=["AgesEntrance"] instance=ExtResource("3_vwdma")]
+offset_left = 268.0
+offset_top = -100.0
+offset_right = 292.0
+offset_bottom = -76.0
+entranceName = "Lynna Shop"
+
+[node name="HiddenShop" parent="Outer/Present/Mask/Map/Lynna City" groups=["AgesEntrance"] instance=ExtResource("3_vwdma")]
+offset_left = 236.0
+offset_top = -100.0
+offset_right = 260.0
+offset_bottom = -76.0
+entranceName = "Hidden Shop"
+
+[node name="Vasu" parent="Outer/Present/Mask/Map/Lynna City" groups=["AgesEntrance"] instance=ExtResource("3_vwdma")]
+offset_left = 236.0
+offset_top = -196.0
+offset_right = 260.0
+offset_bottom = -172.0
+entranceName = "Vasu"
+
+[node name="Nuun" type="Node2D" parent="Outer/Present/Mask/Map"]
+
+[node name="CompanionArea" type="Node2D" parent="Outer/Present/Mask/Map/Nuun"]
+
+[node name="Underwater" type="Sprite2D" parent="Outer/Present"]
+visible = false
+position = Vector2(1120, 1472)
+texture = ExtResource("3_u8he3")
+
+[node name="Past" type="Node2D" parent="Outer"]
+
+[node name="Mask" type="Sprite2D" parent="Outer/Past"]
+visible = false
+position = Vector2(1120, 896)
+texture = ExtResource("6_3w8xf")
+
+[node name="Map" type="Sprite2D" parent="Outer/Past/Mask"]
+texture = ExtResource("5_i4420")
+
+[node name="Underwater" type="Sprite2D" parent="Outer/Past"]
+visible = false
+position = Vector2(1120, 1152)
+texture = ExtResource("6_j4ga0")
+
+[node name="Inner" type="Node2D" parent="."]
+position = Vector2(0, 32)
+
+[node name="Present" type="Node2D" parent="Inner"]
+visible = false
+
+[node name="Underwater" type="Node2D" parent="Inner/Present"]
+visible = false
+
+[node name="Nuun" type="Node2D" parent="Inner/Present"]
+
+[node name="CompanionArea" type="Node2D" parent="Inner/Present/Nuun"]
+
+[node name="Past" type="Node2D" parent="Inner"]
+visible = false
+
+[node name="Underwater" type="Node2D" parent="Inner/Past"]
+visible = false
+
+[node name="UIController" type="CanvasLayer" parent="." node_paths=PackedStringArray("overworldParent", "overworldInnerParent", "altMapParent", "altMapInnerParent", "underwaterPresentParent", "underwaterPastParent", "presentMask", "pastMask", "companionAreaParent", "companionAreaInnerParent", "rickyButton", "mooshButton", "dimitriButton", "nameLabel", "selectionLabel")]
+script = ExtResource("151_f3vvr")
+overworldParent = NodePath("../Outer/Present/Mask/Map")
+overworldInnerParent = NodePath("../Inner/Present")
+altMapParent = NodePath("../Outer/Past/Mask/Map")
+altMapInnerParent = NodePath("../Inner/Past")
+underwaterPresentParent = NodePath("../Outer/Present/Underwater")
+underwaterPastParent = NodePath("../Outer/Past/Underwater")
+presentMask = NodePath("../Outer/Present/Mask")
+pastMask = NodePath("../Outer/Past/Mask")
+companionAreaRickyTex = ExtResource("2_eqlh7")
+companionAreaMooshTex = ExtResource("8_s615w")
+companionAreaDimitriTex = ExtResource("9_8sk8t")
+companionAreaParent = NodePath("../Outer/Present/Mask/Map/Nuun/CompanionArea")
+companionAreaInnerParent = NodePath("../Inner/Present/Nuun/CompanionArea")
+rickyButton = NodePath("Ricky")
+mooshButton = NodePath("Moosh")
+dimitriButton = NodePath("Dimitri")
+nameLabel = NodePath("EntranceName")
+selectionLabel = NodePath("SelectedName")
+companionAreaDataList = Array[Resource]([])
+
+[node name="Blank" type="Sprite2D" parent="UIController"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1119.86, 16)
+scale = Vector2(2240.28, 32)
+texture = ExtResource("166_uopki")
+
+[node name="Present" type="Button" parent="UIController"]
+offset_right = 68.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Present"
+
+[node name="Past" type="Button" parent="UIController"]
+offset_left = 71.0
+offset_right = 118.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Past"
+
+[node name="Land" type="Button" parent="UIController"]
+offset_left = 121.0
+offset_right = 168.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Land"
+
+[node name="Underwater" type="Button" parent="UIController"]
+offset_left = 171.0
+offset_right = 218.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Underwater"
+
+[node name="Outer" type="Button" parent="UIController"]
+offset_left = 275.0
+offset_right = 330.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Outer"
+
+[node name="Inner" type="Button" parent="UIController"]
+offset_left = 333.0
+offset_right = 385.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+toggle_mode = true
+text = "Inner"
+
+[node name="Ricky" type="Button" parent="UIController"]
+offset_left = 388.0
+offset_right = 437.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Ricky"
+
+[node name="Moosh" type="Button" parent="UIController"]
+offset_left = 439.0
+offset_right = 500.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Moosh"
+
+[node name="Dimitri" type="Button" parent="UIController"]
+offset_left = 502.0
+offset_right = 564.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Dimitri"
+
+[node name="Settings" type="Button" parent="UIController"]
+offset_left = 599.0
+offset_right = 669.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Settings"
+
+[node name="Go Back" type="Button" parent="UIController"]
+offset_left = 673.0
+offset_right = 744.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 16
+text = "Go Back"
+
+[node name="EntranceName" type="RichTextLabel" parent="UIController"]
+offset_left = 93.0
+offset_top = 34.0
+offset_right = 233.0
+offset_bottom = 57.0
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[node name="SelectedName" type="RichTextLabel" parent="UIController"]
+offset_left = 757.0
+offset_top = 4.0
+offset_right = 897.0
+offset_bottom = 28.0
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="UIController/Present" to="UIController" method="OnOverworldPressed"]
+[connection signal="pressed" from="UIController/Past" to="UIController" method="OnAltMapPressedPressed"]
+[connection signal="pressed" from="UIController/Land" to="UIController" method="OnLandPressed"]
+[connection signal="pressed" from="UIController/Underwater" to="UIController" method="OnUnderwaterPressed"]
+[connection signal="pressed" from="UIController/Outer" to="UIController" method="_OnOuterPressed"]
+[connection signal="pressed" from="UIController/Inner" to="UIController" method="_OnInnerPressed"]
+[connection signal="pressed" from="UIController/Ricky" to="UIController" method="_OnCompanionPressed" binds= [&"Ricky"]]
+[connection signal="pressed" from="UIController/Moosh" to="UIController" method="_OnCompanionPressed" binds= [&"Moosh"]]
+[connection signal="pressed" from="UIController/Dimitri" to="UIController" method="_OnCompanionPressed" binds= [&"Dimitri"]]
+[connection signal="pressed" from="UIController/Settings" to="UIController" method="_OnSettingsPressed"]
+[connection signal="pressed" from="UIController/Go Back" to="UIController" method="_OnGoBackPressed"]

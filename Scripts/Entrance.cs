@@ -14,35 +14,78 @@ public partial class Entrance : TextureButton
 		public EntranceType decoupledType;
 		public bool isTrash;
 		public bool isDecoupledTrash;
+		public bool isUnderwater;
 
+		private EntranceInfo() {}
+		public EntranceInfo(Entrance entrance)
+		{
+			name = entrance.entranceName;
+			entranceType = entrance.entranceType;
+			isTrash = entrance.isTrash;
+			isUnderwater = entrance.isUnderwater;
+			isDecoupledTrash = entrance.isDecoupledTrash;
+			
+			if (entrance.linkedEntrance != null)
+			{
+				linkedName = entrance.linkedEntrance.entranceName;
+				linkedEntranceType = entrance.linkedEntrance.entranceType;
+			}
+
+			if (entrance.decoupledEntrance != null)
+			{
+				decoupledName = entrance.decoupledEntrance.entranceName;
+				decoupledType = entrance.decoupledEntrance.entranceType;
+			}
+		}
 		public Dictionary<string, string> ToDict()
 		{
-			return new Dictionary<string, string>
+			Dictionary<string, string> data = new()
 			{
-				{"name", name},
-				{"entranceType", entranceType.ToString()},
-				{"linkedName", linkedName},
-				{"linkedEntranceType", linkedEntranceType.ToString()},
-				{"decoupledName", decoupledName},
-				{"decoupledType", decoupledType.ToString()},
-				{"isTrash", isTrash.ToString()},
-				{"isDecoupledTrash", isDecoupledTrash.ToString()}
+				{ "name", name },
+				{ "entranceType", entranceType.ToString() },
+				{ "linkedName", linkedName },
+				{ "linkedEntranceType", linkedEntranceType.ToString() },
+				{ "isTrash", isTrash.ToString() }
 			};
+			if (GameSelector.Instance.DecoupledMode)
+			{
+				data.Add("decoupledName", decoupledName);
+				data.Add("decoupledType", decoupledType.ToString());
+				data.Add("isDecoupledTrash", isDecoupledTrash.ToString());
+			}
+			if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
+			{
+				data.Add("isUnderwater", isUnderwater.ToString());
+			}
+			
+			return data;
 		}
 
 		public static EntranceInfo FromDict(Dictionary<string, string> dict)
 		{
-			return new EntranceInfo
+			EntranceInfo info = new()
 			{
 				name = dict["name"],
 				entranceType = Enum.Parse<EntranceType>(dict["entranceType"]),
-				linkedName = dict["linkedName"],
-				linkedEntranceType = Enum.Parse<EntranceType>(dict["linkedEntranceType"]),
-				decoupledName = dict["decoupledName"],
-				decoupledType = Enum.Parse<EntranceType>(dict["decoupledType"]),
-				isTrash = bool.Parse(dict["isTrash"]),
-				isDecoupledTrash = bool.Parse(dict["isDecoupledTrash"])
+				isTrash = bool.Parse(dict["isTrash"])
 			};
+			if (dict.TryGetValue("linkedName", out string linkedName) && dict.TryGetValue("linkedEntranceType", out string linkedType))
+			{
+				info.linkedName = linkedName;
+				info.linkedEntranceType = Enum.Parse<EntranceType>(linkedType);
+			}
+			if (dict.TryGetValue("decoupledName", out string decoupledName) && dict.TryGetValue("decoupledType", out string decoupledType) && dict.TryGetValue("isDecoupledTrash", out string isDecoupledTrash))
+			{
+				info.linkedName = decoupledName;
+				info.linkedEntranceType = Enum.Parse<EntranceType>(decoupledType);
+				info.isDecoupledTrash = bool.Parse(isDecoupledTrash);
+			}
+			if (dict.TryGetValue("isUnderwater", out string isUnderwater))
+			{
+				info.isUnderwater = bool.Parse(isUnderwater);
+			}
+
+			return info;
 		}
 	}
 	public enum EntranceType
@@ -53,6 +96,7 @@ public partial class Entrance : TextureButton
 	[Export] public string entranceName { get; private set; }
 	[Export] public EntranceType entranceType { get; private set; }
 	[Export] public bool altMap { get; private set; }
+	[Export] public bool isUnderwater { get; private set; } // ages only
 	[Export] private bool oneWay;
 	public Entrance linkedEntrance { get; private set; }
 	public Entrance decoupledEntrance { get; private set; }
@@ -80,24 +124,7 @@ public partial class Entrance : TextureButton
 
 	public EntranceInfo GetEntranceInfo()
 	{
-		EntranceInfo info = new()
-		{
-			name = entranceName,
-			entranceType = entranceType,
-			linkedName = linkedEntrance?.entranceName,
-			decoupledName = decoupledEntrance?.entranceName,
-			isTrash = isTrash,
-			isDecoupledTrash = isDecoupledTrash
-		};
-		if (linkedEntrance != null)
-		{
-			info.linkedEntranceType = linkedEntrance.entranceType;
-		}
-		if (decoupledEntrance != null)
-		{
-			info.decoupledType = decoupledEntrance.entranceType;
-		}
-		return info;
+		return new EntranceInfo(this);
 	}
 	
 	// for displaying entrance name in UI
@@ -114,7 +141,7 @@ public partial class Entrance : TextureButton
 
 	private void MoveToAndPulse(Entrance entrance)
 	{
-		UIController.Instance.ChangeMap(!entrance.altMap, entrance.entranceType == EntranceType.Outer);
+		UIController.Instance.ChangeMap(entrance);
 		Camera.Instance.MoveToLocation(entrance.GlobalPosition);
 		entrance.Pulse();
 	}

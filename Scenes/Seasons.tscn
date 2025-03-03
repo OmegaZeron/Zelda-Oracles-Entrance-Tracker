@@ -69,7 +69,6 @@
 [ext_resource type="Texture2D" uid="uid://cafst6kenv4bh" path="res://Sprites/Seasons/Inners/Sunken City/DiversWife.png" id="48_q7nnn"]
 [ext_resource type="Texture2D" uid="uid://dhdl15068jvvy" path="res://Sprites/Seasons/Inners/Sunken City/SyrupShop.png" id="49_ht1cl"]
 [ext_resource type="Texture2D" uid="uid://ygk4d8wha6av" path="res://Sprites/Seasons/Inners/Sunken City/MasterDiver.png" id="50_1v3td"]
-[ext_resource type="Texture2D" uid="uid://b0d5hiqgtha38" path="res://Sprites/Seasons/Inners/Shared/DekuScrubSideStairs.png" id="50_85sp6"]
 [ext_resource type="Texture2D" uid="uid://disy4b0nk3m6e" path="res://Sprites/Seasons/Inners/Sunken City/MasterDiversChallenge.png" id="51_ppm26"]
 [ext_resource type="Texture2D" uid="uid://biokjk3lrrjv5" path="res://Sprites/Seasons/Inners/Spool Swamp/WinterBombWall.png" id="55_4d3wr"]
 [ext_resource type="Texture2D" uid="uid://xbjf2ecno6ff" path="res://Sprites/Seasons/Inners/Natzu/MovingPlatform.png" id="57_cdplm"]
@@ -98,6 +97,7 @@
 [ext_resource type="Texture2D" uid="uid://byi1wkwlpkeiq" path="res://Sprites/Seasons/Inners/Eastern Suburbs/Windmill2F.png" id="80_bi7l5"]
 [ext_resource type="Texture2D" uid="uid://d3dl1tmwyldny" path="res://Sprites/Seasons/Inners/Goron Mountain/SplitCaveR.png" id="80_dvn5m"]
 [ext_resource type="Texture2D" uid="uid://d4wvbr0ppekh" path="res://Sprites/Seasons/Inners/Western Coast/HiddenGraveStairs.png" id="80_pqhje"]
+[ext_resource type="Texture2D" uid="uid://dqr67s8im6vcb" path="res://Sprites/Seasons/Inners/Tarm Ruins/PhonographScrub.png" id="81_lm1rq"]
 [ext_resource type="Texture2D" uid="uid://d2oeh4knrchoy" path="res://Sprites/Seasons/Inners/Goron Mountain/GoronMain.png" id="81_qyoym"]
 [ext_resource type="Texture2D" uid="uid://cj7rfuvayh813" path="res://Sprites/Seasons/Inners/Tarm Ruins/TarmDekuScrub.png" id="82_6teg2"]
 [ext_resource type="Texture2D" uid="uid://bcto8ogpst0to" path="res://Sprites/Seasons/Inners/Western Coast/PirateShip.png" id="83_r5ke7"]
@@ -181,8 +181,8 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("7_6am78")
 minZoom = 0.8
-holodrumLimit = Vector2i(2560, 2080)
-subrosiaLimit = Vector2i(1760, 1056)
+overworldLimit = Vector2i(2560, 2080)
+altMapLimit = Vector2i(1760, 1056)
 
 [node name="Outer" type="Node2D" parent="."]
 position = Vector2(0, 32)
@@ -2656,14 +2656,14 @@ entranceName = "Upper Tarm Mushroom Stairs"
 entranceType = 1
 
 [node name="PhonographScrub" type="Sprite2D" parent="Inner/Holodrum/Tarm Ruins"]
-position = Vector2(328, 695)
-texture = ExtResource("50_85sp6")
+position = Vector2(312, 711)
+texture = ExtResource("81_lm1rq")
 
 [node name="Entrance" parent="Inner/Holodrum/Tarm Ruins/PhonographScrub" groups=["SeasonsEntrance"] instance=ExtResource("2_38rqo")]
-offset_left = 20.0
-offset_top = 52.0
-offset_right = 44.0
-offset_bottom = 76.0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 60.0
+offset_bottom = 60.0
 entranceName = "Phonograph Scrub"
 entranceType = 1
 
@@ -3948,8 +3948,8 @@ bbcode_enabled = true
 fit_content = true
 autowrap_mode = 0
 
-[connection signal="pressed" from="UIController/Holodrum" to="UIController" method="_OnHolodrumPressed"]
-[connection signal="pressed" from="UIController/Subrosia" to="UIController" method="_OnSubrosiaPressed"]
+[connection signal="pressed" from="UIController/Holodrum" to="UIController" method="OnOverworldPressed"]
+[connection signal="pressed" from="UIController/Subrosia" to="UIController" method="OnAltMapPressedPressed"]
 [connection signal="pressed" from="UIController/Outer" to="UIController" method="_OnOuterPressed"]
 [connection signal="pressed" from="UIController/Inner" to="UIController" method="_OnInnerPressed"]
 [connection signal="pressed" from="UIController/Ricky" to="UIController" method="_OnCompanionPressed" binds= [&"Ricky"]]

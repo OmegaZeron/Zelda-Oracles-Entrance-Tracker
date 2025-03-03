@@ -16,9 +16,13 @@ public partial class UIController : CanvasLayer
 	public enum AgesMapState
 	{
 		Present,
+		PresentUnderwater,
 		PresentInner,
+		PresentInnerUnderwater,
 		Past,
-		PastInner
+		PastUnderwater,
+		PastInner,
+		PastInnerUnderwater
 	}
 	public enum CompanionState
 	{
@@ -38,8 +42,12 @@ public partial class UIController : CanvasLayer
 	[Export] private Node2D overworldInnerParent;
 	[Export] private Node2D altMapParent;
 	[Export] private Node2D altMapInnerParent;
-
-	// seasons
+	// ages specific areas
+	[Export] private Node2D underwaterPresentParent;
+	[Export] private Node2D underwaterPastParent;
+	[Export] private Sprite2D presentMask;
+	[Export] private Sprite2D pastMask;
+	
 	[Export] private Texture2D companionAreaRickyTex;
 	[Export] private Texture2D companionAreaMooshTex;
 	[Export] private Texture2D companionAreaDimitriTex;
@@ -192,40 +200,166 @@ public partial class UIController : CanvasLayer
 		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
 		{
 			overworldParent.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
-			overworldParent.Modulate = new Color(overworldParent.Modulate, seasonsMapState == SeasonsMapState.Holodrum ? 1 : .5f);
+			overworldParent.SelfModulate = new Color(overworldParent.SelfModulate, seasonsMapState == SeasonsMapState.Holodrum ? 1 : .5f);
 			overworldInnerParent.Visible = seasonsMapState == SeasonsMapState.HolodrumInner;
+			
 			altMapParent.Visible = seasonsMapState is SeasonsMapState.Subrosia or SeasonsMapState.SubrosiaInner;
-			altMapParent.Modulate = new Color(altMapParent.Modulate, seasonsMapState == SeasonsMapState.Subrosia ? 1 : .5f);
+			altMapParent.SelfModulate = new Color(altMapParent.SelfModulate, seasonsMapState == SeasonsMapState.Subrosia ? 1 : .5f);
 			altMapInnerParent.Visible = seasonsMapState == SeasonsMapState.SubrosiaInner;
+			
 			rickyButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
 			mooshButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
 			dimitriButton.Visible = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.HolodrumInner;
+			
 			Camera.Instance.ChangeBounds(seasonsMapState is SeasonsMapState.Subrosia or SeasonsMapState.SubrosiaInner);
 		}
 		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
+			bool presentVisible = agesMapState is AgesMapState.Present or AgesMapState.PresentInner or AgesMapState.PresentUnderwater or AgesMapState.PresentInnerUnderwater; 
+			presentMask.Visible = presentVisible;
+			presentMask.ClipChildren = agesMapState is AgesMapState.Present or AgesMapState.PresentInner ? CanvasItem.ClipChildrenMode.Disabled : CanvasItem.ClipChildrenMode.Only;
+			presentMask.SelfModulate = new Color(overworldParent.SelfModulate, presentMask.ClipChildren == CanvasItem.ClipChildrenMode.Disabled ? 0 : agesMapState is AgesMapState.Present or AgesMapState.PresentUnderwater ? 1 : .5f);
 			
+			overworldParent.Visible = presentVisible;
+			overworldParent.SelfModulate = new Color(overworldParent.SelfModulate, presentMask.ClipChildren == CanvasItem.ClipChildrenMode.Only ? 1 : agesMapState is AgesMapState.Present or AgesMapState.PresentUnderwater ? 1 : .5f);
+			overworldInnerParent.Visible = agesMapState is AgesMapState.PresentInner or AgesMapState.PresentInnerUnderwater;
+			
+			underwaterPresentParent.Visible = agesMapState is AgesMapState.PresentUnderwater or AgesMapState.PresentInnerUnderwater;
+			underwaterPresentParent.SelfModulate = new Color(overworldParent.SelfModulate, agesMapState is AgesMapState.Present or AgesMapState.PresentUnderwater ? 1 : .5f);
+			
+			bool pastVisible = agesMapState is AgesMapState.Past or AgesMapState.PastInner or AgesMapState.PastUnderwater or AgesMapState.PastInnerUnderwater;
+			pastMask.Visible = pastVisible;
+			pastMask.ClipChildren = agesMapState is AgesMapState.Past or AgesMapState.PastInner ? CanvasItem.ClipChildrenMode.Disabled : CanvasItem.ClipChildrenMode.Only;
+			pastMask.SelfModulate = new Color(altMapParent.SelfModulate, pastMask.ClipChildren == CanvasItem.ClipChildrenMode.Disabled ? 0 : agesMapState is AgesMapState.Past or AgesMapState.PastUnderwater ? 1 : .5f);
+
+			altMapParent.Visible = pastVisible;
+			altMapParent.SelfModulate = new Color(altMapParent.SelfModulate, pastMask.ClipChildren == CanvasItem.ClipChildrenMode.Only ? 1 : agesMapState is AgesMapState.Past or AgesMapState.PastUnderwater ? 1 : .5f);
+			altMapInnerParent.Visible = agesMapState is AgesMapState.PastInner or AgesMapState.PastInnerUnderwater;
+			
+			underwaterPastParent.Visible = agesMapState is AgesMapState.PastUnderwater or AgesMapState.PastInnerUnderwater;
+			underwaterPastParent.SelfModulate = new Color(altMapParent.SelfModulate, agesMapState is AgesMapState.Past or AgesMapState.PastUnderwater ? 1 : .5f);
+			
+			rickyButton.Visible = presentVisible;
+			mooshButton.Visible = presentVisible;
+			dimitriButton.Visible = presentVisible;
 		}
 	}
-	private void _OnHolodrumPressed()
+	private void OnOverworldPressed()
 	{
-		seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Holodrum : SeasonsMapState.HolodrumInner;
+		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+		{
+			seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Holodrum : SeasonsMapState.HolodrumInner;
+		}
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
+		{
+			if (agesMapState is AgesMapState.Present or AgesMapState.PresentInner or AgesMapState.PresentUnderwater or AgesMapState.PresentInnerUnderwater)
+			{
+				return;
+			}
+
+			if (agesMapState == AgesMapState.Past)
+			{
+				agesMapState = AgesMapState.Present;
+			}
+			else if (agesMapState == AgesMapState.PastInner)
+			{
+				agesMapState = AgesMapState.PresentInner;
+			}
+			else if (agesMapState == AgesMapState.PastUnderwater)
+			{
+				agesMapState = AgesMapState.PresentUnderwater;
+			}
+			else if (agesMapState == AgesMapState.PastInnerUnderwater)
+			{
+				agesMapState = AgesMapState.PresentInnerUnderwater;
+			}
+		}
 		UpdateMapState();
 		Camera.Instance.Resize();
 	}
-	private void _OnSubrosiaPressed()
+	private void OnAltMapPressedPressed()
 	{
-		seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
+		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
+		{
+			seasonsMapState = seasonsMapState is SeasonsMapState.Holodrum or SeasonsMapState.Subrosia ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
+		}
+		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
+		{
+			if (agesMapState is AgesMapState.Past or AgesMapState.PastInner or AgesMapState.PastUnderwater or AgesMapState.PastInnerUnderwater)
+			{
+				return;
+			}
+
+			if (agesMapState == AgesMapState.Present)
+			{
+				agesMapState = AgesMapState.Past;
+			}
+			else if (agesMapState == AgesMapState.PresentInner)
+			{
+				agesMapState = AgesMapState.PastInner;
+			}
+			else if (agesMapState == AgesMapState.PresentUnderwater)
+			{
+				agesMapState = AgesMapState.PastUnderwater;
+			}
+			else if (agesMapState == AgesMapState.PresentInnerUnderwater)
+			{
+				agesMapState = AgesMapState.PastInnerUnderwater;
+			}
+		}
 		UpdateMapState();
 		Camera.Instance.Resize();
 	}
-	private void _OnPresentPressed()
+
+	private void OnLandPressed()
 	{
-		agesMapState = agesMapState is AgesMapState.Past or AgesMapState.Present ? AgesMapState.Present : AgesMapState.PresentInner;
+		if (agesMapState is AgesMapState.Present or AgesMapState.Past or AgesMapState.PresentInner or AgesMapState.PastInner)
+		{
+			return;
+		}
+
+		if (agesMapState == AgesMapState.PresentUnderwater)
+		{
+			agesMapState = AgesMapState.Present;
+		}
+		else if (agesMapState == AgesMapState.PastUnderwater)
+		{
+			agesMapState = AgesMapState.Past;
+		}
+		else if (agesMapState == AgesMapState.PresentInnerUnderwater)
+		{
+			agesMapState = AgesMapState.PresentInner;
+		}
+		else if (agesMapState == AgesMapState.PastInnerUnderwater)
+		{
+			agesMapState = AgesMapState.PastInner;
+		}
+        UpdateMapState();
 	}
-	private void _OnPastPressed()
+	private void OnUnderwaterPressed()
 	{
-		agesMapState = agesMapState is AgesMapState.Past or AgesMapState.Present ? AgesMapState.Past : AgesMapState.PastInner;
+		if (agesMapState is AgesMapState.PresentUnderwater or AgesMapState.PastUnderwater or AgesMapState.PresentInnerUnderwater or AgesMapState.PastInnerUnderwater)
+		{
+			return;
+		}
+
+		if (agesMapState == AgesMapState.Present)
+		{
+			agesMapState = AgesMapState.PresentUnderwater;
+		}
+		else if (agesMapState == AgesMapState.Past)
+		{
+			agesMapState = AgesMapState.PastUnderwater;
+		}
+		else if (agesMapState == AgesMapState.PresentInner)
+		{
+			agesMapState = AgesMapState.PresentInnerUnderwater;
+		}
+		else if (agesMapState == AgesMapState.PastInner)
+		{
+			agesMapState = AgesMapState.PastInnerUnderwater;
+		}
+        UpdateMapState();
 	}
 	private void _OnOuterPressed()
 	{
@@ -235,7 +369,27 @@ public partial class UIController : CanvasLayer
 		}
 		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
-			agesMapState = agesMapState is AgesMapState.Present or AgesMapState.PresentInner ? AgesMapState.Present : AgesMapState.Past;
+			if (agesMapState is AgesMapState.Present or AgesMapState.Past or AgesMapState.PresentUnderwater or AgesMapState.PastUnderwater)
+			{
+				return;
+			}
+
+			if (agesMapState == AgesMapState.PresentInner)
+			{
+				agesMapState = AgesMapState.Present;
+			}
+			else if (agesMapState == AgesMapState.PastInner)
+			{
+				agesMapState = AgesMapState.Past;
+			}
+			else if (agesMapState == AgesMapState.PresentInnerUnderwater)
+			{
+				agesMapState = AgesMapState.PresentUnderwater;
+			}
+			else if (agesMapState == AgesMapState.PastInnerUnderwater)
+			{
+				agesMapState = AgesMapState.PastUnderwater;
+			}
 		}
 
 		UpdateMapState();
@@ -248,33 +402,67 @@ public partial class UIController : CanvasLayer
 		}
 		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
-			agesMapState = agesMapState is AgesMapState.Present or AgesMapState.PresentInner ? AgesMapState.PresentInner : AgesMapState.PastInner;
+			if (agesMapState is AgesMapState.PresentInner or AgesMapState.PastInner or AgesMapState.PresentInnerUnderwater or AgesMapState.PastInnerUnderwater)
+			{
+				return;
+			}
+
+			if (agesMapState == AgesMapState.Present)
+			{
+				agesMapState = AgesMapState.PresentInner;
+			}
+			else if (agesMapState == AgesMapState.Past)
+			{
+				agesMapState = AgesMapState.PastInner;
+			}
+			else if (agesMapState == AgesMapState.PresentUnderwater)
+			{
+				agesMapState = AgesMapState.PresentInnerUnderwater;
+			}
+			else if (agesMapState == AgesMapState.PastUnderwater)
+			{
+				agesMapState = AgesMapState.PastInnerUnderwater;
+			}
 		}
 		UpdateMapState();
 	}
 
-	public void ChangeMap(bool defaultMap, bool outer)
+	public void ChangeMap(Entrance entrance)
 	{
 		if (GameSelector.Instance.currentGame == GameSelector.Game.Seasons)
 		{
-			if (defaultMap)
+			if (!entrance.altMap)
 			{
-				seasonsMapState = outer ? SeasonsMapState.Holodrum : SeasonsMapState.HolodrumInner;
+				seasonsMapState = entrance.entranceType == Entrance.EntranceType.Outer ? SeasonsMapState.Holodrum : SeasonsMapState.HolodrumInner;
 			}
 			else
 			{
-				seasonsMapState = outer ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
+				seasonsMapState = entrance.entranceType == Entrance.EntranceType.Outer ? SeasonsMapState.Subrosia : SeasonsMapState.SubrosiaInner;
 			}
 		}
 		else if (GameSelector.Instance.currentGame == GameSelector.Game.Ages)
 		{
-			if (defaultMap)
+			if (!entrance.altMap)
 			{
-				agesMapState = outer ? AgesMapState.Present : AgesMapState.PresentInner;
+				if (entrance.isUnderwater)
+				{
+					agesMapState = entrance.entranceType == Entrance.EntranceType.Outer ? AgesMapState.PresentUnderwater : AgesMapState.PresentInnerUnderwater;
+				}
+				else
+				{
+					agesMapState = entrance.entranceType == Entrance.EntranceType.Outer ? AgesMapState.Present : AgesMapState.PresentInner;
+				}
 			}
 			else
 			{
-				agesMapState = outer ? AgesMapState.Past : AgesMapState.PastInner;
+				if (entrance.isUnderwater)
+				{
+					agesMapState = entrance.entranceType == Entrance.EntranceType.Outer ? AgesMapState.PastUnderwater : AgesMapState.PastInnerUnderwater;
+				}
+				else
+				{
+					agesMapState = entrance.entranceType == Entrance.EntranceType.Outer ? AgesMapState.Past : AgesMapState.PastInner;
+				}
 			}
 		}
 		UpdateMapState();
